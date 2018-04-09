@@ -1,0 +1,4 @@
+services:
+#    bde_core.example:
+#        class: BDE\CoreBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

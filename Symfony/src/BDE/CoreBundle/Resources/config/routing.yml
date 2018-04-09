@@ -1,0 +1,4 @@
+bde_core_index:
+    path:     /
+    defaults:
+        _controller: BDECoreBundle:Core:index

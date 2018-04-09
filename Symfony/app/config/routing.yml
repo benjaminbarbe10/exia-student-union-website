@@ -1,0 +1,19 @@
+bde_account:
+    resource: "@BDEAccountBundle/Resources/config/routing.yml"
+    prefix:   /
+
+bde_shop:
+    resource: "@BDEShopBundle/Resources/config/routing.yml"
+    prefix:   /
+
+bde_contact:
+    resource: "@BDEContactBundle/Resources/config/routing.yml"
+    prefix:   /
+
+bde_event:
+    resource: "@BDEEventBundle/Resources/config/routing.yml"
+    prefix:   /
+
+bde_core:
+    resource: "@BDECoreBundle/Resources/config/routing.yml"
+    prefix:   /

@@ -1,0 +1,4 @@
+services:
+#    bde_contact.example:
+#        class: BDE\ContactBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

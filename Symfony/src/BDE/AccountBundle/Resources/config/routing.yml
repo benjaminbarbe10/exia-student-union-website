@@ -1,0 +1,9 @@
+bde_account_register:
+    path:     /register
+    defaults:
+        _controller: BDEAccountBundle:Account:register
+
+bde_account_login:
+    path:     /login
+    defaults:
+        _controller: BDEAccountBundle:Account:login
