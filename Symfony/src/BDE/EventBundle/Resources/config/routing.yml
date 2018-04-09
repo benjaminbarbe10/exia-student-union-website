@@ -1,0 +1,28 @@
+bde_event_viewevent:
+    path:      /event/{id}
+    defaults:
+         _controller: BDEEventBundle:Event:viewEvent
+    requirements:
+        id: \d+
+
+bde_event_index:
+    path:      /events
+    defaults:
+         _controller: BDEEventBundle:Event:events
+
+bde_event_viewsuggestion:
+    path:      /suggestion/{id}
+    defaults:
+         _controller: BDEEventBundle:Event:viewSuggestion
+    requirements:
+        id: \d+
+
+bde_event_suggestion:
+    path:      /suggestion
+    defaults:
+         _controller: BDEEventBundle:Event:suggestion
+
+bde_shop_addEvent:
+    path:      /addevent
+    defaults:
+         _controller: BDEEventBundle:Event:addEvent

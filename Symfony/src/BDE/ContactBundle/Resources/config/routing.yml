@@ -1,0 +1,4 @@
+bde_contact_index:
+    path:     /contact
+    defaults:
+        _controller: BDEContactBundle:Contact:index

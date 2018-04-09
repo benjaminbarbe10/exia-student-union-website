@@ -1,0 +1,17 @@
+bde_shop_view:
+    path:      /shop/article/{id}
+    defaults:
+         _controller: BDEShopBundle:Shop:article
+    requirements:
+        id: \d+
+
+bde_shop_index:
+    path:      /shop
+    defaults:
+         _controller: BDEShopBundle:Shop:index
+
+bde_shop_cart:
+    path:      /shop/cart
+    defaults:
+         _controller: BDEShopBundle:Shop:cart
+
