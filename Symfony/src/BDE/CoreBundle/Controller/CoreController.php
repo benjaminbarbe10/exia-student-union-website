@@ -8,6 +8,6 @@ class CoreController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('BDECoreBundle::events.html.twig');
+        return $this->render('BDECoreBundle::index.html.twig');
     }
 }

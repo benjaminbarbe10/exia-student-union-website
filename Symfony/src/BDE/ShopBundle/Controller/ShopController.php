@@ -11,7 +11,7 @@ class ShopController extends Controller
 
     public function indexAction()
     {
-        return $this->render('BDEShopBundle:Shop:events.html.twig');
+        return $this->render('BDEShopBundle:Shop:index.html.twig');
     }
 
     public function cartAction()

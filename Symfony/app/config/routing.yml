@@ -1,3 +1,7 @@
+bde_admin:
+    resource: "@BDEAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
 bde_account:
     resource: "@BDEAccountBundle/Resources/config/routing.yml"
     prefix:   /
