@@ -1,0 +1,128 @@
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #F2F2F2;
+}
+
+.btn {
+    border: none;
+    background: #5D84BF;
+    color: #f2f2f2;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    position: relative;
+    box-sizing: border-box;
+    transition: all 500ms ease;
+}
+
+.tourniquet {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 70px;
+}
+
+.btn:hover {
+    background: rgba(0,0,0,0);
+    color: #FFFFFF;
+    box-shadow: inset 0 0 0 3px #FFFFFF;
+}
+
+.cercleHome {
+    color: white;
+    padding-top: 50px;
+    width:300px;
+    height:300px;
+    background:#596475;
+    transition:all 0.3s ease;
+    border-radius: 50%;
+    padding: 50px 20px 0px 20px;
+    margin: auto;
+}
+
+.cercleHome:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+footer{
+	background-color:#222222;
+    padding: 60px 0px;
+}
+
+footer ul{
+    list-style:none;
+    margin:0 auto;
+    display:inline-block;
+    padding-top:50px;
+}
+
+footer ul li{
+    float:left;
+}
+
+footer ul li a{
+	color:#b1aca1;
+    padding:20px;
+}
+
+footer ul li a:hover{
+	color:#7dabdb;
+	text-decoration:none;
+}
+
+.footer-top{
+	padding-bottom:50px;
+}
+
+.footer-top .fa{
+    font-size:18px;
+    color: #FFF;
+    padding-right:10px;
+}
+
+.footer-top a{
+    color:#FFF;
+    text-decoration:none;
+}
+
+.footer-top .col-lg-2:hover .fa , .footer-top .col-lg-2:hover a{
+    color:#7dabdb;
+}
+
+.copyright{
+    background-color:#f0f0f0;
+}
+
+.copyright p{
+	font-size:12px;
+	padding:15px 0 10px 0;
+}
+
+
+
+
+@media screen and (max-width: 992px) {
+    .cercleHome{
+        background-color: #FFFFFF;
+        display: block;
+        margin-bottom: 50px;
+        padding: 0px 0px 0px 0px;
+    }
+    .tourniquet {
+        margin-top: 70px;
+        padding-left: 0%;
+        padding-right: 0%;
+    }
+    .container-fluid {
+        padding-left: 0%;
+        padding-right: 5%;
+    }
+    .cercleHome:hover {
+        -webkit-transform: scale(1.0);
+        -ms-transform: scale(1.0);
+        transform: scale(1.0);
+    }
+}
