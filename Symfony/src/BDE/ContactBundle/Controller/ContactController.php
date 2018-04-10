@@ -27,6 +27,9 @@ class ContactController extends Controller
 
             $this->get('mailer')->send($message);
 
+            return $this->render('BDECoreBundle::index.html.twig', array(
+                'form' => $form->createView(),));
+
         }
 
         return $this->render('BDEContactBundle::contact.html.twig', array(
