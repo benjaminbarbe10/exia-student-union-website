@@ -11,4 +11,18 @@
     <h2>
         URL : /CONTACT
     </h2>
+
+
+    <form action="{{ path('bde_contact_index') }}" method="post" {{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    {{ form_row(form.email) }}
+    {{ form_row(form.subject) }}
+    {{ form_row(form.body) }}
+
+    {{ form_rest(form) }}
+
+    <input type="submit" value="Submit"/>
+    </form>
+
 {% endblock %}
