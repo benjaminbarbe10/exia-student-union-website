@@ -1,28 +1,27 @@
 <?php
 /**
  * Created by PhpStorm.
- * Users: CaSSoSSiSSe
- * Date: 10/04/2018
- * Time: 09:59
+ * User: CaSSoSSiSSe
+ * Date: 11/04/2018
+ * Time: 14:40
  */
 
-namespace BDE\ContactBundle\Form;
+namespace BDE\AccountBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class EnquiryType extends AbstractType
+class RegisterType extends AbstractType
 {
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('email');
-        $builder->add('subject');
-        $builder->add('body');
+        $builder->add((string)'email');
+        $builder->add('password');
     }
 
     public function getName()
     {
-        return 'contact';
+        return 'login';
     }
 }

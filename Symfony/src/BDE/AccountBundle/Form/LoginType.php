@@ -6,23 +6,22 @@
  * Time: 09:59
  */
 
-namespace BDE\ContactBundle\Form;
+namespace BDE\AccountBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class EnquiryType extends AbstractType
+class LoginType extends AbstractType
 {
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('email');
-        $builder->add('subject');
-        $builder->add('body');
+        $builder->add('password');
     }
 
     public function getName()
     {
-        return 'contact';
+        return 'login';
     }
 }

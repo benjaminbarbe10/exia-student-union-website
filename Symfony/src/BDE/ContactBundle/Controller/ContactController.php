@@ -3,7 +3,7 @@
 namespace BDE\ContactBundle\Controller;
 
 use BDE\ContactBundle\Entity\Enquiry;
-use BDE\ContactBundle\Form\EnquiryType;
+use BDE\ContactBundle\Form\UsersType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -12,7 +12,7 @@ class ContactController extends Controller
     public function indexAction(Request $request)
     {
         $enquiry = new Enquiry();
-        $form = $this->createForm(EnquiryType::class, $enquiry);
+        $form = $this->createForm(UsersType::class, $enquiry);
 
         $form->handleRequest($request);
 

@@ -4,7 +4,6 @@ namespace BDE\AccountBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use BDE\AdminBundle\Entity\Role;
-
 /**
  * Users
  *
@@ -17,13 +16,13 @@ class Users
      * @ORM\ManyToOne(targetEntity="BDE\AdminBundle\Entity\Role",cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
-    private $role;
+    protected $role;
 
     public function initRole($em) {
 
 
         // Initialise le role par defaut (identifiant 1 en bdd)
-        $role = $em->getRepository(Role::class)->find(5);
+        $role = $em->getRepository(Role::class)->find(1);
         $this->role = $role;
 
         // Retourne l'instance de l'objet (fluent)
@@ -33,22 +32,22 @@ class Users
     /**
      * @ORM\ManyToMany(targetEntity="BDE\EventBundle\Entity\Events", cascade={"persist"})
      */
-    private $events;
+    protected $events;
 
     /**
      * @ORM\ManyToMany(targetEntity="BDE\EventBundle\Entity\Events_picture", cascade={"persist"})
      */
-    private $events_picture;
+    protected $events_picture;
 
     /**
      * @ORM\ManyToMany(targetEntity="BDE\ShopBundle\Entity\Orders_line", cascade={"persist"})
      */
-    private $orders_line;
+    protected $orders_line;
 
     /**
      * @ORM\ManyToMany(targetEntity="BDE\EventBundle\Entity\Events_picture_comment", cascade={"persist"})
      */
-    private $events_picture_comment;
+    protected $events_picture_comment;
 
     /**
      * @var int
@@ -57,35 +56,35 @@ class Users
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="Name", type="string", length=255)
      */
-    private $name;
+    protected $name;
 
     /**
      * @var string
      *
      * @ORM\Column(name="Surname", type="string", length=255)
      */
-    private $surname;
+    protected $surname;
 
     /**
      * @var string
      *
      * @ORM\Column(name="Password", type="string", length=255)
      */
-    private $password;
+    protected $password;
 
     /**
      * @var string
      *
      * @ORM\Column(name="Email", type="string", length=255, unique=true)
      */
-    private $email;
+    protected $email;
 
 
     /**
@@ -212,6 +211,7 @@ class Users
     public function __construct()
     {
         $this->events = new \Doctrine\Common\Collections\ArrayCollection();
+        //parent::__construct();
     }
 
     /**
@@ -349,4 +349,14 @@ class Users
     {
         return $this->events_picture_comment;
     }
+
+    public function formatApiResponse()
+    {
+        return [
+            'id' => $this->getId(),
+            'email' => $this->getEmail(),
+            'password' => $this->getPassword(),
+        ];
+    }
+
 }
