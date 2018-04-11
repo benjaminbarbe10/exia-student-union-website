@@ -68,7 +68,7 @@ class Events
      *
      * @ORM\Column(name="IsApproved", type="boolean")
      */
-    private $isApproved;
+    private $isApproved = 0;
 
     /**
      * @var float
@@ -261,6 +261,7 @@ class Events
     public function __construct()
     {
         $this->Events_picture = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->date           = new \DateTime();
     }
 
     /**
