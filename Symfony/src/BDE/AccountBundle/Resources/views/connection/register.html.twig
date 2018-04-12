@@ -12,6 +12,8 @@
         URL : /REGISTER
     </h2>
 
+    {{ message }}
+
     <form action="{{ path('bde_account_register') }}" method="post" {{ form_start(form) }}
     {{ form_errors(form) }}
 

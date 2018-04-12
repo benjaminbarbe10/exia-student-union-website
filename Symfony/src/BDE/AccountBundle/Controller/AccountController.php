@@ -44,6 +44,7 @@ class AccountController extends Controller
     public function registerAction(Request $request)
     {
 
+
         $enquiry = new Users();
         $form = $this->createForm(RegisterType::class, $enquiry);
         $form->handleRequest($request);
@@ -52,6 +53,18 @@ class AccountController extends Controller
 
 
         if ($request->isMethod('POST')) {
+            $password = $enquiry->getPassword();
+            $uppercase = preg_match('@[A-Z]@', $password);
+            $lowercase = preg_match('@[a-z]@', $password);
+            $number = preg_match('@[0-9]@', $password);
+            if (!$uppercase || !$lowercase || !$number) {
+                return $this->render('BDEAccountBundle:connection:register.html.twig', array(
+                    'form' => $form->createView(),
+                    'message' => 'Votre mot de passe doit contenir une majuscule et un chiffre!',
+                    'name' => NULL,
+                ));
+            }
+
             $enquiry->setEmail($enquiry->getEmail())
                 ->setName($enquiry->getName())
                 ->setSurname($enquiry->getSurname())
@@ -65,13 +78,14 @@ class AccountController extends Controller
             return $this->render('BDEAccountBundle::account.html.twig', array(
                 'message' => 'Félicitations',
                 'name' => NULL,
-                ));
+            ));
         }
 
         return $this->render('BDEAccountBundle:connection:register.html.twig', array(
             'form' => $form->createView(),
             'name' => NULL,
-            ));
+            'message' => NULL,
+        ));
     }
 
     public function disconnectAction(Request $request)

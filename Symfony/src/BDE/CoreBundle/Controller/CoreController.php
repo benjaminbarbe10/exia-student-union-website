@@ -21,17 +21,22 @@ class CoreController extends Controller
     public function takeUserConnected(Request $request)
     {
         $session = $request->getSession();
-        //$session->set('id', 2);
         $id = $session->get('id');
-        $user = $this->getDoctrine()
-            ->getRepository(Users::class)
-            ->find($id);
-        //var_dump($user); die;
-        if ($id != 0) {
-            $userconnected = $user->getName();
+
+        if ($id != NULL) {
+            $user = $this->getDoctrine()
+                ->getRepository(Users::class)
+                ->find($id);
         } else {
-            $userconnected = '';
+            $session->set('id', 0);
         }
+            //var_dump($user); die;
+            if ($id != 0) {
+                $userconnected = $user->getName();
+            } else {
+                $userconnected = '';
+            }
+
 
         return $userconnected;
 
