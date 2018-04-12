@@ -355,7 +355,8 @@ class Users
         return [
             'id' => $this->getId(),
             'email' => $this->getEmail(),
-            'password' => $this->getPassword(),
+            'name' => $this->getName(),
+            'surname' => $this->getSurname(),
         ];
     }
 

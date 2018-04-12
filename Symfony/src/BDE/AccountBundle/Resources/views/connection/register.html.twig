@@ -11,4 +11,19 @@
     <h2>
         URL : /REGISTER
     </h2>
+
+    <form action="{{ path('bde_account_register') }}" method="post" {{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    {{ form_row(form.email) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.surname) }}
+    {{ form_row(form.password) }}
+
+    {{ form_rest(form) }}
+
+    <input type="submit" value="Submit"/>
+    </form>
+
+
 {% endblock %}

@@ -4,14 +4,17 @@ namespace BDE\AccountBundle\Controller;
 
 use BDE\AccountBundle\Entity\Users;
 use BDE\AccountBundle\Form\LoginType;
+use BDE\AccountBundle\Form\RegisterType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 
 class AccountController extends Controller
 {
+
     public function loginAction(Request $request)
     {
+
         $enquiry = new Users();
         $form = $this->createForm(LoginType::class, $enquiry);
         $form->handleRequest($request);
@@ -20,40 +23,66 @@ class AccountController extends Controller
             $user = $this->getDoctrine()
                 ->getRepository(Users::class)
                 ->findOneBy(array('email' => $enquiry->getEmail(), 'password' => $enquiry->getPassword()));
+            $session = $request->getSession();
 
             if ($user === NULL) {
                 return $this->render('BDEAccountBundle:connection:login.html.twig', array(
-                    'form' => $form->createView(), 'message' => 'Email ou mot de passe erroné!',));
+                    'form' => $form->createView(), 'message' => 'Email ou mot de passe erroné!', 'name' => NULL,));
             }
+            $idUser = $user->getId();
+            $session->set('id', $idUser);
 
             return $this->render('BDEAccountBundle::account.html.twig', array(
-                'message' => 'Vous êtes connecté!',));
+                'message' => 'Vous êtes connecté!', 'name' => NULL,));
         }
 
         return $this->render('BDEAccountBundle:connection:login.html.twig', array(
-            'form' => $form->createView(),'message' => '',));
+            'form' => $form->createView(), 'message' => '', 'name' => NULL,));
     }
 
 
-
-
-    public function registerAction()
+    public function registerAction(Request $request)
     {
 
+        $enquiry = new Users();
+        $form = $this->createForm(RegisterType::class, $enquiry);
+        $form->handleRequest($request);
+
+        $enquiryManager = $this->getDoctrine()->getManager();
 
 
-       /*$user = new Users();
-        $user->setName('BEN');
-        $user->setSurname('Ten');
-        $user->setPassword('test');
-        $user->setEmail('Ben10@jpp.com');
-        $em = $this->getDoctrine()->getManager();
-        $user->initRole($em);
+        if ($request->isMethod('POST')) {
+            $enquiry->setEmail($enquiry->getEmail())
+                ->setName($enquiry->getName())
+                ->setSurname($enquiry->getSurname())
+                ->setPassword($enquiry->getPassword())
+                ->initRole($enquiryManager);
 
 
-        $em->persist($user);
-        $em->flush();*/
+            $enquiryManager->persist($enquiry);
+            $enquiryManager->flush();
 
-        return $this->render('BDEAccountBundle:connection:register.html.twig');
+            return $this->render('BDEAccountBundle::account.html.twig', array(
+                'message' => 'Félicitations',
+                'name' => NULL,
+                ));
+        }
+
+        return $this->render('BDEAccountBundle:connection:register.html.twig', array(
+            'form' => $form->createView(),
+            'name' => NULL,
+            ));
     }
+
+    public function disconnectAction(Request $request)
+    {
+        $session = $request->getSession();
+        $session->set('id', 0);
+
+        return $this->render('BDEAccountBundle::disconnect.html.twig', array(
+            'name' => NULL,
+        ));
+    }
+
+
 }
