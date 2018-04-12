@@ -11,4 +11,20 @@
     <h2>
         URL : /LOGIN
     </h2>
+
+    {{ message }}
+
+    <form action="{{ path('bde_account_login') }}" method="post" {{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    {{ form_row(form.email) }}
+    {{ form_row(form.password) }}
+
+    {{ form_rest(form) }}
+
+    <input type="submit" value="Submit"/>
+    </form>
+
+    {#{{ include('@FOSUserBundle/Resources/views/layout.html.twig') }} #}
+
 {% endblock %}

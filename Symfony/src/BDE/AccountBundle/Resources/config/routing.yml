@@ -1,5 +1,5 @@
 bde_account_register:
-    path:     /register
+    path:     /register/
     defaults:
         _controller: BDEAccountBundle:Account:register
 
@@ -7,3 +7,9 @@ bde_account_login:
     path:     /login
     defaults:
         _controller: BDEAccountBundle:Account:login
+
+bde_account_disconnect:
+    path:     /disconnect
+    defaults:
+        _controller: BDEAccountBundle:Account:disconnect
+

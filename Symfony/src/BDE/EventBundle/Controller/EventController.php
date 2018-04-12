@@ -2,6 +2,8 @@
 
 namespace BDE\EventBundle\Controller;
 
+
+use BDE\AccountBundle\Entity\Users;
 use BDE\EventBundle\Entity\Events;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -15,67 +17,57 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 
-
 class EventController extends Controller
 {
-    public function eventsAction()
+    public function eventsAction(Request $request)
     {
-        return $this->render('BDEEventBundle:Event:events.html.twig');
+        $userconnected = $this->takeUserConnected($request);
+        return $this->render('BDEEventBundle:Event:events.html.twig', array('name' => $userconnected));
     }
 
-    public function viewEventAction()
+    public function viewEventAction(Request $request)
     {
-        return $this->render('BDEEventBundle:Event:viewEvent.html.twig');
+        $userconnected = $this->takeUserConnected($request);
+        return $this->render('BDEEventBundle:Event:viewEvent.html.twig', array('name' => $userconnected));
     }
 
     public function addEventAction(Request $request)
     {
-        $event = new Events();
-//set approved =  1 car cette page uniquement dispo pour les membres du BDE (ducoup iils sont ajoutés directement dans la page des events!
-        $event->setIsApproved(1);
 
-        $form = $this->get('form.factory')->createBuilder(FormType::class, $event)
-            ->add('name',       TextType::class)
-            ->add('date',       DateType::class)
-            ->add('place',      TextType::class)
-            ->add('description',TextareaType::class)
-            ->add('pricettc',   NumberType::class)
-            ->add('type',       TextType::class)
-            ->add('save',       SubmitType::class)
-            ->getForm();
-        ;
+        $userconnected = $this->takeUserConnected($request);
+        return $this->render('BDEEventBundle:Event:addEvent.html.twig', array('name' => $userconnected));
 
+    }
 
-        // Si la requête est en POST
-        if ($request->isMethod('POST')) {
+    public function viewSuggestionAction(Request $request)
+    {
+        $userconnected = $this->takeUserConnected($request);
+        return $this->render('BDEEventBundle:Event:viewSuggestion.html.twig', array('name' => $userconnected));
+    }
 
-            $form->handleRequest($request);
+    public function suggestionAction(Request $request)
+    {
+        $userconnected = $this->takeUserConnected($request);
+        return $this->render('BDEEventBundle:Event:suggestion.html.twig', array('name' => $userconnected));
+    }
 
-
-            if ($form->isValid()) {
-
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($event);
-                $em->flush();
-
-                $request->getSession()->getFlashBag()->add('notice', 'Event bien enregistrée.');
-
-                return $this->redirectToRoute('bde_event_viewevent', array('id' => $event->getId()));
+    public function takeUserConnected(Request $request)
+    {
+            $session = $request->getSession();
+            //$session->set('id', 2);
+            $id = $session->get('id');
+            $user = $this->getDoctrine()
+                ->getRepository(Users::class)
+                ->find($id);
+            //var_dump($user); die;
+            if ($id != 0) {
+                $userconnected = $user->getName();
             }
+            else {
+                $userconnected = '';
+            }
+
+            return $userconnected;
         }
-        return $this->render('BDEEventBundle:Event:addEvent.html.twig',array(
-            'form' => $form->createView(),
-        ));
-    }
-
-    public function viewSuggestionAction()
-    {
-        return $this->render('BDEEventBundle:Event:viewSuggestion.html.twig');
-    }
-
-    public function suggestionAction()
-    {
-        return $this->render('BDEEventBundle:Event:suggestion.html.twig');
-    }
 
 }
