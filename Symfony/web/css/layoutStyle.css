@@ -1,6 +1,6 @@
 body {
     background-color: #F2F2F2;
-    margin-top: 200px;
+    margin-top: 130px;
 }
 
 .btn {
@@ -47,10 +47,93 @@ h1 {
   font-size: 48px;
 }
 
+span {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+}
+
 .cercleHome:hover {
     -webkit-transform: scale(1.2);
     -ms-transform: scale(1.2);
     transform: scale(1.2);
+}
+
+.divEvent{
+    margin: auto;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    border-style: solid;
+    border-color: #C2242A;
+    border-width: 1px;
+    border-radius: 10px;
+    height: 300px;
+    width: 80%;
+    background-color: #E3E3E3;
+    position: relative;
+}
+
+.photoEvent{
+    float: left;
+    width: 25%;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-right: 1px solid darkgrey;
+}
+
+.btnEvent {
+    border: none;
+    background: #5D84BF;
+    color: #f2f2f2;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    position: relative;
+    box-sizing: border-box;
+    transition: all 500ms ease;
+}
+
+.btnEvent:hover {
+    background: rgba(0,0,0,0);
+    color: #5D84BF;
+    box-shadow: inset 0 0 0 3px #5D84BF;
+    text-decoration: none;
+}
+
+.linkEvent{
+    float: right;
+    position: absolute;
+    width: 75%;
+    height: 50px;
+    bottom: 0;
+    text-align: right;
+    padding-left: 66%;
+    margin-left: 25%;
+}
+
+.likeComment{
+    color: white;
+    float: left;
+    position: absolute;
+    width: 25%;
+    height: 50px;
+    bottom: 0;
+    text-align: center;
+    margin-bottom: -20px;
+    text-decoration-color: black;
+}
+
+.pictureReceiver {
+    background-image: url("https://images.pexels.com/photos/132037/pexels-photo-132037.jpeg?auto=compress&cs=tinysrgb&h=350");
+    height: 250px;
+    width: 95%;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+descMobile {
+    visibility: hidden;
 }
 
 @media screen and (max-width: 992px) {
@@ -63,18 +146,70 @@ h1 {
         border-style: solid;
         border-color: #C2242A;
     }
+
     .tourniquet {
         margin-top: 70px;
         padding-left: 0%;
         padding-right: 0%;
     }
+
     .container-fluid {
         padding-left: 0%;
         padding-right: 5%;
     }
+
     .cercleHome:hover {
         -webkit-transform: scale(1.0);
         -ms-transform: scale(1.0);
         transform: scale(1.0);
     }
-}
+
+    body {
+        margin-top: 150px;
+    }
+
+    .divEvent{
+        background-image: url("http://astuces-blogging.com/wp-content/uploads/2014/07/blog-sport.jpg");
+        display: block;
+        background-repeat: no-repeat;
+        margin-bottom: 50px;
+        border-radius: 10px;
+        border-style: solid;
+        border-color: #C2242A;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .pictureReceiver {
+        display: none;
+    }
+
+    .linkEvent {
+        background-color: rgba(0, 0, 0, 0.7);
+        height: 80px;
+        width: 100%;
+        margin-left: 0px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        line-height: 3em;
+        text-align: center;
+        padding-left: 0px;
+    }
+
+    .likeComment {
+        display: none;
+    }
+
+    .photoEvent {
+        display: none;
+    }
+
+    .btnEvent {
+        display: none;
+    }
+
+    descMobile {
+        color: white;
+        visibility: visible;
+    }
+}/********* FIN MEDIA QUERY *********/

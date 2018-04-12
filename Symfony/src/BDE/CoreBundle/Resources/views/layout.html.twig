@@ -15,82 +15,57 @@
 
 </head>
 <header>
-    <!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="{{ path('bde_core_index') }}">BDE Cesi</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ path('bde_core_index') }}">Accueil <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('bde_event_index') }}">Événements</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('bde_shop_index') }}">Boutique</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('bde_contact_index') }}">Contact</a>
-                </li>
-            </ul>
-            <span class="navbar-text" style="float: right;">
-                <a href="#">Se connecter</a>
-            </span>
-        </div>
-    </nav>-->
     <nav class="navbar navbar-fixed-top navbar-bootsnipp animate" role="navigation">
-    	<div class="container">
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<div class="[ navbar-header ]">
-				<button type="button" class="[ navbar-toggle ]" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="[ sr-only ]">Toggle navigation</span>
-					<span class="[ icon-bar ]"></span>
-					<span class="[ icon-bar ]"></span>
-					<span class="[ icon-bar ]"></span>
-				</button>
-				<div class="[ animbrand ]">
-					<a class="[ navbar-brand ][ animate ]" href="{{ path('bde_core_index') }}">BDE Cesi</a>
-				</div>
-			</div>
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="[ navbar-header ]">
+                <button type="button" class="[ navbar-toggle ]" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="[ sr-only ]">Toggle navigation</span>
+                    <span class="[ icon-bar ]"></span>
+                    <span class="[ icon-bar ]"></span>
+                    <span class="[ icon-bar ]"></span>
+                </button>
+                <div class="[ animbrand ]">
+                    <a class="[ navbar-brand ][ animate ]" href="{{ path('bde_core_index') }}">BDE Cesi</a>
+                </div>
+            </div>
 
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="[ collapse navbar-collapse ]" id="bs-example-navbar-collapse-1">
-				<ul class="[ nav navbar-nav navbar-right ]">
-					<li class="[ visible-xs ]">
-						<form action="http://bootsnipp.com/search" method="GET" role="search">
-							<div class="[ input-group ]">
-								<input type="text" class="[ form-control ]" name="q">
-								<span class="[ input-group-btn ]">
-									<button class="[ btn btn-primary ]" type="submit"><span class="[ glyphicon glyphicon-search ]"></span></button>
-									<button class="[ btn btn-danger ]" type="reset"><span class="[ glyphicon glyphicon-remove ]"></span></button>
-								</span>
-							</div>
-						</form>
-					</li>
-					<li><a href="{{ path('bde_core_index') }}" class="[ animate ]">Accueil</a></li>
-					<li><a href="{{ path('bde_event_index') }}" class="[ animate ]">Événements</a></li>
-					<li><a href="{{ path('bde_shop_index') }}" class="[ animate ]">Boutique</a></li>
-					<li><a class="animate" href="{{ path('bde_contact_index') }}">Contact</a></li>
-					<li><a class="animate" href="#login">Se connecter</a></li>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="[ collapse navbar-collapse ]" id="bs-example-navbar-collapse-1">
+                <ul class="[ nav navbar-nav navbar-right ]">
+                    <li class="[ visible-xs ]">
+                        <form action="" method="GET" role="search">
+                            <div class="[ input-group ]">
+                                <input type="text" class="[ form-control ]" name="q">
+                                <span class="[ input-group-btn ]">
+                                    <button class="[ btn btn-primary ]" type="submit"><span class="[ glyphicon glyphicon-search ]"></span></button>
+                                    <button class="[ btn btn-danger ]" type="reset"><span class="[ glyphicon glyphicon-remove ]"></span></button>
+                                </span>
+                            </div>
+                        </form>
+                    </li>
+                    <li><a href="{{ path('bde_core_index') }}" class="[ animate ]">Accueil</a></li>
+                    <li><a href="{{ path('bde_event_index') }}" class="[ animate ]">Événements</a></li>
+                    <li><a href="{{ path('bde_shop_index') }}" class="[ animate ]">Boutique</a></li>
+                    <li><a class="animate" href="{{ path('bde_contact_index') }}">Contact</a></li>
+                    <li><a class="animate" href="#login">Se connecter</a></li>
                     <li class="[ hidden-xs ]"><a href="#toggle-search" class="[ animate ]"><span class="[ glyphicon glyphicon-search ]"></span></a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="[ bootsnipp-search animate ]">
-			<div class="[ container ]">
-				<form action="http://bootsnipp.com/search" method="GET" role="search">
-					<div class="[ input-group ]">
-						<input type="text" class="[ form-control ]" name="q" placeholder="Rechercher...">
-						<span class="[ input-group-btn ]">
-							<button class="[ btn btn-danger ]" type="reset"><span class="[ glyphicon glyphicon-remove ]"></span></button>
-						</span>
-					</div>
-				</form>
-			</div>
-		</div>
-	</nav>
+                </ul>
+            </div>
+        </div>
+        <div class="[ bootsnipp-search animate ]">
+            <div class="[ container ]">
+                <form action="http://bootsnipp.com/search" method="GET" role="search">
+                    <div class="[ input-group ]">
+                        <input type="text" class="[ form-control ]" name="q" placeholder="Rechercher...">
+                        <span class="[ input-group-btn ]">
+                            <button class="[ btn btn-danger ]" type="reset"><span class="[ glyphicon glyphicon-remove ]"></span></button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
 </header>
 <body>
 {% block body %}
@@ -105,28 +80,28 @@
 <script>
 $(function() {
 
-$('a[href="#toggle-search"], .navbar-bootsnipp .bootsnipp-search .input-group-btn > .btn[type="reset"]').on('click', function(event) {
-    event.preventDefault();
-    $('.navbar-bootsnipp .bootsnipp-search .input-group > input').val('');
-    $('.navbar-bootsnipp .bootsnipp-search').toggleClass('open');
-    $('a[href="#toggle-search"]').closest('li').toggleClass('active');
+    $('a[href="#toggle-search"], .navbar-bootsnipp .bootsnipp-search .input-group-btn > .btn[type="reset"]').on('click', function(event) {
+        event.preventDefault();
+        $('.navbar-bootsnipp .bootsnipp-search .input-group > input').val('');
+        $('.navbar-bootsnipp .bootsnipp-search').toggleClass('open');
+        $('a[href="#toggle-search"]').closest('li').toggleClass('active');
 
-    if ($('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
-        /* I think .focus dosen't like css animations, set timeout to make sure input gets focus */
-        setTimeout(function() {
-            $('.navbar-bootsnipp .bootsnipp-search .form-control').focus();
-        }, 100);
-    }
-});
+        if ($('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
+            /* I think .focus dosen't like css animations, set timeout to make sure input gets focus */
+            setTimeout(function() {
+                $('.navbar-bootsnipp .bootsnipp-search .form-control').focus();
+            }, 100);
+        }
+    });
 
-$(document).on('keyup', function(event) {
-    if (event.which == 27 && $('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
-        $('a[href="#toggle-search"]').trigger('click');
-    }
-});
-
+    $(document).on('keyup', function(event) {
+        if (event.which == 27 && $('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
+            $('a[href="#toggle-search"]').trigger('click');
+        }
+    });
 });
 </script>
+
 {% endblock %}
 
 </body>
@@ -139,6 +114,7 @@ $(document).on('keyup', function(event) {
                     <li><a href="{{ path('bde_event_index') }}">Événements</a></li>
                     <li><a href="{{ path('bde_shop_index') }}">Boutique</a></li>
                     <li><a href="{{ path('bde_contact_index') }}">Contact</a></li>
+                    <li><a href="#">Mentions légales</a></li>
                 </ul>
             </div>
         </div>
