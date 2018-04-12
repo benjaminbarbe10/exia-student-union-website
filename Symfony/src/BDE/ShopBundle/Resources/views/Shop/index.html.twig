@@ -12,4 +12,14 @@
         URL : /SHOP
     </h2>
 
+    {% for article in articles %}
+        <a href="{{ path('bde_shop_view', {'id': article.id}) }}">
+        <img src={{ asset(article.picture) }}>
+        <br />
+        {{ article.name }}
+        {{ article.description }}
+        {{ article.priceTTC }}
+        <br />
+        </a>
+    {% endfor %}
 {% endblock %}
