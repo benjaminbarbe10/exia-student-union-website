@@ -20,6 +20,7 @@ Shop {{ parent() }}
             <div class="card bg-light mb-3">
                 <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i> &nbsp;Catégories</div>
                 <ul class="list-group category_block">
+                    <li class="list-group-item"><a href="category.html">Tous les produits</a></li>
                     <li class="list-group-item"><a href="category.html">Vêtements</a></li>
                     <li class="list-group-item"><a href="category.html">Goodies</a></li>
                     <li class="list-group-item"><a href="category.html">Réservations</a></li>
@@ -40,7 +41,7 @@ Shop {{ parent() }}
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card">
                         <img class="card-img-top" src="{{ asset("images/pullbdegris.png") }}" alt="Card image cap">
-                        <div class="card-body">
+                        <div class="card-body" onclick="location.href = '{{ path('bde_core_index') }}';">
                             <h4 class="card-title"><a href="product.html" title="View Product">Pull du BDE</a></h4>
                             <p class="card-text">Édition 2018 du pull du CESI gris clair.</p>
                             <div class="row">
@@ -57,7 +58,7 @@ Shop {{ parent() }}
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card">
                         <img class="card-img-top" src="{{ asset("images/pullbde.png") }}" alt="Card image cap">
-                        <div class="card-body">
+                        <div class="card-body" onclick="location.href = '{{ path('bde_core_index') }}';">
                             <h4 class="card-title"><a href="product.html" title="View Product">Pull du BDE</a></h4>
                             <p class="card-text">Édition 2018 du pull du CESI rouge Bordeaux.</p>
                             <div class="row">
@@ -74,7 +75,7 @@ Shop {{ parent() }}
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card">
                         <img class="card-img-top" src="{{ asset("images/soleil.jpg") }}" alt="Card image cap">
-                        <div class="card-body">
+                        <div class="card-body" onclick="location.href = '{{ path('bde_core_index') }}';">
                             <h4 class="card-title"><a href="product.html" title="View Product">WEI 2019</a></h4>
                             <p class="card-text">Réservez votre place pour le WEI organisé par les étudiants.</p>
                             <div class="row">
@@ -91,7 +92,7 @@ Shop {{ parent() }}
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card">
                         <img class="card-img-top" src="{{ asset("images/rocket.png") }}" alt="Card image cap">
-                        <div class="card-body">
+                        <div class="card-body" onclick="location.href = '{{ path('bde_core_index') }}';">
                             <h4 class="card-title"><a href="product.html" title="View Product">Fusée miniature</a></h4>
                             <p class="card-text">Une petite fusée à l'éphigie de l'école. Totalement fonctionnelle, elle atteint 100m d'altitude !</p>
                             <div class="row">
@@ -108,7 +109,7 @@ Shop {{ parent() }}
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card">
                         <img class="card-img-top" src="{{ asset("images/trophee.png") }}" alt="Card image cap">
-                        <div class="card-body">
+                        <div class="card-body" onclick="location.href = '{{ path('bde_core_index') }}';">
                             <h4 class="card-title"><a href="product.html" title="View Product">Diplôme d'Ingénieur Informatique</a></h4>
                             <p class="card-text">Achetez dès maintenant le diplôme délivré à la fin de votre formation !</p>
                             <div class="row">
@@ -125,7 +126,7 @@ Shop {{ parent() }}
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card">
                         <img class="card-img-top" src="{{ asset("images/pinkfloyd.jpg") }}" alt="Card image cap">
-                        <div class="card-body">
+                        <div class="card-body" onclick="location.href = '{{ path('bde_core_index') }}';">
                             <h4 class="card-title"><a href="product.html" title="View Product">Prisme</a></h4>
                             <p class="card-text">Un petit prisme de verre permettant de reproduire la jaquette d'un des albums de Pink Floyd.</p>
                             <div class="row">
