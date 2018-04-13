@@ -5,11 +5,38 @@
 {% endblock %}
 
 {% block bodyevent %}
-    <h1>
-        PAGE viewEVENT DU SITE
-    </h1>
-    <h2>
-        URL : /event/id
-    </h2>
+
+
+    {{ events.name }}
+
+    {{ events.place }}
+
+    {{ events.description }}
+
+    {{ events.type }}
+
+    {{ events.pricettc }}
+
+    {{ events.date|date('d/m/Y') }}
+    {% for images in events.events_picture %}
+        <li>
+            <img src="{{ asset('upload/'~images.picture) }}">
+        </li>
+    {% endfor %}
+
+    <p>
+        <a href="{{ path('bde_event_index')}}" class="btn btn-default">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Retour à la liste
+        </a>
+        <a href="{{ path('bde_event_edit', {'id': events.id}) }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-edit"></i>
+            Modifier l'annonce
+        </a>
+        <a href="{{ path('bde_event_delete', {'id': events.id}) }}" class="btn btn-danger">
+            <i class="glyphicon glyphicon-trash"></i>
+            Supprimer l'annonce
+        </a>
+    </p>
 
 {% endblock %}

@@ -3,6 +3,9 @@
 namespace BDE\EventBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
+
 
 /**
  * Events_picture
@@ -12,6 +15,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Events_picture
 {
+
+
     /**
      * @var int
      *
@@ -24,9 +29,20 @@ class Events_picture
     /**
      * @var string
      *
-     * @ORM\Column(name="Picture", type="string", length=255)
+     * @ORM\Column(name="picture", type="string", length=255)
      */
     private $picture;
+
+    /**
+     *
+     * @return Events_picture
+     */
+    function getEvents() {
+        return $this->events;
+    }
+
+
+
 
 
     /**
@@ -63,4 +79,3 @@ class Events_picture
         return $this->picture;
     }
 }
-
