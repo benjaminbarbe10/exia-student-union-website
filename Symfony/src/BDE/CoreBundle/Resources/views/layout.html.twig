@@ -7,6 +7,13 @@
     <title>{% block title %}BDE Cesi{% endblock %}</title>
 
 
+    {% block stylesheets %}
+        {% stylesheets
+            filter='cssrewrite' output='css/compiled/wagas.css' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    {% endblock %}
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -15,10 +22,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 
+
 </head>
 <header>
-
     <nav class="navbar navbar-fixed-top navbar-bootsnipp animate" role="navigation">
+
+
+{% block javascripts %}
+
+
+
+
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="[ navbar-header ]">
@@ -32,7 +46,6 @@
                     <a class="[ navbar-brand ][ animate ]" href="{{ path('bde_core_index') }}">BDE Cesi</a>
                 </div>
             </div>
-
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="[ collapse navbar-collapse ]" id="bs-example-navbar-collapse-1">
                 <ul class="[ nav navbar-nav navbar-right ]">
@@ -51,95 +64,149 @@
                     <li><a href="{{ path('bde_event_index') }}" class="[ animate ]">Événements</a></li>
                     <li><a href="{{ path('bde_shop_index') }}" class="[ animate ]">Boutique</a></li>
                     <li><a class="animate" href="{{ path('bde_contact_index') }}">Contact</a></li>
-                    <li>    {% if name != NULL %}
-                            <div>Bonjour : {{ name }}</div>
-                            <a href="{{ path('bde_account_disconnect') }}">Déconnexion</a>
-                            {% else %}
-                            <a href="{{ path('bde_account_login') }}">Se connecter</a>
-                            {% endif %}</li>
-                    <li class="[ hidden-xs ]"><a href="#toggle-search" class="[ animate ]"><span class="[ glyphicon glyphicon-search ]"></span></a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="[ bootsnipp-search animate ]">
-            <div class="[ container ]">
-                <form action="http://bootsnipp.com/search" method="GET" role="search">
-                    <div class="[ input-group ]">
-                        <input type="text" class="[ form-control ]" name="q" placeholder="Rechercher...">
-                        <span class="[ input-group-btn ]">
-                            <button class="[ btn btn-danger ]" type="reset"><span class="[ glyphicon glyphicon-remove ]"></span></button>
-                        </span>
+
+
+                    <li>{% if name != NULL %}
+                        <a class="animate" href="{{ path('bde_account_disconnect') }}">Déconnexion</a>
+                        {% else %}
+                        <a class="animate" href="{{ path('bde_account_login') }}">Se connecter</a>
+                        {% endif %}</li>
+                        <li class="[ hidden-xs ]"><a href="#toggle-search" class="[ animate ]"><span class="[ glyphicon glyphicon-search ]"></span></a></li>
+                        <li>
+                            {% if name != NULL %}
+
+                            <div class="divLogged">Bonjour : {{ name }}&nbsp;&nbsp;
+                                <li class="[ hidden-xs ]"><a href="#" class="[ animate ]"><span class="[ glyphicon glyphicon-shopping-cart ]"></span>&nbsp;0</a></li>
+
+                                {% endif %}
+                            </li>
+                        </ul>
                     </div>
-                </form>
-            </div>
+                </div>
+                <div class="[ bootsnipp-search animate ]">
+                    <div class="[ container ]">
+                        <form action="http://bootsnipp.com/search" method="GET" role="search">
+                            <div class="[ input-group ]">
+                                <input type="text" class="[ form-control ]" name="q" placeholder="Rechercher...">
+                                <span class="[ input-group-btn ]">
+                                    <button class="[ btn btn-danger ]" type="reset"><span class="[ glyphicon glyphicon-remove ]"></span></button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <body>
+            {% block body %}
+            {% endblock %}
 
-        </div>
-    </nav>
-</header>
-<body>
-{% block body %}
-{% endblock %}
+            {% block javascripts %}
 
-{% block javascripts %}
+            {% javascripts
+                '@BDECoreBundle/Resources/public/js/jquery.min.js'
+                '@BDECoreBundle/Resources/public/js/bootstrap.min.js'
+            %}
+            <script src="{{ asset_url }}"></script>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script>
-$(function() {
 
-    $('a[href="#toggle-search"], .navbar-bootsnipp .bootsnipp-search .input-group-btn > .btn[type="reset"]').on('click', function(event) {
-        event.preventDefault();
-        $('.navbar-bootsnipp .bootsnipp-search .input-group > input').val('');
-        $('.navbar-bootsnipp .bootsnipp-search').toggleClass('open');
-        $('a[href="#toggle-search"]').closest('li').toggleClass('active');
+            {% endjavascripts %}
+            
+                <script lang="javascript" type="text/javascript">
+        var $collectionHolder;
+        // setup an "add a tag" link
+        var $addTagLink = $('<a href="#" class="add_tag_link">Ajouter une image </a>');
+        var $newLinkLi = $('<li></li>').append($addTagLink);
 
-        if ($('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
-            /* I think .focus dosen't like css animations, set timeout to make sure input gets focus */
-            setTimeout(function() {
-                $('.navbar-bootsnipp .bootsnipp-search .form-control').focus();
-            }, 100);
+        jQuery(document).ready(function () {
+            // Get the ul that holds the collection of tags
+            $collectionHolder = $('ul.events_picture');
+            // add the "add a tag" anchor and li to the tags ul
+            $collectionHolder.append($newLinkLi);
+            // count the current form inputs we have (e.g. 2), use that as the new
+            // index when inserting a new item (e.g. 2)
+            $collectionHolder.data('index', $collectionHolder.find(':input').length);
+            $addTagLink.on('click', function (e) {
+                // prevent the link from creating a "#" on the URL
+                e.preventDefault();
+                // add a new tag form (see next code block)
+                addTagForm($collectionHolder, $newLinkLi);
+            });
+        });
+
+        function addTagForm($collectionHolder, $newLinkLi) {
+            // Get the data-prototype explained earlier
+            var prototype = $collectionHolder.data('prototype');
+            // get the new index
+            var index = $collectionHolder.data('index');
+            // Replace '__name__' in the prototype's HTML to
+            // instead be a number based on how many items we have
+            var newForm = prototype.replace(/__name__/g, index);
+            // increase the index with one for the next item
+            $collectionHolder.data('index', index + 1);
+            // Display the form in the page in an li, before the "Add a tag" link li
+            var $newFormLi = $('<li></li>').append(newForm);
+            $newLinkLi.before($newFormLi);
         }
-    });
+    </script>
+            
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+            <script>
+            $(function() {
 
-    $(document).on('keyup', function(event) {
-        if (event.which == 27 && $('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
-            $('a[href="#toggle-search"]').trigger('click');
-        }
-    });
-});
-</script>
-{% endblock %}
+                $('a[href="#toggle-search"], .navbar-bootsnipp .bootsnipp-search .input-group-btn > .btn[type="reset"]').on('click', function(event) {
+                    event.preventDefault();
+                    $('.navbar-bootsnipp .bootsnipp-search .input-group > input').val('');
+                    $('.navbar-bootsnipp .bootsnipp-search').toggleClass('open');
+                    $('a[href="#toggle-search"]').closest('li').toggleClass('active');
 
-</body>
+                    if ($('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
+                        /* I think .focus dosen't like css animations, set timeout to make sure input gets focus */
+                        setTimeout(function() {
+                            $('.navbar-bootsnipp .bootsnipp-search .form-control').focus();
+                        }, 100);
+                    }
+                });
 
-<footer>
-    <div class="footer-top">
-        <div class="container">
-            <div class="row text-center">
-                <ul class="menu">
-                    <li><a href="{{ path('bde_core_index') }}">Accueil</a></li>
-                    <li><a href="{{ path('bde_event_index') }}">Événements</a></li>
-                    <li><a href="{{ path('bde_shop_index') }}">Boutique</a></li>
-                    <li><a href="{{ path('bde_contact_index') }}">Contact</a></li>
-                    <li><a href="#">Mentions légales</a></li>
-                </ul>
+                $(document).on('keyup', function(event) {
+                    if (event.which == 27 && $('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
+                        $('a[href="#toggle-search"]').trigger('click');
+                    }
+                });
+            });
+            </script>
+        {% endblock %}
+
+    </body>
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <div class="row text-center">
+                    <ul class="menu">
+                        <li><a class="col-xs-2" href="{{ path('bde_core_index') }}">Accueil</a></li>
+                        <li><a class="col-xs-2" href="{{ path('bde_event_index') }}">Événements</a></li>
+                        <li><a class="col-xs-2" href="{{ path('bde_shop_index') }}">Boutique</a></li>
+                        <li><a class="col-xs-2" href="{{ path('bde_contact_index') }}">Contact</a></li>
+                        <li><a class="col-xs-2" href="#">Mentions&nbsp;légales</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    <center>
-        <div class="container" style="border-top:1px solid white;">
-            <div class="row text-center">
-                <ul class="menu">
-                    <li><a class="fa fa-facebook-square" href="https://www.facebook.com/Exia.Cesi/"></a></li>
-                    <li><a class="fa fa-twitter	" href="https://twitter.com/exiacesi"></a></li>
-                    <li><a class="fa fa-youtube-play" href="https://www.youtube.com/user/groupecesi1"></a></li>
-                    <li><a class="fa fa-linkedin-square" href="https://www.linkedin.com/school/561843/"></a></li>
-                </ul>
+        <center>
+            <div class="container" style="border-top:1px solid white;">
+                <div class="row text-center">
+                    <ul class="menu">
+                        <li><a class="fa fa-facebook-square" href="https://www.facebook.com/Exia.Cesi/"></a></li>
+                        <li><a class="fa fa-twitter	" href="https://twitter.com/exiacesi"></a></li>
+                        <li><a class="fa fa-youtube-play" href="https://www.youtube.com/user/groupecesi1"></a></li>
+                        <li><a class="fa fa-linkedin-square" href="https://www.linkedin.com/school/561843/"></a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </center>
-</footer>
-</html>
+        </center>
+    </footer>
+    </html>

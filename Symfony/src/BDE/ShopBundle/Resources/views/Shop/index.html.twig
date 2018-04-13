@@ -1,39 +1,149 @@
 {% extends "BDEShopBundle::layoutShop.html.twig" %}
 
 {% block title %}
-    Shop {{ parent() }}
+Shop {{ parent() }}
 {% endblock %}
 
 {% block bodyshop %}
-    <h1>
-        PAGE SHOP DU SITE
-    </h1>
-    <h2>
-        URL : /SHOP
-    </h2>
+<center>
+    <h1>La boutique</h1><br><br>
+</center>
+<section class="jumbotron text-center">
+    <div class="container">
 
-    TOP 3 ARTICLES:
-    <br/>
-    {% for article in toparticle|slice(0,3) %}
-        <a href="{{ path('bde_shop_view', {'id': article.id}) }}">
-        <img src={{ asset(article.picture) }}>
-        <br/>
-        {{ article.name }}
-        {{ article.price }}
-        <br/>
-    {% endfor %}
+        <p class="lead text-muted mb-0">Procurez-vous les derniers goodies de l'école, ainsi que les différents produits mis en vente par le BDE !</p>
+    </div>
+</section>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-3">
+            <div class="card bg-light mb-3">
+                <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i> &nbsp;Catégories</div>
+                <ul class="list-group category_block">
+                    <li class="list-group-item"><a href="category.html">Tous les produits</a></li>
+                    <li class="list-group-item"><a href="category.html">Vêtements</a></li>
+                    <li class="list-group-item"><a href="category.html">Goodies</a></li>
+                    <li class="list-group-item"><a href="category.html">Réservations</a></li>
+                </ul>
+            </div>
+            <div class="card bg-light mb-3">
+                <div class="card-header bg-success text-white text-uppercase">Dernier produit</div>
+                <div class="card-body">
+                    <img class="img-fluid" src="{{ asset("images/pullbdegris.png") }}" />
+                    <h4 class="card-title"><b>Pull du BDE</b></h4>
+                    <p class="card-text">Le pull du Cesi revient en 2018 avec 2 coloris au choix !</p>
+                    <p class="bloc_left_price">25 €</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset("images/pullbdegris.png") }}" alt="Card image cap">
+                        <div class="card-body" onclick="location.href = '{{ path('bde_shop_view', {'id' : 1}) }}';">
+                            <h4 class="card-title"><a href="product.html" title="View Product">Pull du BDE</a></h4>
+                            <p class="card-text">Édition 2018 du pull du CESI gris clair.</p>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="btnShopPrix">25 €</p>
+                                </div>
+                                <div class="col">
+                                    <a href="#" class="btnShop">Acheter</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset("images/pullbde.png") }}" alt="Card image cap">
+                        <div class="card-body" onclick="location.href = '{{ path('bde_shop_view', {'id' : 1}) }}';">
+                            <h4 class="card-title"><a href="product.html" title="View Product">Pull du BDE</a></h4>
+                            <p class="card-text">Édition 2018 du pull du CESI rouge Bordeaux.</p>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="btnShopPrix">25 €</p>
+                                </div>
+                                <div class="col">
+                                    <a href="#" class="btnShop">Acheter</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset("images/soleil.jpg") }}" alt="Card image cap">
+                        <div class="card-body" onclick="location.href = '{{ path('bde_shop_view', {'id' : 1}) }}';">
+                            <h4 class="card-title"><a href="product.html" title="View Product">WEI 2019</a></h4>
+                            <p class="card-text">Réservez votre place pour le WEI organisé par les étudiants.</p>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="btnShopPrix">30 €</p>
+                                </div>
+                                <div class="col">
+                                    <a href="#" class="btnShop">Réserver</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset("images/rocket.png") }}" alt="Card image cap">
+                        <div class="card-body" onclick="location.href = '{{ path('bde_shop_view', {'id' : 1}) }}';">
+                            <h4 class="card-title"><a href="product.html" title="View Product">Fusée miniature</a></h4>
+                            <p class="card-text">Une petite fusée à l'éphigie de l'école. Totalement fonctionnelle, elle atteint 100m d'altitude !</p>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="btnShopPrix">5 €</p>
+                                </div>
+                                <div class="col">
+                                    <a href="#" class="btnShop">Acheter</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset("images/trophee.png") }}" alt="Card image cap">
+                        <div class="card-body" onclick="location.href = '{{ path('bde_shop_view', {'id' : 1}) }}';">
+                            <h4 class="card-title"><a href="product.html" title="View Product">Diplôme d'Ingénieur Informatique</a></h4>
+                            <p class="card-text">Achetez dès maintenant le diplôme délivré à la fin de votre formation !</p>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="btnShopPrix"><b>∞</b> €</p>
+                                </div>
+                                <div class="col">
+                                    <a href="#" class="btnShop">Rêver</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card">
+                        <img class="card-img-top" src="{{ asset("images/pinkfloyd.jpg") }}" alt="Card image cap">
+                        <div class="card-body" onclick="location.href = '{{ path('bde_shop_view', {'id' : 1}) }}';">
+                            <h4 class="card-title"><a href="product.html" title="View Product">Prisme</a></h4>
+                            <p class="card-text">Un petit prisme de verre permettant de reproduire la jaquette d'un des albums de Pink Floyd.</p>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="btnShopPrix">15 €</p>
+                                </div>
+                                <div class="col">
+                                    <a href="#" class="btnShop">Acheter</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <br/><br/><br/><br/><br/>
+    </div>
+</div>
 
-    LES ARTICLES:
-    <br/>
-    {% for article in articles %}
-        <a href="{{ path('bde_shop_view', {'id': article.id}) }}">
-            <img src={{ asset(article.picture) }}>
-            <br/>
-            {{ article.name }}
-            {{ article.priceTTC }}
-            <br/>
-        </a>
-    {% endfor %}
 {% endblock %}
