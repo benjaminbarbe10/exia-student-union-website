@@ -9,7 +9,8 @@ Acheter un  - {{ parent() }}
     <a class="btnAddEvent" href="{{ path('bde_shop_index') }}"><</a>
 </div>
 <div class="product group">
-    <div class="col-1-2 product-image">
+    <div Class="col-1-2 product-image">
+        <img src={{ asset(article.picture) }}>
         <div class="bg"></div>
         <div class="indicator">
             <div class="dot one"></div>
@@ -19,9 +20,13 @@ Acheter un  - {{ parent() }}
             <div class="dot five"></div>
         </div>
     </div>
+
+
+
+
     <div class="col-1-2 product-info">
-        <h1>Pull du BDE</h1>
-        <h2>25 €</h2>
+        <h1>{{ article.name }}</h1>
+        <h2>{{ article.priceTTC }} €</h2>
         <div class="select-dropdown">
             <select>
                 <option value="size">Taille</option>
@@ -42,9 +47,14 @@ Acheter un  - {{ parent() }}
             </select>
         </div>
         <br>
-        <a href="" class="add-btn">Ajouter au panier</a>
-        <p>Le pull officiel du CESI revient en 2018 ! Attention, la quantité est limitée alors dépêchez vous de commander le vôtre !
-            Disponible en rouge Bordeaux et en gris clair, il est également possible de choisir son pseudo.</p>
+        {#<form action="{{ path('bde_account_login') }}" method="post" {{ form_start(form) }}
+        {{ form_errors(form) }}
+        {{ form_rest(form) }}
+        <input type="submit" value="Submit"/>
+
+        <a href="{{ path('bde_shop_cart') }}" class="add-btn" type="submit">Ajouter au panier</a>
+        </form> #}
+        <p>{{ article.description }}</p>
             <ul>
                 <li>Pull 100% coton</li>
                 <li>Disponible en rouge Bordeaux / gris clair</li>

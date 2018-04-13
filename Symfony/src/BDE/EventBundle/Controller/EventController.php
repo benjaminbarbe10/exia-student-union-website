@@ -33,7 +33,7 @@ class EventController extends Controller
         ));
     }
 
-    public function viewEventAction($id)
+    public function viewEventAction($id, Request $request)
     {
       
        $userconnected = $this->takeUserConnected($request);

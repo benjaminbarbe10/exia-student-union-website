@@ -40,6 +40,7 @@ class ShopController extends Controller
                 'name' => $article->getName(),
                 'price' => $article->getPriceTTC(),
                 'picture' => $article->getPicture(),
+                'description' => $article->getDescription(),
             ];
 
         }
@@ -51,6 +52,30 @@ class ShopController extends Controller
             'toparticle' => $count,
         ));
     }
+
+    public function cartAction(Request $request)
+    {
+        $userconnected = $this->takeUserConnected($request);
+        return $this->render('BDEShopBundle:Shop:cart.html.twig', array(
+            'name' => $userconnected,
+        ));
+    }
+
+    public function articleAction($id, Request $request)
+    {
+        $article = $this->getDoctrine()
+            ->getRepository(Articles::class)
+            ->find($id);
+
+        $userconnected = $this->takeUserConnected($request);
+        return $this->render('BDEShopBundle:Shop:article.html.twig', array(
+            'name' => $userconnected,
+            'article' => $article,
+        ));
+    }
+
+
+
 
     public function takeUserConnected(Request $request)
     {
@@ -68,29 +93,6 @@ class ShopController extends Controller
         }
 
         return $userconnected;
-    }
-
-    public function cartAction(Request $request)
-    {
-        $userconnected = $this->takeUserConnected($request);
-        return $this->render('BDEShopBundle:Shop:cart.html.twig', array(
-            'name' => $userconnected,
-        ));
-    }
-
-    public function articleAction($id, Request $request)
-    {
-        $numPage = new Response("Affichage de l'annonce d'id : " . $id);
-        $article = $this->getDoctrine()
-            ->getRepository(Articles::class)
-            ->find($id);
-
-        $userconnected = $this->takeUserConnected($request);
-        return $this->render('BDEShopBundle:Shop:article.html.twig', array(
-            'numPage' => $numPage,
-            'name' => $userconnected,
-            'article' => $article,
-        ));
     }
 
 }

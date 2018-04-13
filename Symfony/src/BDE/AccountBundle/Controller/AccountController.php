@@ -30,10 +30,10 @@ class AccountController extends Controller
                     'form' => $form->createView(), 'message' => 'Email ou mot de passe erroné!', 'name' => NULL,));
             }
             $idUser = $user->getId();
-                
+            //$idRole = $user->get
             $session->set('id', $idUser);
 
-            /*if ( === 2){
+           /* if ( === 2){
                 return $this->render('BDEAdminBundle::index.html.twig', array(
                     'message' => 'Vous êtes connecté!', 'name' => NULL,));
             }*/
