@@ -1,26 +1,49 @@
 {% extends "BDEEventBundle::layoutEvent.html.twig" %}
 
 {% block title %}
-    titre {{ parent() }}
+Événements - {{ parent() }}
 {% endblock %}
 
 {% block bodyevent %}
 
+{#
     <h2>Liste des events</h2>
 
     <ul>
         {% for events in listEvents %}
-            {#div de matt#}
+
             <li>
                 <a href="{{ path('bde_event_viewevent', {'id': events.id}) }}">
                     {{ events.name }}
                 </a>
                 le {{ events.date|date('d/m/Y') }}
             </li>
-            {#fin div de matt#}
+
         {% else %}
             <li>Pas (encore !) d'events</li>
         {% endfor %}
-    </ul>
+    </ul>#}
+
+<br>
+<div class="divAddEvent">
+    <a class="btnAddEvent" href="http://localhost/BDECESI_GIT/BDECESI/Symfony/web/app_dev.php/addevent" role="button"><b>+ &nbsp;Créer un événement</b></a>
+</div>
+<div class="divEvent" onclick="location.href = '{{ path('bde_event_index') }}';">
+    <div class="photoEvent">
+        <div class="pictureReceiver">
+        </div>
+    </div>
+    <div class="likeComment">
+        <a class="fa fa-thumbs-o-up" href="#"> 0</a>&nbsp;&nbsp;
+        <a class="fa fa-thumbs-o-down" href="#"> 0</a>&nbsp;&nbsp;
+        <a class="fa fa-comment-o" href="#"> 0</a>
+    </div>
+    <a href="http://www.google.fr">
+        <div class="linkEvent">
+            <a class="btnEvent" href="http://localhost/BDECESI_GIT/BDECESI/Symfony/web/app_dev.php/event/1" role="button"><b>></b></a>
+            <descMobile> Voici le premier événement organisé par le BDE ! </descMobile>
+        </div>
+    </div>
+
 
 {% endblock %}
