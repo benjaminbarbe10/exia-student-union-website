@@ -12,14 +12,29 @@
         URL : /SHOP
     </h2>
 
-    {% for article in articles %}
+    TOP 3 ARTICLES:
+    <br/>
+    {% for article in toparticle|slice(0,3) %}
         <a href="{{ path('bde_shop_view', {'id': article.id}) }}">
         <img src={{ asset(article.picture) }}>
-        <br />
+        <br/>
         {{ article.name }}
-        {{ article.description }}
-        {{ article.priceTTC }}
-        <br />
+        {{ article.price }}
+        <br/>
+    {% endfor %}
+
+    <br/><br/><br/><br/><br/>
+
+    LES ARTICLES:
+    <br/>
+    {% for article in articles %}
+        <a href="{{ path('bde_shop_view', {'id': article.id}) }}">
+            <img src={{ asset(article.picture) }}>
+            <br/>
+            {{ article.name }}
+            {{ article.description }}
+            {{ article.priceTTC }}
+            <br/>
         </a>
     {% endfor %}
 {% endblock %}

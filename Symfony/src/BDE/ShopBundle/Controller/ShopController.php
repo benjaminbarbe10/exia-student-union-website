@@ -15,17 +15,15 @@ class ShopController extends Controller
 
     public function indexAction(Request $request)
     {
+        $userconnected = $this->takeUserConnected($request);
 
         $articles = $this->getDoctrine()
             ->getRepository(Articles::class)
             ->findAll();
 
-        $repository = $this->getDoctrine()
-            ->getRepository(Orders_line::class);
-
-
         $count = array();
         $em = $this->getDoctrine()->getManager();
+
 
         foreach ($articles as $article) {
             $sql = " 
@@ -36,21 +34,21 @@ class ShopController extends Controller
             $stmt = $em->getConnection()->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetch();
-            $count[$article->getId()] = $result['total'];
-
+            $count[$article->getId()] = [
+                'total' => $result['total'],
+                'id' => $article->getId(),
+                'name' => $article->getName(),
+                'price' => $article->getPriceTTC(),
+                'picture' => $article->getPicture(),
+            ];
 
         }
-
-        arsort($count['total']);
-
-        var_dump($count); die;
-
-        $userconnected = $this->takeUserConnected($request);
+        arsort($count);
 
         return $this->render('BDEShopBundle:Shop:index.html.twig', array(
             'name' => $userconnected,
             'articles' => $articles,
-            'toparticles' =>$count,
+            'toparticle' => $count,
         ));
     }
 
