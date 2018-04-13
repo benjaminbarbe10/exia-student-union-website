@@ -1,5 +1,5 @@
 body {
-    background-color: #F2F2F2;
+    background-color: #E9EBEE;
     margin-top: 130px;
 }
 
@@ -222,6 +222,7 @@ descMobile {
 }
 
 .jumbotron {
+    background-color: #E9EBEE;
     padding-top: 0px;
     padding-bottom: 48px;
 }
@@ -307,7 +308,7 @@ descMobile {
 }
 
 .product-image .bg{
-  background-image: url('https://cdn.shopify.com/s/files/1/0199/4554/products/fncwdmain_1024x1024.png?v=1428681549');
+  background-image: url("../images/pullbde.png");
   background-size: cover;
   background-position: center top;
   width: 100%;
@@ -387,7 +388,7 @@ select:active, select:focus {
   }
 
 .product-info a.add-btn{
-  background-color: #444;
+  background-color: #13b538;
   border-radius: 2px;
   color: #eee;
   display: inline-block;
@@ -401,11 +402,16 @@ select:active, select:focus {
 }
 
 a.add-btn:hover{
-  background-color: #555;
+  background-color: #1e7e34;
 }
 
 .product-info p{
   margin-bottom: 30px;
+}
+
+.product-info select{
+  color: #000;
+  background-color: #E2E2E2;
 }
 
 .product-info p a{
