@@ -21,6 +21,8 @@ class AppKernel extends Kernel
             new BDE\ShopBundle\BDEShopBundle(),
             new BDE\AccountBundle\BDEAccountBundle(),
             new BDE\AdminBundle\BDEAdminBundle(),
+            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

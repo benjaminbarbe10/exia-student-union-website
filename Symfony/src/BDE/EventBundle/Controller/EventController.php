@@ -2,17 +2,13 @@
 
 namespace BDE\EventBundle\Controller;
 
+use BDE\EventBundle\BDEEventBundle;
 use BDE\EventBundle\Entity\Events;
+use BDE\EventBundle\Entity\Events_picture;
+
+use BDE\EventBundle\Repository\Events_pictureRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\FormType;
-use Symfony\Component\Form\Extension\Core\Type\MoneyType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+
 use Symfony\Component\HttpFoundation\Request;
 
 
@@ -20,62 +16,94 @@ class EventController extends Controller
 {
     public function eventsAction()
     {
-        return $this->render('BDEEventBundle:Event:events.html.twig');
+
+        $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('BDEEventBundle:Events');
+        $listEvents = $repository->findAll();
+
+
+        return $this->render('BDEEventBundle:Event:events.html.twig', array(
+            'listEvents' => $listEvents
+        ));
     }
 
-    public function viewEventAction()
+    public function viewEventAction($id)
     {
-        return $this->render('BDEEventBundle:Event:viewEvent.html.twig');
+        $events = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('BDEEventBundle:Events')
+            ->find($id);
+
+
+        return $this->render('BDEEventBundle:Event:viewEvent.html.twig', array(
+            'events' => $events
+        ));
     }
 
     public function addEventAction(Request $request)
     {
-        $event = new Events();
-//set approved =  1 car cette page uniquement dispo pour les membres du BDE (ducoup iils sont ajoutés directement dans la page des events!
-        $event->setIsApproved(1);
+        $events = new Events();
+        $form = $this->createForm('BDE\EventBundle\Form\EventsType', $events);
 
-        $form = $this->get('form.factory')->createBuilder(FormType::class, $event)
-            ->add('name',       TextType::class)
-            ->add('date',       DateType::class)
-            ->add('place',      TextType::class)
-            ->add('description',TextareaType::class)
-            ->add('pricettc',   NumberType::class)
-            ->add('type',       TextType::class)
-            ->add('save',       SubmitType::class)
-            ->getForm();
-        ;
+        $form->handleRequest($request);
 
 
-        // Si la requête est en POST
-        if ($request->isMethod('POST')) {
+        if ($form->isSubmitted() && $form->isValid()) {
 
-            $form->handleRequest($request);
+            $attachments = $events->getEvents_picture();
+            if ($attachments) {
+                foreach($attachments as $attachment)
+                {
+                    $file = $attachment->getPicture();
 
+                    var_dump($attachment);
+                    $filename = md5(uniqid()) . '.' .$file->guessExtension();
 
-            if ($form->isValid()) {
-
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($event);
-                $em->flush();
-
-                $request->getSession()->getFlashBag()->add('notice', 'Event bien enregistrée.');
-
-                return $this->redirectToRoute('bde_event_viewevent', array('id' => $event->getId()));
+                    $file->move(
+                        $this->getParameter('upload_path'), $filename
+                    );
+                    var_dump($filename);
+                    $attachment->setPicture($filename);
+                }
             }
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($events);
+            $em->flush();
+
+            return $this->redirectToRoute('bde_event_viewevent', array('id' => $events->getId()));
         }
-        return $this->render('BDEEventBundle:Event:addEvent.html.twig',array(
+
+        return $this->render('BDEEventBundle:Event:addEvent.html.twig', array(
+            'events' => $events,
             'form' => $form->createView(),
         ));
     }
 
-    public function viewSuggestionAction()
+    public function editEventAction(Request $request)
+    {
+
+        return $this->render('BDEEventBundle:Event:edit.html.twig');
+
+
+    }
+
+    public
+    function viewSuggestionAction()
     {
         return $this->render('BDEEventBundle:Event:viewSuggestion.html.twig');
     }
 
-    public function suggestionAction()
+    public
+    function suggestionAction()
     {
         return $this->render('BDEEventBundle:Event:suggestion.html.twig');
     }
+
+
+
+
 
 }

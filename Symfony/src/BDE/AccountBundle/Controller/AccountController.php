@@ -17,17 +17,12 @@ class AccountController extends Controller
     public function registerAction()
     {
         $user = new Users();
-        $user->setName('BEN');
-        $user->setSurname('Ten');
-        $user->setPassword('test');
-        $user->setEmail('Ben10@jpp.com');
+        $user->setName('BfefeN');
+        $user->setSurname('Tefefen');
+        $user->setPassword('tefefest');
+        $user->setEmail('Ben10@jfefe.com');
         $em = $this->getDoctrine()->getManager();
         $user->initRole($em);
-
-
-
-
-
 
         $em->persist($user);
         $em->flush();

@@ -22,7 +22,21 @@ bde_event_suggestion:
     defaults:
          _controller: BDEEventBundle:Event:suggestion
 
-bde_shop_addEvent:
+bde_event_add:
     path:      /addevent
     defaults:
          _controller: BDEEventBundle:Event:addEvent
+
+bde_event_delete:
+    path:      /event/delete/{id}
+    defaults:
+         _controller: BDEEventBundle:Event:deleteEvent
+    requirements:
+        id: \d+
+
+bde_event_edit:
+    path:      /event/edit/{id}
+    defaults:
+         _controller: BDEEventBundle:Event:editEvent
+    requirements:
+        id: \d+

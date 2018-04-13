@@ -5,11 +5,22 @@
 {% endblock %}
 
 {% block bodyevent %}
-    <h1>
-        PAGE EVENT
-    </h1>
-    <h2>
-        URL : /events
-    </h2>
+
+    <h2>Liste des events</h2>
+
+    <ul>
+        {% for events in listEvents %}
+            {#div de matt#}
+            <li>
+                <a href="{{ path('bde_event_viewevent', {'id': events.id}) }}">
+                    {{ events.name }}
+                </a>
+                le {{ events.date|date('d/m/Y') }}
+            </li>
+            {#fin div de matt#}
+        {% else %}
+            <li>Pas (encore !) d'events</li>
+        {% endfor %}
+    </ul>
 
 {% endblock %}
