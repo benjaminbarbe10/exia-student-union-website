@@ -63,6 +63,8 @@
                     <li><a href="{{ path('bde_event_index') }}" class="[ animate ]">Événements</a></li>
                     <li><a href="{{ path('bde_shop_index') }}" class="[ animate ]">Boutique</a></li>
                     <li><a class="animate" href="{{ path('bde_contact_index') }}">Contact</a></li>
+
+
                     <li>{% if name != NULL %}
                         <a class="animate" href="{{ path('bde_account_disconnect') }}">Déconnexion</a>
                         {% else %}
@@ -71,7 +73,10 @@
                         <li class="[ hidden-xs ]"><a href="#toggle-search" class="[ animate ]"><span class="[ glyphicon glyphicon-search ]"></span></a></li>
                         <li>
                             {% if name != NULL %}
-                            <div class="divLogged">Bonjour : {{ name }} </div>
+
+                            <div class="divLogged">Bonjour : {{ name }}&nbsp;&nbsp;
+                                <li class="[ hidden-xs ]"><a href="#" class="[ animate ]"><span class="[ glyphicon glyphicon-shopping-cart ]"></span>&nbsp;0</a></li>
+
                                 {% endif %}
                             </li>
                         </ul>
