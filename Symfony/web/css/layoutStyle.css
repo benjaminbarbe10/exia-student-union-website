@@ -1,5 +1,5 @@
 body {
-    background-color: #F2F2F2;
+    background-color: #E9EBEE;
     margin-top: 130px;
 }
 
@@ -222,6 +222,7 @@ descMobile {
 }
 
 .jumbotron {
+    background-color: #E9EBEE;
     padding-top: 0px;
     padding-bottom: 48px;
 }
