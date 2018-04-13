@@ -33,9 +33,9 @@ class EventController extends Controller
         ));
     }
 
-    public function viewEventAction($id)
+    public function viewEventAction($id, Request $request)
     {
-      
+
        $userconnected = $this->takeUserConnected($request);
 
         $events = $this->getDoctrine()
@@ -68,13 +68,11 @@ class EventController extends Controller
                 {
                     $file = $attachment->getPicture();
 
-                    var_dump($attachment);
                     $filename = md5(uniqid()) . '.' .$file->guessExtension();
 
                     $file->move(
                         $this->getParameter('upload_path'), $filename
                     );
-                    var_dump($filename);
                     $attachment->setPicture($filename);
                 }
             }

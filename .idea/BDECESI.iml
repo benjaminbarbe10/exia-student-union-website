@@ -20,6 +20,8 @@
       <excludeFolder url="file://$MODULE_DIR$/Symfony/vendor/fig/link-util" />
       <excludeFolder url="file://$MODULE_DIR$/Symfony/vendor/incenteev/composer-parameter-handler" />
       <excludeFolder url="file://$MODULE_DIR$/Symfony/vendor/jdorn/sql-formatter" />
+      <excludeFolder url="file://$MODULE_DIR$/Symfony/vendor/jms/metadata" />
+      <excludeFolder url="file://$MODULE_DIR$/Symfony/vendor/kriswallsmith/assetic" />
       <excludeFolder url="file://$MODULE_DIR$/Symfony/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/Symfony/vendor/paragonie/random_compat" />
       <excludeFolder url="file://$MODULE_DIR$/Symfony/vendor/psr/cache" />
@@ -32,6 +34,7 @@
       <excludeFolder url="file://$MODULE_DIR$/Symfony/vendor/sensio/generator-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/Symfony/vendor/sensiolabs/security-checker" />
       <excludeFolder url="file://$MODULE_DIR$/Symfony/vendor/swiftmailer/swiftmailer" />
+      <excludeFolder url="file://$MODULE_DIR$/Symfony/vendor/symfony/assetic-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/Symfony/vendor/symfony/monolog-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/Symfony/vendor/symfony/phpunit-bridge" />
       <excludeFolder url="file://$MODULE_DIR$/Symfony/vendor/symfony/polyfill-apcu" />
@@ -43,6 +46,7 @@
       <excludeFolder url="file://$MODULE_DIR$/Symfony/vendor/symfony/swiftmailer-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/Symfony/vendor/symfony/symfony" />
       <excludeFolder url="file://$MODULE_DIR$/Symfony/vendor/twig/twig" />
+      <excludeFolder url="file://$MODULE_DIR$/Symfony/vendor/vich/uploader-bundle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
