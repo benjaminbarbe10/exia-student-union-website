@@ -3,6 +3,9 @@
 namespace BDE\EventBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
+
 
 /**
  * Events
@@ -13,11 +16,25 @@ use Doctrine\ORM\Mapping as ORM;
 class Events
 {
 
-    /**
-     * @ORM\ManyToMany(targetEntity="BDE\EventBundle\Entity\Events_picture", cascade={"persist"})
-     */
-    private $Events_picture;
+    /*
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Ajouter une image jpg")
+     * @Assert\File(mimeTypes={ "image/jpeg" })
 
+    /*private $image;
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    //public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }*/
 
     /**
      * @var int
@@ -77,6 +94,10 @@ class Events
      */
     private $priceTTC;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Events_picture", cascade={"persist"})
+     */
+    private $events_picture;
 
     /**
      * Get id
@@ -260,9 +281,29 @@ class Events
      */
     public function __construct()
     {
-        $this->Events_picture = new \Doctrine\Common\Collections\ArrayCollection();
         $this->date           = new \DateTime();
+        $this->events_picture = new ArrayCollection();
     }
+
+
+    /**
+     * Get events_picture
+     *
+     * @return ArrayCollection
+     */
+    function getEvents_picture() {
+        return $this->events_picture;
+    }
+
+    /**
+     * Set files
+     * @param type $events_picture
+     */
+    function setEvents_picture($events_picture) {
+        $this->events_picture = $events_picture;
+    }
+
+
 
     /**
      * Add eventsPicture
@@ -273,7 +314,7 @@ class Events
      */
     public function addEventsPicture(\BDE\EventBundle\Entity\Events_picture $eventsPicture)
     {
-        $this->Events_picture[] = $eventsPicture;
+        $this->events_picture[] = $eventsPicture;
 
         return $this;
     }
@@ -285,7 +326,7 @@ class Events
      */
     public function removeEventsPicture(\BDE\EventBundle\Entity\Events_picture $eventsPicture)
     {
-        $this->Events_picture->removeElement($eventsPicture);
+        $this->events_picture->removeElement($eventsPicture);
     }
 
     /**
@@ -295,6 +336,6 @@ class Events
      */
     public function getEventsPicture()
     {
-        return $this->Events_picture;
+        return $this->events_picture;
     }
 }

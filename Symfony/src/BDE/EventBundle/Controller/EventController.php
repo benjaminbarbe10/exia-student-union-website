@@ -4,52 +4,117 @@ namespace BDE\EventBundle\Controller;
 
 
 use BDE\AccountBundle\Entity\Users;
+
 use BDE\EventBundle\Entity\Events;
+use BDE\EventBundle\Entity\Events_picture;
+
+use BDE\EventBundle\Repository\Events_pictureRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\FormType;
-use Symfony\Component\Form\Extension\Core\Type\MoneyType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+
 use Symfony\Component\HttpFoundation\Request;
 
 class EventController extends Controller
 {
     public function eventsAction(Request $request)
     {
+
         $userconnected = $this->takeUserConnected($request);
-        return $this->render('BDEEventBundle:Event:events.html.twig', array('name' => $userconnected));
+
+        $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('BDEEventBundle:Events');
+        $listEvents = $repository->findAll();
+
+
+        return $this->render('BDEEventBundle:Event:events.html.twig', array(
+            'listEvents' => $listEvents,
+            'name' => $userconnected
+        ));
     }
 
-    public function viewEventAction(Request $request)
+    public function viewEventAction($id)
     {
-        $userconnected = $this->takeUserConnected($request);
-        return $this->render('BDEEventBundle:Event:viewEvent.html.twig', array('name' => $userconnected));
+      
+       $userconnected = $this->takeUserConnected($request);
+
+        $events = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('BDEEventBundle:Events')
+            ->find($id);
+
+
+        return $this->render('BDEEventBundle:Event:viewEvent.html.twig', array(
+            'events' => $events,
+            'name' => $userconnected
+        ));
     }
 
     public function addEventAction(Request $request)
     {
 
+        $events = new Events();
+        $form = $this->createForm('BDE\EventBundle\Form\EventsType', $events);
+
+        $form->handleRequest($request);
         $userconnected = $this->takeUserConnected($request);
-        return $this->render('BDEEventBundle:Event:addEvent.html.twig', array('name' => $userconnected));
+
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $attachments = $events->getEvents_picture();
+            if ($attachments) {
+                foreach($attachments as $attachment)
+                {
+                    $file = $attachment->getPicture();
+
+                    var_dump($attachment);
+                    $filename = md5(uniqid()) . '.' .$file->guessExtension();
+
+                    $file->move(
+                        $this->getParameter('upload_path'), $filename
+                    );
+                    var_dump($filename);
+                    $attachment->setPicture($filename);
+                }
+            }
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($events);
+            $em->flush();
+
+            return $this->redirectToRoute('bde_event_viewevent', array('id' => $events->getId()));
+        }
+
+        return $this->render('BDEEventBundle:Event:addEvent.html.twig', array(
+            'events' => $events,
+            'form' => $form->createView(),
+            'name' => $userconnected
+        ));
+    }
+
+    public function editEventAction(Request $request)
+    {
+
+        return $this->render('BDEEventBundle:Event:edit.html.twig', array('name' => $userconnected));
+
 
     }
 
     public function viewSuggestionAction(Request $request)
+
     {
         $userconnected = $this->takeUserConnected($request);
         return $this->render('BDEEventBundle:Event:viewSuggestion.html.twig', array('name' => $userconnected));
     }
+
 
     public function suggestionAction(Request $request)
     {
         $userconnected = $this->takeUserConnected($request);
         return $this->render('BDEEventBundle:Event:suggestion.html.twig', array('name' => $userconnected));
     }
+
 
     public function takeUserConnected(Request $request)
     {

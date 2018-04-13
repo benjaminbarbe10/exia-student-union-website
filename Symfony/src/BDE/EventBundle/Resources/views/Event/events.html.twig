@@ -5,6 +5,25 @@
 {% endblock %}
 
 {% block bodyevent %}
+
+{#
+    <h2>Liste des events</h2>
+
+    <ul>
+        {% for events in listEvents %}
+
+            <li>
+                <a href="{{ path('bde_event_viewevent', {'id': events.id}) }}">
+                    {{ events.name }}
+                </a>
+                le {{ events.date|date('d/m/Y') }}
+            </li>
+
+        {% else %}
+            <li>Pas (encore !) d'events</li>
+        {% endfor %}
+    </ul>#}
+
 <br>
 <div class="divAddEvent">
     <a class="btnAddEvent" href="http://localhost/BDECESI_GIT/BDECESI/Symfony/web/app_dev.php/addevent" role="button"><b>+ &nbsp;Créer un événement</b></a>
@@ -25,5 +44,6 @@
             <descMobile> Voici le premier événement organisé par le BDE ! </descMobile>
         </div>
     </div>
+
 
 {% endblock %}
