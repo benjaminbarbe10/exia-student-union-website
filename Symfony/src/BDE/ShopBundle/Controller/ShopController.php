@@ -92,4 +92,5 @@ class ShopController extends Controller
             'article' => $article,
         ));
     }
+
 }
