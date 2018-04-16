@@ -1,15 +1,51 @@
 {% extends "BDECoreBundle::layout.html.twig" %}
 
 {% block title %}
-    admin - {{ parent() }}
+admin - {{ parent() }}
 {% endblock %}
 
 {% block body %}
-    <h1>
-        PAGE ADMIN
-    </h1>
-    <h2>
-        URL : /ADMIN
-    </h2>
-    {{ message }} en tant que membre du BDE!
+<h1>
+    <center>
+        Panel d'administration
+    </center>
+</h1><br><br><br>
+<div class="container contentAdmin">
+    <div class="row">
+        <div class="col">
+            Gestion des utilisateurs <br><br>
+            <button type="button" class="btnAddEvent" data-toggle="modal" data-target="#exampleModal">
+                Afficher les utilisateurs
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btnAddEvent" data-dismiss="modal">Close</button>
+                            <button type="button" class="btnAddEvent">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col bordureAdmin">
+            Gestion des événements
+
+            <!-- Button trigger modal -->
+
+        </div>
+    </div>
+</div>
+
 {% endblock %}
