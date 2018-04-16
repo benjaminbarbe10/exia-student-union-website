@@ -15,3 +15,8 @@ bde_shop_cart:
     defaults:
          _controller: BDEShopBundle:Shop:cart
 
+bde_shop_command:
+    path:      /shop/command
+    defaults:
+         _controller: BDEShopBundle:Shop:command
+

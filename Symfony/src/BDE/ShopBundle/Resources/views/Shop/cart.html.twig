@@ -15,4 +15,9 @@
         {{ article.name }}
     {% endfor %}
 
+    <form action="{{ path('bde_shop_command') }}" method="post" {{ form_start(form) }}
+    {{ form_errors(form) }}
+    {{ form_rest(form) }}
+    </form>
+
 {% endblock %}
