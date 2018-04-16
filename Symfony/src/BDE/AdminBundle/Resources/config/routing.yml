@@ -1,4 +1,4 @@
 bde_admin_index:
     path:     /admin
     defaults:
-        _controller: BDEAdminBundle:Admin:index
+        _controller: BDEAdminBundle:Admin:Admin

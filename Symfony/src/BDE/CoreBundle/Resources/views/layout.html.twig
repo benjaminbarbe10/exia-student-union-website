@@ -25,7 +25,7 @@
 
 </head>
 <header>
-    <nav class="navbar navbar-fixed-top navbar-bootsnipp animate" role="navigation">
+    <nav class="navbar navbar-fixed-top navbar-bootsnipp animate">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="[ navbar-header ]">
@@ -68,238 +68,240 @@
                         <li>
                             {% if name != NULL %}
 
-                            <div class="divLogged">Bonjour : {{ name }}&nbsp;&nbsp;
-                                <li class="[ hidden-xs ]"><a href="#" class="[ animate ]"><span class="[ glyphicon glyphicon-shopping-cart ]"></span>&nbsp;0</a></li>
-
-                                {% endif %}
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="[ bootsnipp-search animate ]">
-                    <div class="[ container ]">
-                        <form action="http://bootsnipp.com/search" method="GET" role="search">
-                            <div class="[ input-group ]">
-                                <input type="text" class="[ form-control ]" name="q" placeholder="Rechercher...">
-                                <span class="[ input-group-btn ]">
-                                    <button class="[ btn btn-danger ]" type="reset"><span class="[ glyphicon glyphicon-remove ]"></span></button>
-                                </span>
+                            <div class="divLogged">Bonjour&nbsp; {{ name }}&nbsp;&nbsp;
+                                <li class="[ hidden-xs ]"><a href="{{ path('bde_shop_cart') }}" class="[ animate ]">
+                                    <span class="[ glyphicon glyphicon-shopping-cart ]"></span>&nbsp;2</a>
+                                </li>
                             </div>
-                        </form>
-                    </div>
+                            {% endif %}
+                        </li>
+                    </ul>
                 </div>
-            </nav>
-        </header>
-        <body>
-            {% block body %}
-            {% endblock %}
-            <div class="container">
-                <div class="row">
-                    <div class="bs-example">
-                        <!-- Modal HTML -->
-                        <div id="myModal" class="modal fade">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        Se connecter / S'inscrire
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                    </div>
+            </div>
+            <div class="[ bootsnipp-search animate ]">
+                <div class="[ container ]">
+                    <form action="http://bootsnipp.com/search" method="GET" role="search">
+                        <div class="[ input-group ]">
+                            <input type="text" class="[ form-control ]" name="q" placeholder="Rechercher...">
+                            <span class="[ input-group-btn ]">
+                                <button class="[ btn btn-danger ]" type="reset"><span class="[ glyphicon glyphicon-remove ]"></span></button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <body>
+        {% block body %}
+        {% endblock %}
+        <div class="container">
+            <div class="row">
+                <div class="bs-example">
+                    <!-- Modal HTML -->
+                    <div id="myModal" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    Se connecter / S'inscrire
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                </div>
 
-                                    <div class="modal-body">
-                                        <div class="col-md-6 col-sm-6 no-padng">
-                                            <div class="model-l">
-                                                <form method="post" id="logFrm" class="log-frm" name="logFrm">
-                                                    <ul>
-                                                        <li>Email</li>
-                                                        <li> <input type="text" id="userName" name="userName" class="form-control" onfocus="checkNullProf();"></li>
-                                                        <li>Mot de passe</li>
-                                                        <li><input type="password" id="password" name="password" class="form-control" onfocus="checkNullProf();"></li>
-                                                        <li><br/><button type="button" onclick="userLogin();" id="logBtn" class="btnLogin btn-defaultLogin">Valider</button></li>
-                                                        <div style="display:none;" id="loginFail" class="sign">
-                                                            <li> <font color="red">  Identifiant ou mot de passe incorrect.</font></li>
-                                                        </div>
-                                                    </ul>
-                                                </form>
-                                                <div class="clearfix"></div>
-                                                <form method="post" id="logFrm1" class="log-frm" name="logFrm1">
-                                                    <ul>
-                                                        <li>
-                                                            <a class="for-got" onclick="ayantoggle();" href="javascript:;">Mot de passe oublié ?</a>
-                                                            <div class="forgot">
-                                                                <ul>
-                                                                    <li><p>Entrez votre email afin de recevoir un nouveau mot de passe.</p></li>
-                                                                    <li>Email</li>
-                                                                    <li><input type="text" id="forgetemailId" class="form-control" name="forgetemailId"></li>
-                                                                    <li><button type="button" class="btnLogin btn-defaultLogin" onclick="forgot();">Envoyer le mail</button></li>
-                                                                </ul>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </form>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-6 no-padng">
-                                            <div class="model-r">
-                                                <div class="o-r">
-                                                    <span>ou</span>
-                                                </div>
-                                                <form method="post" id="userRegisterFrm" class="log-frm" name="userRegisterFrm">
-                                                    <ul>
-                                                        <li>Prénom</li>
-                                                        <li><input type="text"  name="fName" class="form-control"></li>
-                                                        <li>Nom</li>
-                                                        <li><input type="text" name="lName" class="form-control"></li>
-                                                        <li>Email</li>
-                                                        <li><input type="text" name="emailId" class="form-control"></li>
-                                                        <li>Mot de passe</li>
-                                                        <li><input type="password" name="password" class="form-control"></li>
-                                                        <li>Confirmation </li>
-                                                        <li><input type="password" name="repassword" class="form-control"></li>
-                                                        <br> <li><button type="button" name="userRegBtn" class="btnLogin btn-defaultLogin">S'inscrire</button></li>
-                                                        <div style="display:none;" class="sign greenglow">
-                                                            <li>   <i class="icon-check"></i><br>
-                                                                <font color="red">
-                                                                    Inscription réussie.<br>
-                                                                    Un mail contenant votre identifiant vous a été envoyé.
-                                                                </font></li>
-                                                            </div>
-                                                            <div style="display:none;" id="regnSuc11" class="sign redglow">
-                                                                <li>   <i class="icon-mail"></i><br>
-                                                                    <font color="red">    Cet email est déjà utilisé.</font></li>
-                                                                </div>
-                                                            </ul>
-                                                        </form>
+                                <div class="modal-body">
+                                    <div class="col-md-6 col-sm-6 no-padng">
+                                        <div class="model-l">
+                                            <form method="post" id="logFrm" class="log-frm" name="logFrm">
+                                                <ul>
+                                                    <li>Email</li>
+                                                    <li> <input type="text" id="userName" name="userName" class="form-control" onfocus="checkNullProf();"></li>
+                                                    <li>Mot de passe</li>
+                                                    <li><input type="password" id="password" name="password" class="form-control" onfocus="checkNullProf();"></li>
+                                                    <li><br/><button type="button" onclick="userLogin();" id="logBtn" class="btnLogin btn-defaultLogin">Valider</button></li>
+                                                    <div style="display:none;" id="loginFail" class="sign">
+                                                        <li> <font color="red">  Identifiant ou mot de passe incorrect.</font></li>
                                                     </div>
+                                                </ul>
+                                            </form>
+                                            <div class="clearfix"></div>
+                                            <form method="post" id="logFrm1" class="log-frm" name="logFrm1">
+                                                <ul>
+                                                    <li>
+                                                        <a class="for-got" onclick="ayantoggle();" href="javascript:;">Mot de passe oublié ?</a>
+                                                        <div class="forgot">
+                                                            <ul>
+                                                                <li><p>Entrez votre email afin de recevoir un nouveau mot de passe.</p></li>
+                                                                <li>Email</li>
+                                                                <li><input type="text" id="forgetemailId" class="form-control" name="forgetemailId"></li>
+                                                                <li><button type="button" class="btnLogin btn-defaultLogin" onclick="forgot();">Envoyer le mail</button></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-6 no-padng">
+                                        <div class="model-r">
+                                            <div class="o-r">
+                                                <span>ou</span>
+                                            </div>
+                                            <form method="post" id="userRegisterFrm" class="log-frm" name="userRegisterFrm">
+                                                <ul>
+                                                    <li>Prénom</li>
+                                                    <li><input type="text"  name="fName" class="form-control"></li>
+                                                    <li>Nom</li>
+                                                    <li><input type="text" name="lName" class="form-control"></li>
+                                                    <li>Email</li>
+                                                    <li><input type="text" name="emailId" class="form-control"></li>
+                                                    <li>Mot de passe</li>
+                                                    <li><input type="password" name="password" class="form-control"></li>
+                                                    <li>Confirmation </li>
+                                                    <li><input type="password" name="repassword" class="form-control"></li>
+                                                    <br> <li><button type="button" name="userRegBtn" class="btnLogin btn-defaultLogin">S'inscrire</button></li>
+                                                    <div style="display:none;" class="sign greenglow">
+                                                        <li>   <i class="icon-check"></i><br>
+                                                            <font color="red">
+                                                                Inscription réussie.<br>
+                                                                Un mail contenant votre identifiant vous a été envoyé.
+                                                            </font></li>
+                                                        </div>
+                                                        <div style="display:none;" id="regnSuc11" class="sign redglow">
+                                                            <li>   <i class="icon-mail"></i><br>
+                                                                <font color="red">    Cet email est déjà utilisé.</font></li>
+                                                            </div>
+                                                        </ul>
+                                                    </form>
                                                 </div>
+                                            </div>
 
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <div class="modal-footer">
-                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="modal-footer">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </body>
-                <footer>
-                    <div class="footer-top">
-                        <div class="container">
-                            <div class="row text-center">
-                                <ul class="menu">
-                                    <li><a class="col-xs-2" href="{{ path('bde_core_index') }}">Accueil</a></li>
-                                    <li><a class="col-xs-2" href="{{ path('bde_event_index') }}">Événements</a></li>
-                                    <li><a class="col-xs-2" href="{{ path('bde_shop_index') }}">Boutique</a></li>
-                                    <li><a class="col-xs-2" href="{{ path('bde_contact_index') }}">Contact</a></li>
-                                    <li><a class="col-xs-2" href="#">Mentions&nbsp;légales</a></li>
-                                </ul>
-                            </div>
+                </div>
+            </body>
+            <footer>
+                <div class="footer-top">
+                    <div class="container">
+                        <div class="row text-center">
+                            <ul class="menu">
+                                <li><a class="col-xs-2" href="{{ path('bde_core_index') }}">Accueil</a></li>
+                                <li><a class="col-xs-2" href="{{ path('bde_event_index') }}">Événements</a></li>
+                                <li><a class="col-xs-2" href="{{ path('bde_shop_index') }}">Boutique</a></li>
+                                <li><a class="col-xs-2" href="{{ path('bde_contact_index') }}">Contact</a></li>
+                                <li><a class="col-xs-2" href="#">Mentions&nbsp;légales</a></li>
+                            </ul>
                         </div>
                     </div>
-                    <center>
-                        <div class="container" style="border-top:1px solid white;">
-                            <div class="row text-center">
-                                <ul class="menu">
-                                    <li><a class="fa fa-facebook-square" href="https://www.facebook.com/Exia.Cesi/"></a></li>
-                                    <li><a class="fa fa-twitter	" href="https://twitter.com/exiacesi"></a></li>
-                                    <li><a class="fa fa-youtube-play" href="https://www.youtube.com/user/groupecesi1"></a></li>
-                                    <li><a class="fa fa-linkedin-square" href="https://www.linkedin.com/school/561843/"></a></li>
-                                    <li><a class="fa fa-snapchat-ghost" data-content="@bdecesibordeaux" data-placement="top" data-toggle="popover" style="cursor: pointer;"></a></li>
-                                </ul>
-                            </div>
+                </div>
+                <center>
+                    <div class="container" style="border-top:1px solid white;">
+                        <div class="row text-center">
+                            <ul class="menu">
+                                <li><a class="fa fa-facebook-square" href="https://www.facebook.com/Exia.Cesi/"></a></li>
+                                <li><a class="fa fa-twitter	" href="https://twitter.com/exiacesi"></a></li>
+                                <li><a class="fa fa-youtube-play" href="https://www.youtube.com/user/groupecesi1"></a></li>
+                                <li><a class="fa fa-linkedin-square" href="https://www.linkedin.com/school/561843/"></a></li>
+                                <li><a class="fa fa-snapchat-ghost" data-content="@bdecesibordeaux" data-placement="top" data-toggle="popover" style="cursor: pointer;"></a></li>
+                            </ul>
                         </div>
-                    </center>
-                </footer>
-                {% block javascripts %}
+                    </div>
+                </center>
+            </footer>
+            {% block javascripts %}
 
-                {% javascripts
-                '@BDECoreBundle/Resources/public/js/jquery.min.js'
-                '@BDECoreBundle/Resources/public/js/bootstrap.min.js'
-                %}
-                <script src="{{ asset_url }}"></script>
+            {% javascripts
+            '@BDECoreBundle/Resources/public/js/jquery.min.js'
+            '@BDECoreBundle/Resources/public/js/bootstrap.min.js'
+            %}
+            <script src="{{ asset_url }}"></script>
 
 
-                {% endjavascripts %}
+            {% endjavascripts %}
 
-                <script lang="javascript" type="text/javascript">
-                var $collectionHolder;
-                // setup an "add a tag" link
-                var $addTagLink = $('<a href="#" class="add_tag_link">Ajouter une image </a>');
-                var $newLinkLi = $('<li></li>').append($addTagLink);
+            <script lang="javascript" type="text/javascript">
+            var $collectionHolder;
+            // setup an "add a tag" link
+            var $addTagLink = $('<a href="#" class="add_tag_link">Ajouter une image </a>');
+            var $newLinkLi = $('<li></li>').append($addTagLink);
 
-                jQuery(document).ready(function () {
-                    // Get the ul that holds the collection of tags
-                    $collectionHolder = $('ul.events_picture');
-                    // add the "add a tag" anchor and li to the tags ul
-                    $collectionHolder.append($newLinkLi);
-                    // count the current form inputs we have (e.g. 2), use that as the new
-                    // index when inserting a new item (e.g. 2)
-                    $collectionHolder.data('index', $collectionHolder.find(':input').length);
-                    $addTagLink.on('click', function (e) {
-                        // prevent the link from creating a "#" on the URL
-                        e.preventDefault();
-                        // add a new tag form (see next code block)
-                        addTagForm($collectionHolder, $newLinkLi);
-                    });
+            jQuery(document).ready(function () {
+                // Get the ul that holds the collection of tags
+                $collectionHolder = $('ul.events_picture');
+                // add the "add a tag" anchor and li to the tags ul
+                $collectionHolder.append($newLinkLi);
+                // count the current form inputs we have (e.g. 2), use that as the new
+                // index when inserting a new item (e.g. 2)
+                $collectionHolder.data('index', $collectionHolder.find(':input').length);
+                $addTagLink.on('click', function (e) {
+                    // prevent the link from creating a "#" on the URL
+                    e.preventDefault();
+                    // add a new tag form (see next code block)
+                    addTagForm($collectionHolder, $newLinkLi);
+                });
+            });
+
+            function addTagForm($collectionHolder, $newLinkLi) {
+                // Get the data-prototype explained earlier
+                var prototype = $collectionHolder.data('prototype');
+                // get the new index
+                var index = $collectionHolder.data('index');
+                // Replace '__name__' in the prototype's HTML to
+                // instead be a number based on how many items we have
+                var newForm = prototype.replace(/__name__/g, index);
+                // increase the index with one for the next item
+                $collectionHolder.data('index', index + 1);
+                // Display the form in the page in an li, before the "Add a tag" link li
+                var $newFormLi = $('<li></li>').append(newForm);
+                $newLinkLi.before($newFormLi);
+            }
+            </script>
+
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+            <script>
+            $(function() {
+
+                $('a[href="#toggle-search"], .navbar-bootsnipp .bootsnipp-search .input-group-btn > .btn[type="reset"]').on('click', function(event) {
+                    event.preventDefault();
+                    $('.navbar-bootsnipp .bootsnipp-search .input-group > input').val('');
+                    $('.navbar-bootsnipp .bootsnipp-search').toggleClass('open');
+                    $('a[href="#toggle-search"]').closest('li').toggleClass('active');
+
+                    if ($('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
+                        /* I think .focus dosen't like css animations, set timeout to make sure input gets focus */
+                        setTimeout(function() {
+                            $('.navbar-bootsnipp .bootsnipp-search .form-control').focus();
+                        }, 100);
+                    }
                 });
 
-                function addTagForm($collectionHolder, $newLinkLi) {
-                    // Get the data-prototype explained earlier
-                    var prototype = $collectionHolder.data('prototype');
-                    // get the new index
-                    var index = $collectionHolder.data('index');
-                    // Replace '__name__' in the prototype's HTML to
-                    // instead be a number based on how many items we have
-                    var newForm = prototype.replace(/__name__/g, index);
-                    // increase the index with one for the next item
-                    $collectionHolder.data('index', index + 1);
-                    // Display the form in the page in an li, before the "Add a tag" link li
-                    var $newFormLi = $('<li></li>').append(newForm);
-                    $newLinkLi.before($newFormLi);
-                }
-                </script>
-
-                <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-                <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-                <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-                <script>
-                $(function() {
-
-                    $('a[href="#toggle-search"], .navbar-bootsnipp .bootsnipp-search .input-group-btn > .btn[type="reset"]').on('click', function(event) {
-                        event.preventDefault();
-                        $('.navbar-bootsnipp .bootsnipp-search .input-group > input').val('');
-                        $('.navbar-bootsnipp .bootsnipp-search').toggleClass('open');
-                        $('a[href="#toggle-search"]').closest('li').toggleClass('active');
-
-                        if ($('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
-                            /* I think .focus dosen't like css animations, set timeout to make sure input gets focus */
-                            setTimeout(function() {
-                                $('.navbar-bootsnipp .bootsnipp-search .form-control').focus();
-                            }, 100);
-                        }
-                    });
-
-                    $(document).on('keyup', function(event) {
-                        if (event.which == 27 && $('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
-                            $('a[href="#toggle-search"]').trigger('click');
-                        }
-                    });
+                $(document).on('keyup', function(event) {
+                    if (event.which == 27 && $('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
+                        $('a[href="#toggle-search"]').trigger('click');
+                    }
                 });
-                </script>
+            });
+            </script>
 
-                <script>
-                function ayantoggle(){
-                    $(".forgot").slideToggle('slow');
-                }
+            <script>
+            function ayantoggle(){
+                $(".forgot").slideToggle('slow');
+            }
 
-                </script>
+            </script>
 
-                <script>
-                $("[data-toggle=show-popover]").popover('show');
-                $("[data-toggle=popover]").popover();
-                </script>
-                {% endblock %}
-                </html>
+            <script>
+            $("[data-toggle=show-popover]").popover('show');
+            $("[data-toggle=popover]").popover();
+            </script>
+            {% endblock %}
+            </html>

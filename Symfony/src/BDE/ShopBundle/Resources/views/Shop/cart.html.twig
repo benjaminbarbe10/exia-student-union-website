@@ -1,14 +1,80 @@
 {% extends "BDEShopBundle::layoutShop.html.twig" %}
 
 {% block title %}
-    CART{{ parent() }}
+CART{{ parent() }}
 {% endblock %}
 
 {% block bodyshop %}
-    <h1>
-        PAGE CART DU SITE
-    </h1>
-    <h2>
-        URL : /SHOP/CART
-    </h2>
+<h1>
+    <center>
+        Votre panier
+    </center><br>
+</h1>
+
+<div class="container">
+    <table id="cart" class="table table-hover table-condensed">
+        <thead>
+            <tr>
+                <th style="width:50%">Produit</th>
+                <th style="width:10%">Prix</th>
+                <th style="width:8%">Quantité</th>
+                <th style="width:22%" class="text-center">Sous-total</th>
+                <th style="width:10%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-th="Product">
+                    <div class="row">
+                        <div class="col-sm-2 hidden-xs"><img src="../../../web/images/pullbde.png" alt="..." class="img-responsive"/></div>
+                        <div class="col-sm-10">
+                            <h4 class="nomargin">Pull du BDE rouge Bordeaux</h4>
+                            <p>Édition 2018 du pull du CESI rouge Bordeaux</p>
+                        </div>
+                    </div>
+                </td>
+                <td data-th="Price">25 €</td>
+                <td data-th="Quantity">
+                    <input type="number" class="form-control text-center" value="1">
+                </td>
+                <td data-th="Subtotal" class="text-center">25 €</td>
+                <td class="actions" data-th="">
+                    <button class="btnCartSupp"><i class="fa fa-trash-o"></i></button>
+                </td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr>
+                <td data-th="Product">
+                    <div class="row">
+                        <div class="col-sm-2 hidden-xs"><img src="../../../web/images/soleil.jpg" alt="..." class="img-responsive"/></div>
+                        <div class="col-sm-10">
+                            <h4 class="nomargin">Réservation WEI 2019</h4>
+                            <p>Pass pour le WEI 2019 organisé par les étudiants du BDE.</p>
+                        </div>
+                    </div>
+                </td>
+                <td data-th="Price">25 €</td>
+                <td data-th="Quantity">
+                    <input type="number" class="form-control text-center" value="1">
+                </td>
+                <td data-th="Subtotal" class="text-center">30 €</td>
+                <td class="actions" data-th="">
+                    <button class="btnCartSupp"><i class="fa fa-trash-o"></i></button>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr class="visible-xs">
+                <td class="text-center"><strong>Total 55 €</strong></td>
+            </tr>
+            <tr>
+                <td><a href="#" class="btnCart"><i class="fa fa-angle-left"></i> Retour</a></td>
+                <td colspan="2" class="hidden-xs"></td>
+                <td class="hidden-xs text-center"><strong>Total 55 €</strong></td>
+                <td><a href="#" class="btnCartPay">Payer <i class="fa fa-angle-right"></i></a></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
 {% endblock %}
