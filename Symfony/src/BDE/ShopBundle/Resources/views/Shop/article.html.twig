@@ -1,60 +1,62 @@
 {% extends "BDEShopBundle::layoutShop.html.twig" %}
 
 {% block title %}
-Acheter un  - {{ parent() }}
+    Acheter un  - {{ parent() }}
 {% endblock %}
 
 {% block bodyshop %}
-<div style="margin-left: 10%;">
-    <a class="btnAddEvent" href="{{ path('bde_shop_index') }}"><</a>
-</div>
-<div class="product group">
-    <div Class="col-1-2 product-image">
-        <img src={{ asset(article.picture) }}>
-        <div class="bg"></div>
-        <div class="indicator">
-            <div class="dot one"></div>
-            <div class="dot two"></div>
-            <div class="dot three"></div>
-            <div class="dot four"></div>
-            <div class="dot five"></div>
-        </div>
+    <div style="margin-left: 10%;">
+        <a class="btnAddEvent" href="{{ path('bde_shop_index') }}"><</a>
     </div>
-
-
-
-
-    <div class="col-1-2 product-info">
-        <h1>{{ article.name }}</h1>
-        <h2>{{ article.priceTTC }} €</h2>
-        <div class="select-dropdown">
-            <select>
-                <option value="size">Taille</option>
-                <option value="size">S</option>
-                <option value="size">M</option>
-                <option value="size">L</option>
-                <option value="size">XL</option>
-                <option value="size">XXL</option>
-            </select>
+    <div class="product group">
+        <div Class="col-1-2 product-image">
+            <img src={{ asset(article.picture) }}>
+            <div class="bg"></div>
+            <div class="indicator">
+                <div class="dot one"></div>
+                <div class="dot two"></div>
+                <div class="dot three"></div>
+                <div class="dot four"></div>
+                <div class="dot five"></div>
+            </div>
         </div>
-        <div class="select-dropdown">
-            <select>
-                <option value="quantity">Quantité</option>
-                <option value="quantity">1</option>
-                <option value="quantity">2</option>
-                <option value="quantity">3</option>
-                <option value="quantity">4</option>
-            </select>
-        </div>
-        <br>
-        {#<form action="{{ path('bde_account_login') }}" method="post" {{ form_start(form) }}
-        {{ form_errors(form) }}
-        {{ form_rest(form) }}
-        <input type="submit" value="Submit"/>
 
-        <a href="{{ path('bde_shop_cart') }}" class="add-btn" type="submit">Ajouter au panier</a>
-        </form> #}
-        <p>{{ article.description }}</p>
+
+        <div class="col-1-2 product-info">
+            <h1>{{ article.name }}</h1>
+            <h2>{{ article.priceTTC }} €</h2>
+            <div class="select-dropdown">
+                <select>
+                    <option value="size">Taille</option>
+                    <option value="size">S</option>
+                    <option value="size">M</option>
+                    <option value="size">L</option>
+                    <option value="size">XL</option>
+                    <option value="size">XXL</option>
+                </select>
+            </div>
+            <div class="select-dropdown">
+                <select>
+                    <option value="quantity">Quantité</option>
+                    <option value="quantity">1</option>
+                    <option value="quantity">2</option>
+                    <option value="quantity">3</option>
+                    <option value="quantity">4</option>
+                </select>
+            </div>
+            <br>
+
+            <div class="button-add-cart">
+                <form action="{{ path('bde_shop_view', {'id': article.id}) }}" method="post" {{ form_start(form) }}
+
+                {{ form_errors(form) }}
+                {{ form_row(form.add) }}
+                {#<a href="" class="add-btn">Ajouter au panier</a>#}
+
+                </form>
+            </div>
+
+            <p>{{ article.description }}</p>
             <ul>
                 <li>Pull 100% coton</li>
                 <li>Disponible en rouge Bordeaux / gris clair</li>

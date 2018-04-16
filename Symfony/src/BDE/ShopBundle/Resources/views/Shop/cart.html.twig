@@ -11,4 +11,8 @@
     <h2>
         URL : /SHOP/CART
     </h2>
+    {% for article in articles %}
+        {{ article.name }}
+    {% endfor %}
+
 {% endblock %}

@@ -3,11 +3,11 @@
 namespace BDE\ShopBundle\Controller;
 
 use BDE\AccountBundle\Entity\Users;
+use BDE\ShopBundle\Entity\Cart;
+use BDE\ShopBundle\Form\CartType;
 use BDE\ShopBundle\Entity\Articles;
-use BDE\ShopBundle\Entity\Orders_line;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class ShopController extends Controller
 {
@@ -53,30 +53,6 @@ class ShopController extends Controller
         ));
     }
 
-    public function cartAction(Request $request)
-    {
-        $userconnected = $this->takeUserConnected($request);
-        return $this->render('BDEShopBundle:Shop:cart.html.twig', array(
-            'name' => $userconnected,
-        ));
-    }
-
-    public function articleAction($id, Request $request)
-    {
-        $article = $this->getDoctrine()
-            ->getRepository(Articles::class)
-            ->find($id);
-
-        $userconnected = $this->takeUserConnected($request);
-        return $this->render('BDEShopBundle:Shop:article.html.twig', array(
-            'name' => $userconnected,
-            'article' => $article,
-        ));
-    }
-
-
-
-
     public function takeUserConnected(Request $request)
     {
         $session = $request->getSession();
@@ -93,6 +69,80 @@ class ShopController extends Controller
         }
 
         return $userconnected;
+    }
+
+    public function cartAction(Request $request)
+    {
+        $userconnected = $this->takeUserConnected($request);
+        $session = $request->getSession();
+        $id = $session->get('id');
+
+        $em = $this->getDoctrine()->getManager();
+        echo ",   ";
+        $sql = "
+        SELECT articles_id as total
+        FROM cart
+        WHERE users_id = " . $id;
+
+        $stmt = $em->getConnection()->prepare($sql);
+        $stmt->execute();
+        $results = $stmt->fetchAll();
+
+        $cart = array();
+
+        foreach ($results as $result) {
+            $idarticle = (int)$result['total'];
+            $article = $this->getDoctrine()
+                ->getRepository(Articles::class)
+                ->find($idarticle);
+            $cart[$article->getId()] = [
+                'name' => $article->getName(),
+
+            ];
+        }
+
+        return $this->render('BDEShopBundle:Shop:cart.html.twig', array(
+            'name' => $userconnected,
+            'articles' => $cart,
+        ));
+    }
+
+    public function articleAction($id, Request $request)
+    {
+        $article = $this->getDoctrine()
+            ->getRepository(Articles::class)
+            ->find($id);
+        $session = $request->getSession();
+        $id = $session->get('id');
+        $user = $this->getDoctrine()
+            ->getRepository(Users::class)
+            ->find($id);
+
+        $enquiry = new Cart();
+        $form = $this->createForm(CartType::class, $enquiry);
+        $form->handleRequest($request);
+
+        $userconnected = $this->takeUserConnected($request);
+
+        if ($request->isMethod('POST')) {
+            $enquiry->setArticles($article);
+            $enquiry->setUsers($user);
+            $enquiry->setQuantity(1);
+
+            $entiyManager = $this->getDoctrine()->getManager();
+            $entiyManager->persist($enquiry);
+            $entiyManager->flush();
+
+            /*return $this->render('BDEAccountBundle::account.html.twig', array(
+                'message' => 'Article ajouté!', 'name' => NULL,));*/
+            return $this->cartAction($request);
+        }
+
+        return $this->render('BDEShopBundle:Shop:article.html.twig', array(
+            'form' => $form->createView(),
+            'name' => $userconnected,
+            'article' => $article,
+        ));
     }
 
 }

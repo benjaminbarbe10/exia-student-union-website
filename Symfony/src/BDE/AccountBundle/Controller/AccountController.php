@@ -27,7 +27,9 @@ class AccountController extends Controller
 
             if ($user === NULL) {
                 return $this->render('BDEAccountBundle:connection:login.html.twig', array(
-                    'form' => $form->createView(), 'message' => 'Email ou mot de passe erroné!', 'name' => NULL,));
+                    'form' => $form->createView(),
+                    'message' => 'Email ou mot de passe erroné!',
+                    'name' => NULL,));
             }
             $idUser = $user->getId();
             //$idRole = $user->get

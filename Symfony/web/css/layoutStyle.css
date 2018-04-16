@@ -417,6 +417,12 @@ a.add-btn:hover{
   background-color: #1e7e34;
 }
 
+.button-add-cart {
+    color: #eee;
+    display: inline-block;
+    padding: 15px 100px;
+}
+
 .product-info p{
   margin-bottom: 30px;
 }
