@@ -8,9 +8,11 @@ use BDE\AccountBundle\Entity\Users;
 use BDE\EventBundle\Entity\Events;
 use BDE\EventBundle\Entity\Events_picture;
 
+use BDE\EventBundle\Form\EventsType;
 use BDE\EventBundle\Repository\Events_pictureRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\Request;
 
 class EventController extends Controller
@@ -33,15 +35,12 @@ class EventController extends Controller
         ));
     }
 
-    public function viewEventAction($id, Request $request)
+    public function viewEventAction(Events $events, Request $request)
     {
 
        $userconnected = $this->takeUserConnected($request);
 
-        $events = $this->getDoctrine()
-            ->getManager()
-            ->getRepository('BDEEventBundle:Events')
-            ->find($id);
+
         $repository = $this
             ->getDoctrine()
             ->getManager()
@@ -152,11 +151,62 @@ $listEvents = $repository->findAll();
         ));
     }
 
-    public function editEventAction(Request $request)
+    public function editEventAction($id, Request $request)
     {
+        $userconnected = $this->takeUserConnected($request);
 
-        return $this->render('BDEEventBundle:Event:edit.html.twig', array('name' => $userconnected));
+        $events = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('BDEEventBundle:Events')
+            ->find($id)
+        ;
 
+        $form = $this->createForm('BDE\EventBundle\Form\EventsEditType', $events);
+
+        $form->handleRequest($request);
+
+
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $attachments = $events->getEvents_picture();
+            if ($attachments) {
+                foreach($attachments as $attachment)
+                {
+                    $file = $attachment->getPicture();
+
+                    $filename = md5(uniqid()) . '.' .$file->guessExtension();
+
+                    $file->move(
+                        $this->getParameter('upload_path'), $filename
+                    );
+                    $attachment->setPicture($filename);
+                }
+            }
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($events);
+            $em->flush();
+
+            return $this->redirectToRoute('bde_event_viewevent', array('id' => $events->getId()));
+        }
+
+
+        $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('BDEEventBundle:Events');
+        $listEvents = $repository->findAll();
+        $events->setIsApproved(1);
+
+
+
+        return $this->render('BDEEventBundle:Event:addEvent.html.twig', array(
+            'events' => $events,
+            'form' => $form->createView(),
+            'listEvents' => $listEvents,
+            'name' => $userconnected
+        ));
 
     }
 

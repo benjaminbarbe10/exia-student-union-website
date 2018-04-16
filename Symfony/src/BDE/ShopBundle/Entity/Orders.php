@@ -31,7 +31,7 @@ class Orders
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="Date", type="datetimetz")
+     * @ORM\Column(name="Date_order", type="string")
      */
     private $date;
 

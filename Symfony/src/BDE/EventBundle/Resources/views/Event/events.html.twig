@@ -18,30 +18,42 @@
 
                     {% endfor %}
 
-                </div>
-                <br>
-                <br>
-            </div>
-            <div class=" col-12 col-lg-8">
-                <div>
-                    <h3 class="card-title"><a href="{{ path('bde_event_viewevent', {'id' : events.id}) }}"
+
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+                    <div class=" col-12 col-lg-8">
+                        <div>
+                            <h3 class="card-title"><a href="{{ path('bde_event_viewevent', {'id' : events.id}) }}"
                         title="Plus de renseignements">{{ events.name }}</a><h6
                         class="author">Crée par Benjamin Barbé.</h6></h3>
                         <div class="title_line"></div>
                         <br><br>
-                        <p class="card-text">{{ events.description }}Et interdum acciderat, ut siquid in penetrali
-                            secreto nullo citerioris vitae ministro praesente paterfamilias uxori susurrasset in
-                            aurem, velut Amphiarao referente aut Marcio, quondam vatibus inclitis, postridie
-                            disceret imperator. ideoque etiam parietes arcanorum soli conscii timebantur.
+                            <p class="card-text">{{ events.description }}Et interdum acciderat, ut siquid in penetrali
+                                secreto nullo citerioris vitae ministro praesente paterfamilias uxori susurrasset in
+                                aurem, velut Amphiarao referente aut Marcio, quondam vatibus inclitis, postridie
+                                disceret imperator. ideoque etiam parietes arcanorum soli conscii timebantur.
+                            <div class="priceevent">
+                                {% if events.pricettc == 0 %}
+                                    <h4>gratuit</h4>
 
+                                {% else %}
+                                    <h4>{{ events.pricettc }} €</h4>
+                                {% endif %}
+                            </div>
                             <div class="row">
                                 <div class="col pos">
 
+
                                     <a href="{{ path('bde_event_viewevent', {'id' : events.id}) }}"><div class="sim-button button28"><span>+ d'infos</span></div></a>
+
 
                                 </div>
                                 <div class="col pos">
-                                    <a href="{{ path('bde_event_suggestion') }}"><div class="sim-button button28"><span>S'inscrire</span></div></a>
+                                    <a href="{{ path('bde_event_suggestion') }}">
+                                        <div class="sim-button button28"><span>S'inscrire</span></div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
