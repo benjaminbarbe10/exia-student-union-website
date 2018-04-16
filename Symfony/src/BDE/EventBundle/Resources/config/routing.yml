@@ -27,6 +27,11 @@ bde_event_add:
     defaults:
          _controller: BDEEventBundle:Event:addEvent
 
+bde_event_addSuggestion:
+    path:      /addsuggestion
+    defaults:
+         _controller: BDEEventBundle:Event:addSuggestion
+
 bde_event_delete:
     path:      /event/delete/{id}
     defaults:
