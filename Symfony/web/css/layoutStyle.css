@@ -284,6 +284,17 @@ descMobile {
     cursor: pointer;
 }
 
+.card-body-carousel {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 content;
+    flex: 1 1 auto;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    cursor: pointer;
+}
+
 .well {
     min-height: 20px;
     padding: 19px;
@@ -294,7 +305,6 @@ descMobile {
     -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,.05);
     box-shadow: inset 0 0px 0px rgba(0,0,0,.05);
 }
-
 
 .product{
     background-color: #E9E9EBEE;
@@ -320,11 +330,12 @@ descMobile {
 }
 
 .product-image .bg{
-    background-image: url("../images/pullbde.png");
-    background-size: cover;
-    background-position: center top;
-    width: 100%;
-    min-height: 450px;
+  /*background-image: url("../images/pullbde.png");*/
+  text-align: center;
+  background-size: cover;
+  background-position: center top;
+  width: 100%;
+  min-height: 450px;
 }
 
 .product-image .indicator{
@@ -415,6 +426,12 @@ select:active, select:focus {
 
 a.add-btn:hover{
     background-color: #1e7e34;
+}
+
+.button-add-cart {
+    color: #eee;
+    display: inline-block;
+    padding: 15px 100px;
 }
 
 .product-info p{
