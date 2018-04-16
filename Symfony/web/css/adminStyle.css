@@ -1,0 +1,10 @@
+.listUser {
+    border-right: solid black 1px;
+}
+
+.nameUtilisateur {
+    text-align: center;
+    border-bottom: black solid 1px;
+    margin-right: 25%;
+    margin-left: 25%;
+}

@@ -4,6 +4,7 @@ namespace BDE\EventBundle\Form;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use BDE\EventBundle\Form\Events_pictureType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -23,12 +24,19 @@ class EventsType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
+
         $builder
             ->add('name', TextType::class)
             ->add('date', DateTimeType::class)
             ->add('place', TextType::class)
             ->add('description', TextareaType::class)
-            ->add('type', TextType::class)
+            ->add('type', ChoiceType::class, array(
+                'choices' => array(
+                    'Ponctuelle' => 'ponctuelle',
+                    'Mensuel' => 'mensuel'
+                )
+            ))
             ->add('pricettc', NumberType::class)
             ->add('events_picture', CollectionType::class,array(
                 'entry_type' => Events_pictureType::class,
