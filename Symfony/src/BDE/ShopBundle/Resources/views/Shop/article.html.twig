@@ -25,26 +25,6 @@
         <div class="col-1-2 product-info">
             <h1>{{ article.name }}</h1>
             <h2>{{ article.priceTTC }} €</h2>
-            <div class="select-dropdown">
-                <select>
-                    <option value="size">Taille</option>
-                    <option value="size">S</option>
-                    <option value="size">M</option>
-                    <option value="size">L</option>
-                    <option value="size">XL</option>
-                    <option value="size">XXL</option>
-                </select>
-            </div>
-            <div class="select-dropdown">
-                <select>
-                    <option value="quantity">Quantité</option>
-                    <option value="quantity">1</option>
-                    <option value="quantity">2</option>
-                    <option value="quantity">3</option>
-                    <option value="quantity">4</option>
-                </select>
-            </div>
-            <br>
 
             <div class="button-add-cart">
                 <form action="{{ path('bde_shop_view', {'id': article.id}) }}" method="post" {{ form_start(form) }}
@@ -60,7 +40,7 @@
             <ul>
                 <li>Pull 100% coton</li>
                 <li>Disponible en rouge Bordeaux / gris clair</li>
-                <li>Pseudo personnalisable</li>
+                <li>Capuche à cordon de serrage</li>
             </ul>
         </div>
     </div>

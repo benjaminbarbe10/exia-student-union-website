@@ -40,9 +40,9 @@
       <path value="$PROJECT_DIR$/Symfony/vendor/sensiolabs/security-checker" />
       <path value="$PROJECT_DIR$/Symfony/vendor/psr/log" />
       <path value="$PROJECT_DIR$/Symfony/vendor/psr/cache" />
-      <path value="$PROJECT_DIR$/Symfony/vendor/vich/uploader-bundle" />
       <path value="$PROJECT_DIR$/Symfony/vendor/kriswallsmith/assetic" />
       <path value="$PROJECT_DIR$/Symfony/vendor/jms/metadata" />
+      <path value="$PROJECT_DIR$/Symfony/vendor/vich/uploader-bundle" />
       <path value="$PROJECT_DIR$/Symfony/vendor/symfony/assetic-bundle" />
     </include_path>
   </component>
