@@ -275,7 +275,7 @@ footer ul li a:hover{
         display: block;
         position: absolute;
         top: 100%;
-        width: 100%;
+        width: 99%;
         -webkit-transform: rotateX(-90deg);
         -moz-transform: rotateX(-90deg);
         -o-transform: rotateX(-90deg);

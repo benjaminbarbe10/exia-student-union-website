@@ -1,22 +1,23 @@
 {% extends "BDEEventBundle::layoutEvent.html.twig" %}
 
 {% block title %}
-    Événements - {{ parent() }}
+Événements - {{ parent() }}
 {% endblock %}
 
 {% block bodyevent %}
-    <div class="col" xmlns="http://www.w3.org/1999/html">
-        <div class="row">
-            {% for events in listEvents %}
-                <div class="col-12 bande">
-                    <div class=" col-12 col-lg-4">
-                        <div class="card">
+<div class="col" xmlns="http://www.w3.org/1999/html">
+    <div class="row">
+        {% for events in listEvents %}
+        <div class="col-12 bande">
+            <div class=" col-12 col-lg-4">
+                <div class="card">
 
-                            {% for images in events.events_picture[0:1] %}
+                    {% for images in events.events_picture[0:1] %}
 
-                                <img class="card-img-top" src="{{ asset('upload/'~images.picture) }}">
+                    <img class="card-img-top" src="{{ asset('upload/'~images.picture) }}">
 
-                            {% endfor %}
+                    {% endfor %}
+
 
                         </div>
                         <br>
@@ -24,11 +25,11 @@
                     </div>
                     <div class=" col-12 col-lg-8">
                         <div>
-                            <h3 class="card-title"><a href="product.html"
-                                                      title="Plus de renseignements">{{ events.name }}</a><h6
-                                        class="author">Crée par Benjamin Barbé.</h6></h3>
-                            <div class="title_line"></div>
-                            <br><br>
+                            <h3 class="card-title"><a href="{{ path('bde_event_viewevent', {'id' : events.id}) }}"
+                        title="Plus de renseignements">{{ events.name }}</a><h6
+                        class="author">Crée par Benjamin Barbé.</h6></h3>
+                        <div class="title_line"></div>
+                        <br><br>
                             <p class="card-text">{{ events.description }}Et interdum acciderat, ut siquid in penetrali
                                 secreto nullo citerioris vitae ministro praesente paterfamilias uxori susurrasset in
                                 aurem, velut Amphiarao referente aut Marcio, quondam vatibus inclitis, postridie
@@ -44,12 +45,11 @@
                             <div class="row">
                                 <div class="col pos">
 
-                                    <a href="{{ path('bde_event_suggestion') }}">
-                                        <a href="{{ path('bde_event_suggestion') }}">
-                                            <div class="sim-button button28"><span>+ d'infos</span></div>
-                                        </a>
 
-                                    </a></div>
+                                    <a href="{{ path('bde_event_viewevent', {'id' : events.id}) }}"><div class="sim-button button28"><span>+ d'infos</span></div></a>
+
+
+                                </div>
                                 <div class="col pos">
                                     <a href="{{ path('bde_event_suggestion') }}">
                                         <div class="sim-button button28"><span>S'inscrire</span></div>
@@ -62,15 +62,15 @@
 
 
                 </div>
-            {% else %}
+                {% else %}
                 <li>Pas (encore !) d'events</li>
                 <div class="divAddEvent">
                     <a class="btnAddEvent" href="{{ path('bde_event_add') }}" role="button"><b>+ &nbsp;Créer un
-                            événement</b></a>
+                        événement</b></a>
+                    </div>
+                    {% endfor %}
                 </div>
-            {% endfor %}
-        </div>
-    </div>
+            </div>
 
 
-{% endblock %}
+        {% endblock %}
