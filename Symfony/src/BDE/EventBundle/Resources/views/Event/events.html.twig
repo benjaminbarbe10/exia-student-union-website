@@ -33,16 +33,27 @@
                                 secreto nullo citerioris vitae ministro praesente paterfamilias uxori susurrasset in
                                 aurem, velut Amphiarao referente aut Marcio, quondam vatibus inclitis, postridie
                                 disceret imperator. ideoque etiam parietes arcanorum soli conscii timebantur.
+                            <div class="priceevent">
+                                {% if events.pricettc == 0 %}
+                                    <h4>gratuit</h4>
 
+                                {% else %}
+                                    <h4>{{ events.pricettc }} €</h4>
+                                {% endif %}
+                            </div>
                             <div class="row">
                                 <div class="col pos">
 
                                     <a href="{{ path('bde_event_suggestion') }}">
-                                        <a href="{{ path('bde_event_suggestion') }}"><div class="sim-button button28"><span>+ d'infos</span></div></a>
+                                        <a href="{{ path('bde_event_suggestion') }}">
+                                            <div class="sim-button button28"><span>+ d'infos</span></div>
+                                        </a>
 
                                     </a></div>
                                 <div class="col pos">
-                                    <a href="{{ path('bde_event_suggestion') }}"><div class="sim-button button28"><span>S'inscrire</span></div></a>
+                                    <a href="{{ path('bde_event_suggestion') }}">
+                                        <div class="sim-button button28"><span>S'inscrire</span></div>
+                                    </a>
                                 </div>
                             </div>
                         </div>

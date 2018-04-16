@@ -2,3 +2,11 @@ bde_admin_index:
     path:     /admin
     defaults:
         _controller: BDEAdminBundle:Admin:Admin
+
+
+bde_admin_viewuser:
+    path:     /user/{id}
+    defaults:
+         _controller: BDEAdminBundle:Admin:viewUser
+    requirements:
+        id: \d+

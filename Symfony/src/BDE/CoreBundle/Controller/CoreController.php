@@ -11,9 +11,18 @@ class CoreController extends Controller
 {
     public function indexAction(Request $request)
     {
+
+
+        $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('BDEEventBundle:Events');
+        $eventlist = $repository->findAll();
+
         $userconnected = $this->takeUserConnected($request);
         return $this->render('BDECoreBundle::index.html.twig', array(
-            'name' => $userconnected
+            'name' => $userconnected,
+            'listUsers' => $eventlist,
         ));
     }
 

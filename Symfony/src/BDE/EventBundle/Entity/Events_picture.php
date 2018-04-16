@@ -13,9 +13,23 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  * @ORM\Table(name="events_picture")
  * @ORM\Entity(repositoryClass="BDE\EventBundle\Repository\Events_pictureRepository")
  */
-class Events_picture
+class Events_picture implements \ArrayAccess
 {
+    public function offsetExists($offset) {
+        return isset($this->$offset);
+    }
 
+    public function offsetSet($offset, $value) {
+        $this->$offset = $value;
+    }
+
+    public function offsetGet($offset) {
+        return $this->$offset;
+    }
+
+    public function offsetUnset($offset) {
+        $this->$offset = null;
+    }
 
     /**
      * @var int

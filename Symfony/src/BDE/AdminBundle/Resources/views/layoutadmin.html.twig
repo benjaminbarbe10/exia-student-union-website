@@ -1,0 +1,21 @@
+{% extends "BDECoreBundle::layout.html.twig" %}
+
+{% block title %}
+    admin - {{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/adminStyle.css') }}">
+{% endblock %}
+    {% block body %}
+<h1>
+    <center>
+        Panel d'administration
+    </center>
+</h1><br><br><br>
+
+
+            {% block bodyadmin %}
+
+            {% endblock %}
+{% endblock %}

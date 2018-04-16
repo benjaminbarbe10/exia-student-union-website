@@ -1,1 +1,14 @@
-{% include "BDEEventBundle:Event:eventForm.html.twig" %}
+
+{% extends "BDEEventBundle::layoutEvent.html.twig" %}
+
+{% block title %}
+    Modifier une annonce - {{ parent() }}
+{% endblock %}
+
+{% block bodyevent %}
+
+    <h2>Modifier une annonce</h2>
+    {% include "BDEEventBundle:Event:eventForm.html.twig" %}
+
+
+{% endblock %}
