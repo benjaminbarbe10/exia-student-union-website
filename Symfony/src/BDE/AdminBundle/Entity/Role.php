@@ -28,12 +28,6 @@ class Role
      */
     private $name;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="Number", type="integer", unique=true)
-     */
-    private $number;
 
     
 
@@ -71,27 +65,4 @@ class Role
         return $this->name;
     }
 
-    /**
-     * Set number
-     *
-     * @param integer $number
-     *
-     * @return Role
-     */
-    public function setNumber($number)
-    {
-        $this->number = $number;
-
-        return $this;
-    }
-
-    /**
-     * Get number
-     *
-     * @return integer
-     */
-    public function getNumber()
-    {
-        return $this->number;
-    }
 }
