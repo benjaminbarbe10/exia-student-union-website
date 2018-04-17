@@ -9,8 +9,10 @@ use BDE\AccountBundle\Entity\Users;
 use BDE\AccountBundle\Form\LoginType;
 use BDE\AccountBundle\Form\RegisterType;
 use BDE\EventBundle\Entity\Events;
+use BDE\EventBundle\Entity\Events_comment;
 use BDE\EventBundle\Entity\Events_picture;
 
+use BDE\EventBundle\Form\Events_commentType;
 use BDE\EventBundle\Form\EventsType;
 use BDE\EventBundle\Repository\Events_pictureRepository;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -57,9 +59,30 @@ class EventController extends Controller
 
     public function viewEventAction(Events $events, Request $request)
     {
+        //recup userdata
+        $session = $request->getSession();
+        $id = $session->get('id');
+        $user = $this->getDoctrine()
+            ->getRepository(Users::class)
+            ->find($id);
+        $usernamecommnent = $user->getName();
+        $usersurnamecomment = $user->getSurname();
+
+        $comment = new Events_comment();
+        $form = $this->get('form.factory')->create(Events_commentType::class, $comment);
+        $comment->setAuthorname($usernamecommnent);
+        $comment->setAuthorsurname($usersurnamecomment);
+        $comment->setEvents($events);
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($comment);
+            $em->flush();
+            $request->getSession()->getFlashBag()->add('notice', 'Commentaire bien posté.');
+            return $this->redirectToRoute('bde_event_viewevent', array('id' => $events->getId()));
+        }
 
 
-       $userconnected = $this->takeUserConnected($request);
+            $userconnected = $this->takeUserConnected($request);
         $enquiry = new Users();
         $formconnect = $this->createForm(LoginType::class, $enquiry);
         $formconnect->handleRequest($request);
@@ -67,17 +90,30 @@ class EventController extends Controller
         $formregister->handleRequest($request);
 
 
+
+
+//recuperer les events
         $repository = $this
             ->getDoctrine()
             ->getManager()
             ->getRepository('BDEEventBundle:Events');
         $listEvents = $repository->findAll();
+
+//recup les coms
+        $em = $this->getDoctrine()->getManager();
+
+        $listComments = $em
+            ->getRepository('BDEEventBundle:Events_comment')
+            ->findBy(array('events' => $events))
+        ;
         return $this->render('BDEEventBundle:Event:viewEvent.html.twig', array(
             'events' => $events,
             'name' => $userconnected,
             'listEvents' => $listEvents,
+            'listComments' => $listComments,
             'formconnect' => $formconnect->createView(),
             'formregister' => $formregister->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -139,10 +175,15 @@ class EventController extends Controller
 
     public function addEventAction(Request $request)
     {
-
+        $session = $request->getSession();
+        $id = $session->get('id');
+        $user = $this->getDoctrine()
+            ->getRepository(Users::class)
+            ->find($id);
+            $username = $user->getName();
+            $usersurname = $user->getSurname();
         $events = new Events();
         $form = $this->createForm('BDE\EventBundle\Form\EventsType', $events);
-        $events->setUsers($this->getUser());
 
         $form->handleRequest($request);
         $userconnected = $this->takeUserConnected($request);
@@ -157,6 +198,15 @@ class EventController extends Controller
             ->getRepository('BDEEventBundle:Events');
         $listEvents = $repository->findAll();
         $events->setIsApproved(1);
+        $events->setAuthorName($username);
+        $events->setAuthorSurname($usersurname);
+
+
+
+
+
+
+
 
         if ($form->isSubmitted() && $form->isValid()) {
 
@@ -332,6 +382,7 @@ class EventController extends Controller
                 ->find($id);
             if ($id != 0) {
                 $userconnected = $user->getName();
+                $usersurname = $user->getSurname();
             }
             else {
                 $userconnected = '';
@@ -340,8 +391,5 @@ class EventController extends Controller
             return $userconnected;
 
         }
-
-        return $userconnected;
-    }
 
 }
