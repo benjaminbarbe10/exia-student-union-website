@@ -5,6 +5,8 @@ namespace BDE\EventBundle\Controller;
 
 use BDE\AccountBundle\Entity\Users;
 
+use BDE\AccountBundle\Form\LoginType;
+use BDE\AccountBundle\Form\RegisterType;
 use BDE\EventBundle\Entity\Events;
 use BDE\EventBundle\Entity\Events_picture;
 
@@ -20,6 +22,12 @@ class EventController extends Controller
 
         $userconnected = $this->takeUserConnected($request);
 
+        $enquiry = new Users();
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
+
         $repository = $this
             ->getDoctrine()
             ->getManager()
@@ -29,7 +37,9 @@ class EventController extends Controller
 
         return $this->render('BDEEventBundle:Event:events.html.twig', array(
             'listEvents' => $listEvents,
-            'name' => $userconnected
+            'name' => $userconnected,
+            'formconnect' => $formconnect->createView(),
+            'formregister' => $formregister->createView(),
         ));
     }
 
@@ -37,6 +47,11 @@ class EventController extends Controller
     {
 
        $userconnected = $this->takeUserConnected($request);
+        $enquiry = new Users();
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
 
         $events = $this->getDoctrine()
             ->getManager()
@@ -51,6 +66,8 @@ $listEvents = $repository->findAll();
             'events' => $events,
             'name' => $userconnected,
             'listEvents' => $listEvents,
+            'formconnect' => $formconnect->createView(),
+            'formregister' => $formregister->createView(),
         ));
     }
 
@@ -70,6 +87,11 @@ $listEvents = $repository->findAll();
 
         $form->handleRequest($request);
         $userconnected = $this->takeUserConnected($request);
+        $enquiry = new Users();
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
 
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -100,7 +122,9 @@ $listEvents = $repository->findAll();
             'events' => $events,
             'form' => $form->createView(),
             'listEvents' => $listEvents,
-            'name' => $userconnected
+            'name' => $userconnected,
+            'formconnect' => $formconnect->createView(),
+            'formregister' => $formregister->createView(),
         ));
     }
 
@@ -112,7 +136,11 @@ $listEvents = $repository->findAll();
 
         $form->handleRequest($request);
         $userconnected = $this->takeUserConnected($request);
-
+        $enquiry = new Users();
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
         $repository = $this
             ->getDoctrine()
             ->getManager()
@@ -148,14 +176,25 @@ $listEvents = $repository->findAll();
             'events' => $events,
             'form' => $form->createView(),
             'listEvents' => $listEvents,
-            'name' => $userconnected
+            'name' => $userconnected,
+            'formconnect' => $formconnect->createView(),
+            'formregister' => $formregister->createView(),
         ));
     }
 
     public function editEventAction(Request $request)
     {
-
-        return $this->render('BDEEventBundle:Event:edit.html.twig', array('name' => $userconnected));
+        $userconnected = $this->takeUserConnected($request);
+        $enquiry = new Users();
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
+        return $this->render('BDEEventBundle:Event:edit.html.twig', array(
+            'name' => $userconnected,
+            'formconnect' => $formconnect->createView(),
+            'formregister' => $formregister->createView(),
+        ));
 
 
     }
@@ -164,26 +203,42 @@ $listEvents = $repository->findAll();
 
     {
         $userconnected = $this->takeUserConnected($request);
-        return $this->render('BDEEventBundle:Event:viewSuggestion.html.twig', array('name' => $userconnected));
+        $enquiry = new Users();
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
+        return $this->render('BDEEventBundle:Event:viewSuggestion.html.twig', array(
+            'name' => $userconnected,
+            'formconnect' => $formconnect->createView(),
+            'formregister' => $formregister->createView(),
+        ));
     }
 
 
     public function suggestionAction(Request $request)
     {
         $userconnected = $this->takeUserConnected($request);
-        return $this->render('BDEEventBundle:Event:suggestion.html.twig', array('name' => $userconnected));
+        $enquiry = new Users();
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
+        return $this->render('BDEEventBundle:Event:suggestion.html.twig', array(
+            'name' => $userconnected,
+            'formconnect' => $formconnect->createView(),
+            'formregister' => $formregister->createView(),
+            ));
     }
 
 
     public function takeUserConnected(Request $request)
     {
             $session = $request->getSession();
-            //$session->set('id', 2);
             $id = $session->get('id');
             $user = $this->getDoctrine()
                 ->getRepository(Users::class)
                 ->find($id);
-            //var_dump($user); die;
             if ($id != 0) {
                 $userconnected = $user->getName();
             }

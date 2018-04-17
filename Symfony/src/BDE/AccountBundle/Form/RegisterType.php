@@ -12,6 +12,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class RegisterType extends AbstractType
@@ -21,12 +22,16 @@ class RegisterType extends AbstractType
     {
         $builder->add('email', EmailType::class, array(
         ));
-        $builder->add('name');
-        $builder->add('surname');
+        $builder->add('name', TextType::class, array(
+            'label' => 'Prénom',
+        ));
+        $builder->add('surname', TextType::class, array(
+            'label' => 'Nom',
+        ));
         $builder->add('password', RepeatedType::class, array(
             'type' => PasswordType::class,
-            'first_options'  => array('label' => 'Password'),
-            'second_options' => array('label' => 'Repeat Password'),
+            'first_options'  => array('label' => 'Mot de passe'),
+            'second_options' => array('label' => 'Recopier mot de passe'),
         ));
     }
 
