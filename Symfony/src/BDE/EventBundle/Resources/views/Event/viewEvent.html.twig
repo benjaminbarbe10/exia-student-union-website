@@ -1,22 +1,21 @@
 {% extends "BDEEventBundle::layoutEvent.html.twig" %}
 
 {% block title %}
-titre {{ parent() }}
+    titre {{ parent() }}
 {% endblock %}
 
 {% block bodyevent %}
 
-<div class="col" style="border-bottom: solid 1px #888888;padding-bottom:20px;"xmlns="http://www.w3.org/1999/html">
+<div class="col" style="border-bottom: solid 1px #888888;padding-bottom:20px;" xmlns="http://www.w3.org/1999/html">
     <div class="row">
         <div class="col-12 bande">
             <div class=" col-12 col-lg-4"><br><br><br><br>
                 <div class="card">
                     {% for images in events.events_picture[0:1] %}
-                    <img class="card-img-top" src="{{ asset('upload/'~images.picture) }}">
+                        <img class="card-img-top" src="{{ asset('upload/'~images.picture) }}">
                     {% endfor %}
                 </div>
                 <br>
-
 
 
             </div>
@@ -36,18 +35,20 @@ titre {{ parent() }}
                         aurem, velut Amphiarao referente aut Marcio, quondam vatibus inclitis, postridie
                         disceret imperator. ideoque etiam parietes arcanorum soli conscii timebantur.
 
-                        <div class="row">
-                            <div class="col pos">
-                                <a href="{{ path('bde_event_suggestion') }}"><div class="sim-button button28"><span><b>S'inscrire</b></span></div></a>
-                            </div>
+                    <div class="row">
+                        <div class="col pos">
+                            <a href="{{ path('bde_event_suggestion') }}">
+                                <div class="sim-button button28"><span><b>S'inscrire</b></span></div>
+                            </a>
                         </div>
                     </div>
                 </div>
-
-
             </div>
-            <div class="col-12">
-                <div class="row">
+
+
+        </div>
+        <div class="col-12">
+            <div class="row">
 
                 <div class="col-6">
                     Lieu de l'événement : {{ events.place }}
@@ -55,18 +56,39 @@ titre {{ parent() }}
                             width="400"
                             height="300"
                             frameborder="0" style="border:0"
-                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAQSoMI9NoXV-nfA0q23vecpWZFZm44Sc8&q={{ events.place }}" allowfullscreen>
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAQSoMI9NoXV-nfA0q23vecpWZFZm44Sc8&q={{ events.place }}"
+                            allowfullscreen>
                     </iframe>
                 </div>
 
             </div>
-        </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <br>
+                    <div class="titlecom title_line"><h3>Commentaires</h3></div>
+                    <br>
+                    {{ form(form) }}
+
+                    {% for comments in listComments|sort|reverse %}
+
+                        <h5 class="italic">{{ comments.authorname }} {{ comments.authorsurname }}, le {{ comments.date|date }}</h5>
+
+                        {{ comments.content }}
+                        <br>
+                        <br>
+                        <br>
+
+                    {% endfor %}
+
+                </div>
+            </div>
 
         </div>
 
         <div style="float: right;padding-top:5%;">
             <p>
-                <a href="{{ path('bde_event_index')}}" class="btnCart">
+                <a href="{{ path('bde_event_index') }}" class="btnCart">
                     <i class="glyphicon glyphicon-chevron-left"></i>
                     Retour
                 </a>&nbsp;
@@ -94,7 +116,4 @@ titre {{ parent() }}
     {{ events.date|date('d/m/Y') }}-->
 
 
-
-
-
-{% endblock %}
+    {% endblock %}
