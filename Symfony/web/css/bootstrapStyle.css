@@ -238,6 +238,12 @@ footer ul li a:hover{
     border-radius: 4px;
 }
 
+.form-control {
+    width: 220%;
+}
+
+
+
 @media screen and (min-width: 768px) {
 
     .navbar-right{
