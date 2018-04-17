@@ -26,7 +26,8 @@ titre {{ parent() }}
                     <h6 class="author">Événement créé par Benjamin Barbé.</h6>
                     <div class="row">
                         <div class="col-6" style="padding-left: 55px;"><h4>Gratuit</h4></div>
-                        <div class="col-6" style="text-align:right;"><h4>Dans 9 jours</h4></div>
+                        <div class="col-6" style="text-align:right;"><h4>Le {{ events.date|date('d-m-Y') }}</h4></div>
+
                     </div>
 
                     <br><br>
@@ -49,11 +50,15 @@ titre {{ parent() }}
                 <div class="row">
 
                 <div class="col-6">
-                    <iframe width="400" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d706.5596463176096!2d-0.5673011707611613!3d44.898142048682296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5529a658fab563%3A0x450b03d3944ee5fe!2sCours+Jules+Ladoumegue%2C+33300+Bordeaux!5e0!3m2!1sfr!2sfr!4v1523881930096" allowfullscreen></iframe>
-                </div>
-                <div class="col-6">
                     Lieu de l'événement : {{ events.place }}
+                    <iframe
+                            width="400"
+                            height="300"
+                            frameborder="0" style="border:0"
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAQSoMI9NoXV-nfA0q23vecpWZFZm44Sc8&q={{ events.place }}" allowfullscreen>
+                    </iframe>
                 </div>
+
             </div>
         </div>
 

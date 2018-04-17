@@ -100,6 +100,12 @@ class Events
     private $events_picture;
 
     /**
+     * @ORM\ManyToOne(targetEntity="BDE\AccountBundle\Entity\Users")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $users;
+
+    /**
      * Get id
      *
      * @return int
@@ -337,5 +343,29 @@ class Events
     public function getEventsPicture()
     {
         return $this->events_picture;
+    }
+
+    /**
+     * Set users
+     *
+     * @param \BDE\AccountBundle\Entity\Users $users
+     *
+     * @return Events
+     */
+    public function setUsers(\BDE\AccountBundle\Entity\Users $users)
+    {
+        $this->users = $users;
+
+        return $this;
+    }
+
+    /**
+     * Get users
+     *
+     * @return \BDE\AccountBundle\Entity\Users
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }

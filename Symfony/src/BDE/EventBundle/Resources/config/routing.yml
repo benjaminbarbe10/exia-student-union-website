@@ -45,3 +45,4 @@ bde_event_edit:
          _controller: BDEEventBundle:Event:editEvent
     requirements:
         id: \d+
+
