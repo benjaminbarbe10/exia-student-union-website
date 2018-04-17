@@ -8,7 +8,10 @@
 {% block bodyevent %}
 
     <h2>Modifier une annonce</h2>
-    {% include "BDEEventBundle:Event:eventForm.html.twig" %}
+    <div class="well">
+        {{ form(form) }}
+    </div>
+
 
 
 {% endblock %}

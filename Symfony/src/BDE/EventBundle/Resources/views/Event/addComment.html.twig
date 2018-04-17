@@ -1,0 +1,12 @@
+{% extends "BDEEventBundle::layoutEvent.html.twig" %}
+
+{% block title %}
+    titre {{ parent() }}
+{% endblock %}
+
+{% block bodyevent %}
+    <h3>Commenter l'event</h3>
+    {% include "BDEEventBundle:Event:commentForm.html.twig" %}
+
+
+{% endblock %}

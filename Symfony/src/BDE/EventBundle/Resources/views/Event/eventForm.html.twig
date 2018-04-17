@@ -45,6 +45,7 @@
     {{ form_row(form.pricettc,{ 'attr':{'placeholder':'sample value'} }) }}
 
 
+    {% if form.events_picture is defined %}
 
     {{ form_label(form.events_picture, "Images") }}
 
@@ -55,6 +56,7 @@
             </li>
         {% endfor %}
     </ul>
+    {% endif %}
 
     {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
 

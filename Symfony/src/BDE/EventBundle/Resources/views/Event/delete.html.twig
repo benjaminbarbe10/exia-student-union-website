@@ -1,0 +1,33 @@
+{% extends "BDEEventBundle::layoutEvent.html.twig" %}
+
+{% block title %}
+    titre {{ parent() }}
+{% endblock %}
+
+{% block bodyevent %}
+
+
+
+        <div class="col-12 col-lg-9">
+            <h2>Supprimer un event</h2>
+            <br>
+            <h3> Etes-vous certain de vouloir supprimer l'event : "{{ event.name }}" ?</h3>
+
+            <form action="{{ path('bde_event_delete', {'id': event.id}) }}" method="post">
+                <a href="{{ path('bde_event_viewevent', {'id': event.id}) }}" class="btnCart">
+                    <i class="glyphicon glyphicon-chevron-left"></i>
+                    Retour à l'event
+                </a> &nbsp;
+                {# Ici j'ai écrit le bouton de soumission à la main #}
+                <input type="submit" value="Supprimer" class="btnCartSupp"/>
+                {# Ceci va générer le champ CSRF #}
+                {{ form_rest(form) }}
+            </form>
+        </div>
+
+
+
+
+
+
+{% endblock %}

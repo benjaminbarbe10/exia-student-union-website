@@ -1,6 +1,7 @@
 <?php
 
 namespace BDE\EventBundle\Form;
+use BDE\EventBundle\Entity\Events_picture;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
