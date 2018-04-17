@@ -13,6 +13,14 @@ class CoreController extends Controller
 {
     public function indexAction(Request $request)
     {
+
+
+        $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('BDEEventBundle:Events');
+        $eventlist = $repository->findAll();
+
         $userconnected = $this->takeUserConnected($request);
 
         $enquiry = new Users();
@@ -25,6 +33,7 @@ class CoreController extends Controller
             'name' => $userconnected,
             'formconnect' => $formconnect->createView(),
             'formregister' => $formregister->createView(),
+            'listUsers' => $eventlist,
         ));
     }
 

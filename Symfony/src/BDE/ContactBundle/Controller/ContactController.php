@@ -26,15 +26,12 @@ class ContactController extends Controller
         $userconnected = $this->takeUserConnected($request);
 
         if ($request->isMethod('POST')) {
-
             $message = \Swift_Message::newInstance()
                 ->setSubject($enquiry->getSubject())
                 ->setFrom($enquiry->getEmail())
                 ->setTo('bdecesi@laposte.net')
                 ->setBody($enquiry->getBody());
-
             $this->get('mailer')->send($message);
-
             return $this->render('BDECoreBundle::index.html.twig', array(
                 'form' => $form->createView(),
                 'name' => $userconnected,
@@ -50,7 +47,6 @@ class ContactController extends Controller
             'formconnect' => $formconnect->createView(),
             'formregister' => $formregister->createView(),
         ));
-
     }
 
 
@@ -70,4 +66,3 @@ class ContactController extends Controller
         return $userconnected;
     }
 }
-

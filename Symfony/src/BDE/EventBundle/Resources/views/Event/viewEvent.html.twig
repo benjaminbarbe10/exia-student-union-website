@@ -1,13 +1,82 @@
 {% extends "BDEEventBundle::layoutEvent.html.twig" %}
 
 {% block title %}
-    titre {{ parent() }}
+titre {{ parent() }}
 {% endblock %}
 
 {% block bodyevent %}
 
+<div class="col" style="border-bottom: solid 1px #888888;padding-bottom:20px;"xmlns="http://www.w3.org/1999/html">
+    <div class="row">
+        <div class="col-12 bande">
+            <div class=" col-12 col-lg-4"><br><br><br><br>
+                <div class="card">
+                    {% for images in events.events_picture[0:1] %}
+                    <img class="card-img-top" src="{{ asset('upload/'~images.picture) }}">
+                    {% endfor %}
+                </div>
+                <br>
 
-    {{ events.name }}
+
+
+            </div>
+            <div class=" col-12 col-lg-8">
+                <div>
+                    <h3 class="card-title">{{ events.name }}</h3>
+                    <h6 class="author">Événement créé par Benjamin Barbé.</h6>
+                    <div class="row">
+                        <div class="col-6" style="padding-left: 55px;"><h4>Gratuit</h4></div>
+                        <div class="col-6" style="text-align:right;"><h4>Dans 9 jours</h4></div>
+                    </div>
+
+                    <br><br>
+                    <p class="card-text">{{ events.description }} Et interdum acciderat, ut siquid in penetrali
+                        secreto nullo citerioris vitae ministro praesente paterfamilias uxori susurrasset in
+                        aurem, velut Amphiarao referente aut Marcio, quondam vatibus inclitis, postridie
+                        disceret imperator. ideoque etiam parietes arcanorum soli conscii timebantur.
+
+                        <div class="row">
+                            <div class="col pos">
+                                <a href="{{ path('bde_event_suggestion') }}"><div class="sim-button button28"><span><b>S'inscrire</b></span></div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-12">
+                <div class="row">
+
+                <div class="col-6">
+                    <iframe width="400" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d706.5596463176096!2d-0.5673011707611613!3d44.898142048682296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5529a658fab563%3A0x450b03d3944ee5fe!2sCours+Jules+Ladoumegue%2C+33300+Bordeaux!5e0!3m2!1sfr!2sfr!4v1523881930096" allowfullscreen></iframe>
+                </div>
+                <div class="col-6">
+                    Lieu de l'événement : {{ events.place }}
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+        <div style="float: right;padding-top:5%;">
+            <p>
+                <a href="{{ path('bde_event_index')}}" class="btnCart">
+                    <i class="glyphicon glyphicon-chevron-left"></i>
+                    Retour
+                </a>&nbsp;
+                <a href="{{ path('bde_event_edit', {'id': events.id}) }}" class="btnCart">
+                    <i class="glyphicon glyphicon-edit"></i>
+                    Modifier
+                </a>&nbsp;
+                <a href="{{ path('bde_event_delete', {'id': events.id}) }}" class="btnCartSupp">
+                    <i class="glyphicon glyphicon-trash"></i>
+                    Supprimer
+                </a>
+            </p>
+        </div>
+    </div>
+    <!--{{ events.name }}
 
     {{ events.place }}
 
@@ -17,26 +86,10 @@
 
     {{ events.pricettc }}
 
-    {{ events.date|date('d/m/Y') }}
-    {% for images in events.events_picture %}
-        <li>
-            <img src="{{ asset('upload/'~images.picture) }}">
-        </li>
-    {% endfor %}
+    {{ events.date|date('d/m/Y') }}-->
 
-    <p>
-        <a href="{{ path('bde_event_index')}}" class="btn btn-default">
-            <i class="glyphicon glyphicon-chevron-left"></i>
-            Retour à la liste
-        </a>
-        <a href="{{ path('bde_event_edit', {'id': events.id}) }}" class="btn btn-default">
-            <i class="glyphicon glyphicon-edit"></i>
-            Modifier l'annonce
-        </a>
-        <a href="{{ path('bde_event_delete', {'id': events.id}) }}" class="btn btn-danger">
-            <i class="glyphicon glyphicon-trash"></i>
-            Supprimer l'annonce
-        </a>
-    </p>
+
+
+
 
 {% endblock %}

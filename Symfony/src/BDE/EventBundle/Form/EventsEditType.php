@@ -12,7 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 
-class EventsType extends AbstractType
+class EventsEditType extends AbstractType
 {
     /**
      * {@inheritdoc}

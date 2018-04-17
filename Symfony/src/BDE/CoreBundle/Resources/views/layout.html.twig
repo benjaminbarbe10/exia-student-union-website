@@ -157,6 +157,39 @@
                                 <div class="model-r">
                                     <div class="o-r">
                                         <span>ou</span>
+
+                                {#<div class="modal-body">
+                                    <div class="col-md-6 col-sm-6 no-padng">
+                                        <div class="model-l">
+                                            <form method="post" id="logFrm" class="log-frm" name="logFrm">
+                                                <ul>
+                                                    <li>Email</li>
+                                                    <li> <input type="text" id="userName" name="userName" class="form-control" onfocus="checkNullProf();"></li>
+                                                    <li>Mot de passe</li>
+                                                    <li><input type="password" id="password" name="password" class="form-control" onfocus="checkNullProf();"></li>
+                                                    <li><br/><button type="button" onclick="userLogin();" id="logBtn" class="btnLogin btn-defaultLogin">Valider</button></li>
+                                                    <div style="display:none;" id="loginFail" class="sign">
+                                                        <li> <font color="red">  Identifiant ou mot de passe incorrect.</font></li>
+                                                    </div>
+                                                </ul>
+                                            </form>
+                                            <div class="clearfix"></div>
+                                            <form method="post" id="logFrm1" class="log-frm" name="logFrm1">
+                                                <ul>
+                                                    <li>
+                                                        <a class="for-got" onclick="ayantoggle();" href="javascript:;">▼ Mot de passe oublié ?</a>
+                                                        <div class="forgot">
+                                                            <ul>
+                                                                <li><p>Entrez votre email afin de recevoir un nouveau mot de passe.</p></li>
+                                                                <li>Email</li>
+                                                                <li><input type="text" id="forgetemailId" class="form-control" name="forgetemailId"></li>
+                                                                <li><button type="button" class="btnLogin btn-defaultLogin" onclick="forgot();">Envoyer le mail</button></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </form>
+                                        </div>#}
                                     </div>
                                     <form action="{{ path('bde_account_register') }}" method="post" id="userRegisterFrm"
                                           class="log-frm" name="userRegisterFrm">
@@ -294,20 +327,17 @@
         }
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script>
-        $(function () {
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+                <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+                <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
+            <script>
+            
+            $(function() {
             $('a[href="#toggle-search"], .navbar-bootsnipp .bootsnipp-search .input-group-btn > .btn[type="reset"]').on('click', function (event) {
                 event.preventDefault();
                 $('.navbar-bootsnipp .bootsnipp-search .input-group > input').val('');
