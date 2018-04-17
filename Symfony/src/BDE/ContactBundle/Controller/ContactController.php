@@ -14,33 +14,24 @@ class ContactController extends Controller
     {
         $enquiry = new Enquiry();
         $form = $this->createForm(EnquiryType::class, $enquiry);
-
         $form->handleRequest($request);
-
         if ($request->isMethod('POST')) {
-
             $message = \Swift_Message::newInstance()
-
                 ->setSubject($enquiry->getSubject())
                 ->setFrom($enquiry->getEmail())
                 ->setTo('bdecesi@laposte.net')
                 ->setBody($enquiry->getBody());
-
             $this->get('mailer')->send($message);
-
             return $this->render('BDECoreBundle::index.html.twig', array(
                 'form' => $form->createView(),
                 'name' => NULL,
                 ));
-
         }
-
         $userconnected = $this->takeUserConnected($request);
         return $this->render('BDEContactBundle::contact.html.twig', array(
             'form' => $form->createView(),
             'name' => $userconnected,
         ));
-
     }
 
 
@@ -63,4 +54,3 @@ class ContactController extends Controller
         return $userconnected;
     }
 }
-
