@@ -3,6 +3,10 @@
 namespace BDE\ShopBundle\Controller;
 
 use BDE\AccountBundle\Entity\Users;
+use BDE\AccountBundle\Form\LoginType;
+use BDE\AccountBundle\Form\RegisterType;
+use BDE\ContactBundle\Entity\Enquiry;
+use BDE\ContactBundle\Form\EnquiryType;
 use BDE\ShopBundle\Entity\Cart;
 use BDE\ShopBundle\Form\ArticleType;
 use BDE\ShopBundle\Form\CartType;
@@ -18,6 +22,13 @@ class ShopController extends Controller
     public function indexAction(Request $request)
     {
         $userconnected = $this->takeUserConnected($request);
+
+        $enquiry = new Users();
+        $enquiry = new Users();
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
 
         $articles = $this->getDoctrine()
             ->getRepository(Articles::class)
@@ -52,6 +63,8 @@ class ShopController extends Controller
             'name' => $userconnected,
             'articles' => $articles,
             'toparticle' => $count,
+            'formconnect' => $formconnect->createView(),
+            'formregister' => $formregister->createView(),
         ));
     }
 
@@ -82,6 +95,12 @@ class ShopController extends Controller
             ->getRepository(Users::class)
             ->find($id);
 
+        $enquiry = new Users();
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
+
         $enquiry = new Cart();
         $form = $this->createForm(ArticleType::class, $enquiry);
         $form->handleRequest($request);
@@ -104,6 +123,8 @@ class ShopController extends Controller
             'form' => $form->createView(),
             'name' => $userconnected,
             'article' => $article,
+            'formconnect' => $formconnect->createView(),
+            'formregister' => $formregister->createView(),
         ));
     }
 
@@ -113,6 +134,12 @@ class ShopController extends Controller
         $userconnected = $this->takeUserConnected($request);
         $session = $request->getSession();
         $id = $session->get('id');
+
+        $enquiry = new Users();
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
 
         $enquiry = new Cart();
         $form = $this->createForm(CartType::class, $enquiry);
@@ -136,7 +163,11 @@ class ShopController extends Controller
                 ->getRepository(Articles::class)
                 ->find($idarticle);
             $cart[$article->getId()] = [
+                'id' => $article->getId(),
                 'name' => $article->getName(),
+                'price' => $article->getPriceTTC(),
+                'picture' => $article->getPicture(),
+                'description' => $article->getDescription(),
             ];
         }
 
@@ -144,6 +175,8 @@ class ShopController extends Controller
             'form' => $form->createView(),
             'name' => $userconnected,
             'articles' => $cart,
+            'formconnect' => $formconnect->createView(),
+            'formregister' => $formregister->createView(),
         ));
     }
 
@@ -152,6 +185,12 @@ class ShopController extends Controller
         $userconnected = $this->takeUserConnected($request);
         $session = $request->getSession();
         $id = $session->get('id');
+        $enquiry = new Users();
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
+
         $bdd = new PDO('mysql:host=localhost;dbname=bdecesi;charset=utf8', 'root', '');
 
         if ($request->isMethod('POST')) {
@@ -160,11 +199,14 @@ class ShopController extends Controller
             $results = $this->takeNewOrder($id);
             $this->CartFromOrder($id, $bdd, $results);
             $this->deleteCart($id, $bdd);
+            $this->sendMail($request, $id);
 
         }
 
         return $this->render('BDECoreBundle::index.html.twig', array(
-            'name' => $userconnected
+            'name' => $userconnected,
+            'formconnect' => $formconnect->createView(),
+            'formregister' => $formregister->createView(),
         ));
     }
 
@@ -231,6 +273,21 @@ class ShopController extends Controller
     {
         $requete = $bdd->prepare("DELETE FROM cart WHERE users_id = $id");
         $requete->execute();
+    }
+
+    private function sendMail($request, $id)
+    {
+        $enquiry = new Enquiry();
+        $form = $this->createForm(EnquiryType::class, $enquiry);
+        $form->handleRequest($request);
+
+        $message = \Swift_Message::newInstance()
+            ->setSubject('Nouvelle Commande')
+            ->setFrom($enquiry->getEmail())
+            ->setTo('bdecesi@laposte.net')
+            ->setBody("C'est la commande de l'utilisateur: $id!");
+
+        $this->get('mailer')->send($message);
     }
 
 }

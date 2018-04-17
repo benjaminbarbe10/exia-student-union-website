@@ -5,7 +5,9 @@ namespace BDE\EventBundle\Controller;
 
 use BDE\AccountBundle\Entity\Users;
 
-use BDE\EventBundle\BDEEventBundle;
+
+use BDE\AccountBundle\Form\LoginType;
+use BDE\AccountBundle\Form\RegisterType;
 use BDE\EventBundle\Entity\Events;
 use BDE\EventBundle\Entity\Events_picture;
 
@@ -32,6 +34,12 @@ class EventController extends Controller
 
         $userconnected = $this->takeUserConnected($request);
 
+        $enquiry = new Users();
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
+
         $repository = $this
             ->getDoctrine()
             ->getManager()
@@ -41,14 +49,22 @@ class EventController extends Controller
 
         return $this->render('BDEEventBundle:Event:events.html.twig', array(
             'listEvents' => $listEvents,
-            'name' => $userconnected
+            'name' => $userconnected,
+            'formconnect' => $formconnect->createView(),
+            'formregister' => $formregister->createView(),
         ));
     }
 
     public function viewEventAction(Events $events, Request $request)
     {
 
-        $userconnected = $this->takeUserConnected($request);
+
+       $userconnected = $this->takeUserConnected($request);
+        $enquiry = new Users();
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
 
 
         $repository = $this
@@ -60,6 +76,8 @@ class EventController extends Controller
             'events' => $events,
             'name' => $userconnected,
             'listEvents' => $listEvents,
+            'formconnect' => $formconnect->createView(),
+            'formregister' => $formregister->createView(),
         ));
     }
 
@@ -79,6 +97,11 @@ class EventController extends Controller
 
         $form->handleRequest($request);
         $userconnected = $this->takeUserConnected($request);
+        $enquiry = new Users();
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
 
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -108,7 +131,9 @@ class EventController extends Controller
             'events' => $events,
             'form' => $form->createView(),
             'listEvents' => $listEvents,
-            'name' => $userconnected
+            'name' => $userconnected,
+            'formconnect' => $formconnect->createView(),
+            'formregister' => $formregister->createView(),
         ));
     }
 
@@ -121,7 +146,11 @@ class EventController extends Controller
 
         $form->handleRequest($request);
         $userconnected = $this->takeUserConnected($request);
-
+        $enquiry = new Users();
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
         $repository = $this
             ->getDoctrine()
             ->getManager()
@@ -156,13 +185,20 @@ class EventController extends Controller
             'events' => $events,
             'form' => $form->createView(),
             'listEvents' => $listEvents,
-            'name' => $userconnected
+            'name' => $userconnected,
+            'formconnect' => $formconnect->createView(),
+            'formregister' => $formregister->createView(),
         ));
     }
 
     public function editEventAction($id, Request $request)
     {
         $userconnected = $this->takeUserConnected($request);
+        $enquiry = new Users();
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
 
         $em = $this->getDoctrine()->getManager();
         $events = $em->getRepository('BDEEventBundle:Events')->find($id);
@@ -189,7 +225,9 @@ class EventController extends Controller
             ->add('pricettc', NumberType::class)
             ->add('save', SubmitType::class)
 
+
         ;
+
 
         $form = $formBuilder->getForm();
         $form->handleRequest($request);
@@ -253,14 +291,32 @@ class EventController extends Controller
 
     {
         $userconnected = $this->takeUserConnected($request);
-        return $this->render('BDEEventBundle:Event:viewSuggestion.html.twig', array('name' => $userconnected));
+        $enquiry = new Users();
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
+        return $this->render('BDEEventBundle:Event:viewSuggestion.html.twig', array(
+            'name' => $userconnected,
+            'formconnect' => $formconnect->createView(),
+            'formregister' => $formregister->createView(),
+        ));
     }
 
 
     public function suggestionAction(Request $request)
     {
         $userconnected = $this->takeUserConnected($request);
-        return $this->render('BDEEventBundle:Event:suggestion.html.twig', array('name' => $userconnected));
+        $enquiry = new Users();
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
+        return $this->render('BDEEventBundle:Event:suggestion.html.twig', array(
+            'name' => $userconnected,
+            'formconnect' => $formconnect->createView(),
+            'formregister' => $formregister->createView(),
+            ));
     }
 
 
@@ -268,17 +324,21 @@ class EventController extends Controller
 
     public function takeUserConnected(Request $request)
     {
-        $session = $request->getSession();
-        //$session->set('id', 2);
-        $id = $session->get('id');
-        $user = $this->getDoctrine()
-            ->getRepository(Users::class)
-            ->find($id);
-        //var_dump($user); die;
-        if ($id != 0) {
-            $userconnected = $user->getName();
-        } else {
-            $userconnected = '';
+
+            $session = $request->getSession();
+            $id = $session->get('id');
+            $user = $this->getDoctrine()
+                ->getRepository(Users::class)
+                ->find($id);
+            if ($id != 0) {
+                $userconnected = $user->getName();
+            }
+            else {
+                $userconnected = '';
+            }
+
+            return $userconnected;
+
         }
 
         return $userconnected;
