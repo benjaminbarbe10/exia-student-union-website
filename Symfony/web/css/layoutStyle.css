@@ -330,12 +330,12 @@ descMobile {
 }
 
 .product-image .bg{
-  /*background-image: url("../images/pullbde.png");*/
-  text-align: center;
-  background-size: cover;
-  background-position: center top;
-  width: 100%;
-  min-height: 450px;
+    /*background-image: url("../images/pullbde.png");*/
+    text-align: center;
+    background-size: cover;
+    background-position: center top;
+    width: 100%;
+    min-height: 450px;
 }
 
 .product-image .indicator{
@@ -705,9 +705,24 @@ a.add-btn:hover{
 }
 
 
+.logoBDE {
+    background-image: url("../images/Logo.png");
+    width: 128px;
+    height: 128px;
+}
+
 /***********************************************/
-/***************** MEDIA QUERY *****************/
+/**************** MEDIA QUERIES ****************/
 /***********************************************/
+
+@media screen and (max-width: 1576px) {
+    .logoBDE {
+        background-image: url("../images/Logo.png");
+        width: 0px;
+        height: 0px;
+    }
+}
+
 
 @media screen and (max-width: 992px) {
     .cercleHome{
@@ -719,6 +734,8 @@ a.add-btn:hover{
         border-style: solid;
         border-color: #C2242A;
     }
+
+
 
     .tourniquet {
         margin-top: 70px;
