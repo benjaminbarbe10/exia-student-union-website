@@ -12,6 +12,7 @@ use BDE\EventBundle\Entity\Events;
 use BDE\EventBundle\Entity\Events_comment;
 use BDE\EventBundle\Entity\Events_picture;
 
+use BDE\EventBundle\Entity\Vote;
 use BDE\EventBundle\Form\Events_commentType;
 use BDE\EventBundle\Form\EventsType;
 use BDE\EventBundle\Repository\Events_pictureRepository;
@@ -89,8 +90,12 @@ class EventController extends Controller
         $formregister = $this->createForm(RegisterType::class, $enquiry);
         $formregister->handleRequest($request);
 
-
-
+        $vote = new Vote();
+        $vote->setUsers($user);
+        $vote->setEvents($events);
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($vote);
+        $em->flush();
 
 //recuperer les events
         $repository = $this
@@ -120,7 +125,13 @@ class EventController extends Controller
 
     public function addSuggestionAction(Request $request)
     {
-
+        $session = $request->getSession();
+        $id = $session->get('id');
+        $user = $this->getDoctrine()
+            ->getRepository(Users::class)
+            ->find($id);
+        $username = $user->getName();
+        $usersurname = $user->getSurname();
         $events = new Events();
         $form = $this->createForm('BDE\EventBundle\Form\EventsType', $events);
 
@@ -138,6 +149,8 @@ class EventController extends Controller
         $formconnect->handleRequest($request);
         $formregister = $this->createForm(RegisterType::class, $enquiry);
         $formregister->handleRequest($request);
+        $events->setAuthorName($username);
+        $events->setAuthorSurname($usersurname);
 
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -160,7 +173,8 @@ class EventController extends Controller
             $em->persist($events);
             $em->flush();
 
-            return $this->redirectToRoute('bde_event_index');
+            return $this->redirectToRoute('bde_event_suggestion');
+
         }
 
         return $this->render('BDEEventBundle:Event:addSuggestion.html.twig', array(
@@ -227,7 +241,7 @@ class EventController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($events);
             $em->flush();
-
+            $session->getFlashBag()->add('info', 'Event en ligne'   );
             return $this->redirectToRoute('bde_event_viewevent', array('id' => $events->getId()));
         }
 
@@ -362,11 +376,22 @@ class EventController extends Controller
         $formconnect->handleRequest($request);
         $formregister = $this->createForm(RegisterType::class, $enquiry);
         $formregister->handleRequest($request);
+
+        $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('BDEEventBundle:Events');
+        $listEvents = $repository->findAll();
+
+
+
         return $this->render('BDEEventBundle:Event:suggestion.html.twig', array(
             'name' => $userconnected,
             'formconnect' => $formconnect->createView(),
             'formregister' => $formregister->createView(),
-            ));
+            'listEvents' => $listEvents,
+
+        ));
     }
 
 

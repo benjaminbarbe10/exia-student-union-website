@@ -7,7 +7,9 @@
 {% block bodyevent %}
 <div class="col" xmlns="http://www.w3.org/1999/html">
     <div class="row">
+
         {% for events in listEvents %}
+            {% if events.isapproved == 1 %}
         <div class="col-12 bande">
             <div class=" col-12 col-lg-4">
                 <div class="card">
@@ -62,7 +64,10 @@
 
 
                 </div>
-                {% else %}
+            {% endif %}
+
+
+        {% else %}
                 <li>Pas (encore !) d'events</li>
                 <div class="divAddEvent">
                     <a class="btnAddEvent" href="{{ path('bde_event_add') }}" role="button"><b>+ &nbsp;Créer un
