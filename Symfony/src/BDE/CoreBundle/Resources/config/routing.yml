@@ -2,3 +2,8 @@ bde_core_index:
     path:     /
     defaults:
         _controller: BDECoreBundle:Core:index
+
+bde_core_mentions:
+    path:    /mentions
+    defaults:
+        _controller: BDECoreBundle:Core:mentions

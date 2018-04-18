@@ -37,6 +37,20 @@ class CoreController extends Controller
         ));
     }
 
+    public function mentionsAction(Request $request){
+        $userconnected = $this->takeUserConnected($request);
+        $enquiry = new Users();
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
+
+        return $this->render('BDECoreBundle::mentions.html.twig', array(
+            'name' => $userconnected,
+            'formconnect' => $formconnect->createView(),
+            'formregister' => $formregister->createView(),
+        ));
+    }
 
     public function takeUserConnected(Request $request)
     {
@@ -61,4 +75,6 @@ class CoreController extends Controller
         return $userconnected;
 
     }
+
+
 }
