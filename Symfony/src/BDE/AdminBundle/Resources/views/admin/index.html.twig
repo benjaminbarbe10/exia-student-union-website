@@ -54,8 +54,17 @@
 
 
                         </div>
-                    </div>
+                <div class="col bordureAdmin">
+                    Gestion de la boutique<br /><br />
+                    <form action="{{ path('bde_admin_addarticle')}}" method="get">
+                    <button type="submit" class="btnAddEvent" data-toggle="modal">
+                        Ajouter un article
+                    </button>
+                    </form>
                 </div>
+                </div>
+                </div>
+
 
 
             {% endblock %}

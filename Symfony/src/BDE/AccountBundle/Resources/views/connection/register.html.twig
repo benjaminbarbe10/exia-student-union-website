@@ -5,26 +5,23 @@
 {% endblock %}
 
 {% block body %}
-    <h1>
-        PAGE REGISTER DU SITE
-    </h1>
     <h2>
-        URL : /REGISTER
+        &nbsp;&nbsp;&nbsp;{{ message }}
     </h2>
 
-    {{ message }}
 
-    <form action="{{ path('bde_account_register') }}" method="post" {{ form_start(form) }}
-    {{ form_errors(form) }}
 
-    {{ form_row(form.email) }}
-    {{ form_row(form.name) }}
-    {{ form_row(form.surname) }}
-    {{ form_row(form.password) }}
+    <form action="{{ path('bde_account_register') }}" method="post" {{ form_start(formregister) }}
+    {{ form_errors(formregister) }}
 
-    {{ form_rest(form) }}
+    {{ form_row(formregister.email) }}
+    {{ form_row(formregister.name) }}
+    {{ form_row(formregister.surname) }}
+    {{ form_row(formregister.password) }}
 
-    <input type="submit" value="Submit"/>
+    {{ form_rest(formregister) }}
+
+    <input type="submit" value="S'inscrire"/>
     </form>
 
 

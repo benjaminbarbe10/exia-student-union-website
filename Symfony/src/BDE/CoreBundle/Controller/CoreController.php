@@ -5,6 +5,7 @@ namespace BDE\CoreBundle\Controller;
 use BDE\AccountBundle\Entity\Users;
 use BDE\AccountBundle\Form\LoginType;
 use BDE\AccountBundle\Form\RegisterType;
+use BDE\ShopBundle\Entity\Articles;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -37,7 +38,6 @@ class CoreController extends Controller
         ));
     }
 
-
     public function takeUserConnected(Request $request)
     {
         $session = $request->getSession();
@@ -50,15 +50,16 @@ class CoreController extends Controller
         } else {
             $session->set('id', 0);
         }
-            //var_dump($user); die;
-            if ($id != 0) {
-                $userconnected = $user->getName();
-            } else {
-                $userconnected = '';
-            }
+        //var_dump($user); die;
+        if ($id != 0) {
+            $userconnected = $user->getName();
+        } else {
+            $userconnected = '';
+        }
 
 
         return $userconnected;
 
     }
+
 }

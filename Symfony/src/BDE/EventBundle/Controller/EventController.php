@@ -142,7 +142,7 @@ class EventController extends Controller
 
         $events = new Events();
         $form = $this->createForm('BDE\EventBundle\Form\EventsType', $events);
-        $events->setUsers($this->getUser());
+        //$events->setUsers($this->getUser());
 
         $form->handleRequest($request);
         $userconnected = $this->takeUserConnected($request);
@@ -340,8 +340,5 @@ class EventController extends Controller
             return $userconnected;
 
         }
-
-        return $userconnected;
-    }
 
 }

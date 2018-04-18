@@ -24,7 +24,6 @@ class ShopController extends Controller
         $userconnected = $this->takeUserConnected($request);
 
         $enquiry = new Users();
-        $enquiry = new Users();
         $formconnect = $this->createForm(LoginType::class, $enquiry);
         $formconnect->handleRequest($request);
         $formregister = $this->createForm(RegisterType::class, $enquiry);
@@ -149,7 +148,7 @@ class ShopController extends Controller
         $sql = "
         SELECT articles_id as total
         FROM cart
-        WHERE users_id = " . $id;
+        WHERE users_id = " .$id;
 
         $stmt = $em->getConnection()->prepare($sql);
         $stmt->execute();
@@ -197,9 +196,9 @@ class ShopController extends Controller
 
             $this->createOrder($id, $bdd);
             $results = $this->takeNewOrder($id);
-            $this->CartFromOrder($id, $bdd, $results);
+            $this->cartFromOrder($id, $bdd, $results);
             $this->deleteCart($id, $bdd);
-            $this->sendMail($request, $id);
+            $this->sendMail($request, $id, $userconnected);
 
         }
 
@@ -235,7 +234,7 @@ class ShopController extends Controller
         return $results;
     }
 
-    private function CartFromOrder($id, $bdd, $results)
+    private function cartFromOrder($id, $bdd, $results)
     {
         foreach ($results as $result) {
             $idorder = (int)$result['total'];
@@ -275,19 +274,31 @@ class ShopController extends Controller
         $requete->execute();
     }
 
-    private function sendMail($request, $id)
+    private function sendMail($request, $id, $userconnected)
     {
         $enquiry = new Enquiry();
         $form = $this->createForm(EnquiryType::class, $enquiry);
         $form->handleRequest($request);
 
+        $user = $this->getDoctrine()
+            ->getRepository(Users::class)
+            ->find($id);
+        $mailconnected = $user->getEmail();
+
         $message = \Swift_Message::newInstance()
             ->setSubject('Nouvelle Commande')
-            ->setFrom($enquiry->getEmail())
+            ->setFrom($mailconnected)
             ->setTo('bdecesi@laposte.net')
-            ->setBody("C'est la commande de l'utilisateur: $id!");
-
+            ->setBody("C'est la commande de l'utilisateur: $userconnected!");
         $this->get('mailer')->send($message);
+
+        $confirm = \Swift_Message::newInstance()
+            ->setSubject('Commande confirmée')
+            ->setFrom('bdecesi@laposte.net')
+            ->setTo($mailconnected)
+            ->setBody("Votre commande a été prise en charge! Vous recevrez un mail plus complet sous peu... Cordialement, le BDE.");
+        $this->get('mailer')->send($confirm);
+
     }
 
 }
