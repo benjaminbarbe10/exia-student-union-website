@@ -22,9 +22,11 @@ class AccountController extends Controller
         $formregister->handleRequest($request);
 
         if ($request->isMethod('POST')) {
+            $password = $enquiry->getPassword();
+            $password = md5($password);
             $user = $this->getDoctrine()
                 ->getRepository(Users::class)
-                ->findOneBy(array('email' => $enquiry->getEmail(), 'password' => $enquiry->getPassword()));
+                ->findOneBy(array('email' => $enquiry->getEmail(), 'password' => $password));
             $session = $request->getSession();
 
 
@@ -95,7 +97,7 @@ class AccountController extends Controller
             $enquiry->setEmail($enquiry->getEmail())
                 ->setName($enquiry->getName())
                 ->setSurname($enquiry->getSurname())
-                ->setPassword($enquiry->getPassword())
+                ->setPassword(md5($password))
                 ->initRole($enquiryManager);
 
 

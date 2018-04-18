@@ -34,38 +34,6 @@
         </state>
       </content>
     </window>
-    <window id="8">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="ShopController.php" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/ShopBundle/Controller/ShopController.php">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="626">
-                    <caret line="162" column="54" lean-forward="false" selection-start-line="162" selection-start-column="54" selection-end-line="162" selection-end-column="54" />
-                    <folding>
-                      <marker date="1524091732284" expanded="true" signature="1188:1270" ph="SELECT sum(Q... orders_line" />
-                      <marker date="1524091732284" expanded="true" signature="1188:1271" ph="SELECT sum(Q... orders_line" />
-                      <marker date="1524091732284" expanded="true" signature="1188:1292" ph="SELECT sum(Q... orders_line" />
-                      <marker date="1524091732284" expanded="true" signature="2794:2877" ph="SELECT sum(Q... orders_line" />
-                      <marker date="1524091732284" expanded="true" signature="4751:4834" ph="SELECT sum(Q... orders_line" />
-                      <marker date="1524091732284" expanded="true" signature="8663:8733" ph="SELECT artic... cart" />
-                      <marker date="1524091732284" expanded="true" signature="8663:8734" ph="SELECT artic... cart" />
-                      <marker date="1524091732284" expanded="true" signature="8663:8735" ph="SELECT artic... cart" />
-                      <marker date="1524091732284" expanded="true" signature="10976:11048" ph="INSERT INTO orders... " />
-                      <marker date="1524091732284" expanded="true" signature="11337:11406" ph="SELECT max(i... orders" />
-                      <marker date="1524091732284" expanded="true" signature="11803:11874" ph="SELECT artic... cart" />
-                      <marker date="1524091732284" expanded="true" signature="12295:12452" ph="INSERT INTO orders_line... " />
-                      <marker date="1524091732284" expanded="true" signature="13028:13062" ph="DELETE FROM cart... " />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -96,7 +64,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/ShopBundle/Resources/views/Shop/index.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1863">
@@ -154,6 +122,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="72">
               <caret line="3" column="45" lean-forward="false" selection-start-line="3" selection-start-column="45" selection-end-line="3" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccountController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/AccountBundle/Controller/AccountController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="24" column="48" lean-forward="false" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -222,7 +200,6 @@
         <option value="$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/Resources/views/layoutadmin.html.twig" />
         <option value="$PROJECT_DIR$/Symfony/src/BDE/AccountBundle/Resources/views/connection/login.html.twig" />
         <option value="$PROJECT_DIR$/Symfony/src/BDE/AccountBundle/Resources/views/connection/register.html.twig" />
-        <option value="$PROJECT_DIR$/Symfony/src/BDE/AccountBundle/Controller/AccountController.php" />
         <option value="$PROJECT_DIR$/Symfony/app/config/parameters.yml" />
         <option value="$PROJECT_DIR$/Symfony/src/BDE/ShopBundle/Form/NewArticleType.php" />
         <option value="$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/Resources/config/routing.yml" />
@@ -244,6 +221,7 @@
         <option value="$PROJECT_DIR$/Symfony/src/BDE/ShopBundle/Resources/views/Shop/index.html.twig" />
         <option value="$PROJECT_DIR$/Symfony/src/BDE/ShopBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/Symfony/src/BDE/ShopBundle/Controller/ShopController.php" />
+        <option value="$PROJECT_DIR$/Symfony/src/BDE/AccountBundle/Controller/AccountController.php" />
       </list>
     </option>
   </component>
@@ -305,8 +283,8 @@
       <path value="$PROJECT_DIR$/Symfony/vendor/symfony/assetic-bundle" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-7" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -870,7 +848,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="211488000" />
+    <option name="totallyTimeSpent" value="214540000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -882,7 +860,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13539445" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -991,16 +969,6 @@
         <state relative-caret-position="-2016">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/AccountBundle/Controller/AccountController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="758">
-          <caret line="134" column="5" lean-forward="false" selection-start-line="134" selection-start-column="5" selection-end-line="134" selection-end-column="5" />
-          <folding>
-            <element signature="e#48#83#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1319,18 +1287,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/ShopBundle/Resources/views/Shop/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1863">
-          <caret line="90" column="35" lean-forward="false" selection-start-line="90" selection-start-column="35" selection-end-line="90" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/ShopBundle/Controller/ShopController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="626">
-          <caret line="162" column="54" lean-forward="false" selection-start-line="162" selection-start-column="54" selection-end-line="162" selection-end-column="54" />
+        <state relative-caret-position="1920">
+          <caret line="91" column="24" lean-forward="true" selection-start-line="91" selection-start-column="24" selection-end-line="91" selection-end-column="24" />
           <folding>
             <marker date="1524091732284" expanded="true" signature="1188:1270" ph="SELECT sum(Q... orders_line" />
             <marker date="1524091732284" expanded="true" signature="1188:1271" ph="SELECT sum(Q... orders_line" />
@@ -1346,6 +1306,22 @@
             <marker date="1524091732284" expanded="true" signature="12295:12452" ph="INSERT INTO orders_line... " />
             <marker date="1524091732284" expanded="true" signature="13028:13062" ph="DELETE FROM cart... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/ShopBundle/Resources/views/Shop/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1863">
+          <caret line="90" column="35" lean-forward="false" selection-start-line="90" selection-start-column="35" selection-end-line="90" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/AccountBundle/Controller/AccountController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="24" column="48" lean-forward="false" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
+          <folding />
         </state>
       </provider>
     </entry>
