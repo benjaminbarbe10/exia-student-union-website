@@ -38,8 +38,15 @@
                     <div class="row">
                         <div class="col pos">
                             <a href="{{ path('bde_event_suggestion') }}">
+
+
+                                {% if events.isapproved == 1 %}
+
                                 <div class="sim-button button28"><span><b>S'inscrire</b></span></div>
+                                {% endif %}
+
                             </a>
+
                         </div>
                     </div>
                 </div>

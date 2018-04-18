@@ -1,15 +1,92 @@
 {% extends "BDEEventBundle::layoutEvent.html.twig" %}
 
 {% block title %}
-    titre {{ parent() }}
+    Idées - {{ parent() }}
 {% endblock %}
 
 {% block bodyevent %}
-    <h1>
-        PAGE suggestion DU SITE
-    </h1>
-    <h2>
-        URL : /ADDEVENT
-    </h2>
+    <div class="col" xmlns="http://www.w3.org/1999/html">
+        <div class="row">
+            {% for message in app.session.flashbag.get('info') %}
+                <p  class="alert alert-warning alert-dismissible">Message flash : {{ message }}</p>
+            {% endfor %}
+            {% for events in listEvents %}
+                {% if events.isapproved == 0 %}
+
+
+                <div class="col-12 bande">
+                    <div class=" col-12 col-lg-4">
+                        <div class="card">
+
+                            {% for images in events.events_picture[0:1] %}
+
+                                <img class="card-img-top" src="{{ asset('upload/'~images.picture) }}">
+
+                            {% endfor %}
+
+
+                        </div>
+                        <br>
+                        <br>
+                    </div>
+                    <div class=" col-12 col-lg-8">
+                        <div>
+                            <h3 class="card-title"><a href="{{ path('bde_event_viewevent', {'id' : events.id}) }}"
+                                                      title="Plus de renseignements">{{ events.name }}</a>, Le  {{ events.date|date('d-m-Y') }}<h6
+                                        class="author">Crée par Benjamin Barbé.</h6></h3>
+                            <div class="title_line"></div>
+                            <br><br>
+                            <p class="card-text">{{ events.description }}Et interdum acciderat, ut siquid in penetrali
+                                secreto nullo citerioris vitae ministro praesente paterfamilias uxori susurrasset in
+                                aurem, velut Amphiarao referente aut Marcio, quondam vatibus inclitis, postridie
+                                disceret imperator. ideoque etiam parietes arcanorum soli conscii timebantur.
+                            <div class="priceevent">
+                                {% if events.pricettc == 0 %}
+                                    <h4>gratuit</h4>
+
+                                {% else %}
+                                    <h4>{{ events.pricettc }} €</h4>
+                                {% endif %}
+                            </div>
+                            <div class="row">
+                                <div class="col pos">
+                                    <div class="voteid">&nbsp;
+                                        <a class="fa fa-thumbs-o-up fa-4x" href="" style="color: green;" >
+
+                                        </a>&nbsp;&nbsp;
+                                        <a href="google.com" class="fa fa-thumbs-o-down fa-4x" style="color: #C2242A"></a>
+                                    </div>
+
+
+                                    <a href="{{ path('bde_event_viewevent', {'id' : events.id}) }}"><div class="sim-button button28"><span>+ d'infos</span></div></a>
+
+
+                                </div>
+                                <div class="col pos">
+                                    <a href="{{ path('bde_event_suggestion') }}">
+                                        <div class="sim-button button28"><span>S'inscrire</span></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                {% endif %}
+
+            {% else %}
+                <li>Pas (encore !) d'events</li>
+                <div class="divAddEvent">
+                    <a class="btnAddEvent" href="{{ path('bde_event_add') }}" role="button"><b>+ &nbsp;Créer un
+                            événement</b></a>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+
 
 {% endblock %}

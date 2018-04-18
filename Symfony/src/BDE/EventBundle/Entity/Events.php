@@ -94,6 +94,10 @@ class Events
      */
     private $priceTTC;
 
+
+
+
+
     /**
      * @ORM\Column(name="nb_likes", type="integer")
      */
@@ -437,6 +441,7 @@ class Events
 
         return $this;
     }
+
 
     /**
      * Get nbLikes
