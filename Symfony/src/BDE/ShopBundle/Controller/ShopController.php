@@ -34,6 +34,7 @@ class ShopController extends Controller
             ->findAll();
 
         $count = array();
+
         $em = $this->getDoctrine()->getManager();
 
 
@@ -61,6 +62,118 @@ class ShopController extends Controller
         return $this->render('BDEShopBundle:Shop:index.html.twig', array(
             'name' => $userconnected,
             'articles' => $articles,
+            'toparticle' => $count,
+            'formconnect' => $formconnect->createView(),
+            'formregister' => $formregister->createView(),
+        ));
+    }
+
+    public function tribyletterAction(Request $request){
+        $userconnected = $this->takeUserConnected($request);
+
+        $enquiry = new Users();
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
+
+        $articles = $this->getDoctrine()
+            ->getRepository(Articles::class)
+            ->findAll();
+
+        $tribyletter = array();
+
+        $em = $this->getDoctrine()->getManager();
+
+
+        foreach ($articles as $article) {
+            $sql = " 
+        SELECT sum(Quantity) as total
+        FROM orders_line
+        WHERE articles_id = " . $article->getId();
+
+            $stmt = $em->getConnection()->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetch();
+            $count[$article->getId()] = [
+                'total' => $result['total'],
+                'id' => $article->getId(),
+                'name' => $article->getName(),
+                'price' => $article->getPriceTTC(),
+                'picture' => $article->getPicture(),
+                'description' => $article->getDescription(),
+            ];
+            $tribyletter[$article->getId()] = [
+                'name' => $article->getName(),
+                'priceTTC' => $article->getPriceTTC(),
+                'picture' => $article->getPicture(),
+                'description' => $article->getDescription(),
+                'id' => $article->getId(),
+            ];
+
+        }
+        arsort($count);
+        sort($tribyletter);
+
+        return $this->render('BDEShopBundle:Shop:index.html.twig', array(
+            'name' => $userconnected,
+            'articles' => $tribyletter,
+            'toparticle' => $count,
+            'formconnect' => $formconnect->createView(),
+            'formregister' => $formregister->createView(),
+        ));
+    }
+
+    public function tribypriceAction(Request $request){
+        $userconnected = $this->takeUserConnected($request);
+
+        $enquiry = new Users();
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
+
+        $articles = $this->getDoctrine()
+            ->getRepository(Articles::class)
+            ->findAll();
+
+        $tribyprice = array();
+
+        $em = $this->getDoctrine()->getManager();
+
+
+        foreach ($articles as $article) {
+            $sql = " 
+        SELECT sum(Quantity) as total
+        FROM orders_line
+        WHERE articles_id = " . $article->getId();
+
+            $stmt = $em->getConnection()->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetch();
+            $count[$article->getId()] = [
+                'total' => $result['total'],
+                'id' => $article->getId(),
+                'name' => $article->getName(),
+                'price' => $article->getPriceTTC(),
+                'picture' => $article->getPicture(),
+                'description' => $article->getDescription(),
+            ];
+            $tribyprice[$article->getId()] = [
+                'priceTTC' => $article->getPriceTTC(),
+                'name' => $article->getName(),
+                'picture' => $article->getPicture(),
+                'description' => $article->getDescription(),
+                'id' => $article->getId(),
+            ];
+
+        }
+        arsort($count);
+        sort($tribyprice);
+
+        return $this->render('BDEShopBundle:Shop:index.html.twig', array(
+            'name' => $userconnected,
+            'articles' => $tribyprice,
             'toparticle' => $count,
             'formconnect' => $formconnect->createView(),
             'formregister' => $formregister->createView(),
@@ -148,7 +261,7 @@ class ShopController extends Controller
         $sql = "
         SELECT articles_id as total
         FROM cart
-        WHERE users_id = " .$id;
+        WHERE users_id = " . $id;
 
         $stmt = $em->getConnection()->prepare($sql);
         $stmt->execute();
