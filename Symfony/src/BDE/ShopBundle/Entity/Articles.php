@@ -3,6 +3,7 @@
 namespace BDE\ShopBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Articles
@@ -16,7 +17,6 @@ class Articles
      * @ORM\ManyToMany(targetEntity="BDE\ShopBundle\Entity\Articles_categorie", cascade={"persist"})
      */
     private $articles_categorie;
-
 
 
     /**
@@ -48,6 +48,7 @@ class Articles
      * @ORM\Column(name="Picture", type="string", length=255)
      */
     private $picture;
+
 
     /**
      * @var float
@@ -162,6 +163,7 @@ class Articles
     {
         return $this->priceTTC;
     }
+
     /**
      * Constructor
      */

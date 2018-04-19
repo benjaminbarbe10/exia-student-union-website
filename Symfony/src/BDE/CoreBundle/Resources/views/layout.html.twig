@@ -8,18 +8,18 @@
 
 
     {% block stylesheets %}
-    {% stylesheets
-    filter='cssrewrite' output='css/compiled/wagas.css' %}
-    <link rel="stylesheet" href="{{ asset_url }}"/>
-    {% endstylesheets %}
+        {% stylesheets
+            filter='cssrewrite' output='css/compiled/wagas.css' %}
+            <link rel="stylesheet" href="{{ asset_url }}"/>
+        {% endstylesheets %}
     {% endblock %}
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic'
-    rel='stylesheet' type='text/css'>
+          rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{{ asset('css/icon.css') }}">
 
     <link rel="stylesheet" href="{{ asset('css/layoutStyle.css') }}">
@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/eventStyle.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 </head>
 <header>
@@ -43,152 +44,153 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="[ navbar-header ]">
                 <button type="button" class="[ navbar-toggle ]" data-toggle="collapse"
-                data-target="#bs-example-navbar-collapse-1">
-                <span class="[ sr-only ]">Toggle navigation</span>
-                <span class="[ icon-bar ]"></span>
-                <span class="[ icon-bar ]"></span>
-                <span class="[ icon-bar ]"></span>
-            </button>
-            <div class="[ animbrand ]">
-                <a class="[ navbar-brand ][ animate ]" href="{{ path('bde_core_index') }}">BDE Cesi</a>
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="[ sr-only ]">Toggle navigation</span>
+                    <span class="[ icon-bar ]"></span>
+                    <span class="[ icon-bar ]"></span>
+                    <span class="[ icon-bar ]"></span>
+                </button>
+                <div class="[ animbrand ]">
+                    <a class="[ navbar-brand ][ animate ]" href="{{ path('bde_core_index') }}">BDE Cesi</a>
+                </div>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="[ collapse navbar-collapse ]" id="bs-example-navbar-collapse-1">
+                <ul class="[ nav navbar-nav navbar-right ]">
+                    <li class="[ visible-xs ]">
+                        <form action="" method="GET" role="search">
+                            <div class="[ input-group ]">
+                                <input type="text" class="[ form-control ]" name="q">
+                                <span class="[ input-group-btn ]">
+                                <button class="[ btn btn-primary ]" type="submit"><span
+                                            class="[ glyphicon glyphicon-search ]"></span></button>
+                                    <button class="[ btn btn-danger ]" type="reset"><span
+                                                class="[ glyphicon glyphicon-remove ]"></span></button>
+                                    </span>
+                            </div>
+                        </form>
+                    </li>
+                    <li><a href="{{ path('bde_core_index') }}" class="[ animate ]">Accueil</a></li>
+                    <li><a href="{{ path('bde_event_index') }}" class="[ animate ]">Événements</a></li>
+                    <li><a href="{{ path('bde_shop_index') }}" class="[ animate ]">Boutique</a></li>
+                    <li><a class="animate" href="{{ path('bde_contact_index') }}">Contact</a></li>
+
+                    <li>{% if name != NULL %}
+                            <a class="animate" href="{{ path('bde_account_disconnect') }}">Déconnexion</a>
+                        {% else %}
+                            <a href="#myModal" class="animate" data-toggle="modal">Se connecter</a>
+                        {% endif %}</li>
+                    <li class="[ hidden-xs ]"><a href="#toggle-search" class="[ animate ]"><span
+                                    class="[ glyphicon glyphicon-search ]"></span></a></li>
+                    <li>
+                        {% if name != NULL %}
+                        <div class="divLogged">Bonjour {{ name }}&nbsp;&nbsp;&nbsp;
+                    <li class="[ hidden-xs ]"><a href="{{ path('bde_shop_cart') }}" class="[ animate ]">
+                            <span class="[ glyphicon glyphicon-shopping-cart ]"></span></a>
+                    </li>
+                    <li class="[ hidden-xs ]"><a href="{{ path('bde_admin_index') }}" class="[ animate ]">
+                            <i class="material-icons">account_circle</i></a>
+                    </li>
+            </div>
+            {% endif %}
+            </li>
+            </ul>
+        </div>
+        </div>
+        <div class="[ bootsnipp-search animate ]">
+            <div class="[ container ]">
+                <form action="http://bootsnipp.com/search" method="GET" role="search">
+                    <div class="[ input-group ]">
+                        <input type="text" class="[ form-control ]" name="q" placeholder="Rechercher...">
+                        <span class="[ input-group-btn ]">
+                                        <button class="[ btn btn-danger ]" type="reset"><span
+                                                    class="[ glyphicon glyphicon-remove ]"></span></button>
+                                        </span>
+                    </div>
+                </form>
             </div>
         </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="[ collapse navbar-collapse ]" id="bs-example-navbar-collapse-1">
-            <ul class="[ nav navbar-nav navbar-right ]">
-                <li class="[ visible-xs ]">
-                    <form action="" method="GET" role="search">
-                        <div class="[ input-group ]">
-                            <input type="text" class="[ form-control ]" name="q">
-                            <span class="[ input-group-btn ]">
-                                <button class="[ btn btn-primary ]" type="submit"><span
-                                    class="[ glyphicon glyphicon-search ]"></span></button>
-                                    <button class="[ btn btn-danger ]" type="reset"><span
-                                        class="[ glyphicon glyphicon-remove ]"></span></button>
-                                    </span>
+    </nav>
+</header>
+<body>
+{% block body %}
+{% endblock %}
+<div class="container">
+    <div class="row">
+        <div class="bs-example">
+            <!-- Modal HTML -->
+            <div id="myModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            Se connecter / S'inscrire
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        </div>
+                        {% if name == NULL %}
+                        <div class="modal-body">
+                            <div class="col-md-6 col-sm-6 no-padng">
+                                <div class="model-l">
+                                    <form action="{{ path('bde_account_login') }}" method="post" id="logFrm"
+                                          class="log-frm" name="logFrm">
+                                        <ul>
+                                            {{ form_row(formconnect.email) }}
+                                            {{ form_row(formconnect.password) }}
+                                            {{ form_rest(formconnect) }}
+                                            <input type="submit" value="Valider"/>
+                                        </ul>
+                                    </form>
+                                    <div class="clearfix"></div>
+                                    <form method="post" id="logFrm1" class="log-frm" name="logFrm1">
+                                        <ul>
+                                            <li>
+                                                <a class="for-got" onclick="ayantoggle();" href="javascript:;">Mot de
+                                                    passe oublié ?</a>
+                                                <div class="forgot">
+                                                    <ul>
+                                                        <li><p>Entrez votre email afin de recevoir un nouveau mot de
+                                                                passe.</p></li>
+                                                        <li>Email</li>
+                                                        <li><input type="text" id="forgetemailId" class="form-control"
+                                                                   name="forgetemailId"></li>
+                                                        <li>
+                                                            <button type="button" class="btnLogin btn-defaultLogin"
+                                                                    onclick="forgot();">Envoyer le mail
+                                                            </button>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </form>
                                 </div>
-                            </form>
-                        </li>
-                        <li><a href="{{ path('bde_core_index') }}" class="[ animate ]">Accueil</a></li>
-                        <li><a href="{{ path('bde_event_index') }}" class="[ animate ]">Événements</a></li>
-                        <li><a href="{{ path('bde_shop_index') }}" class="[ animate ]">Boutique</a></li>
-                        <li><a class="animate" href="{{ path('bde_contact_index') }}">Contact</a></li>
-
-
-                        <li>{% if name != NULL %}
-                            <a class="animate" href="{{ path('bde_account_disconnect') }}">Déconnexion</a>
-                            {% else %}
-                            <a href="#myModal" class="animate" data-toggle="modal">Se connecter</a>
-                            {% endif %}</li>
-                            <li class="[ hidden-xs ]"><a href="#toggle-search" class="[ animate ]"><span
-                                class="[ glyphicon glyphicon-search ]"></span></a></li>
-                                <li>
-                                    {% if name != NULL %}
-                                    <div class="divLogged">Bonjour&nbsp; {{ name }}&nbsp;&nbsp;
-                                        <li class="[ hidden-xs ]"><a href="{{ path('bde_shop_cart') }}" class="[ animate ]">
-                                            <span class="[ glyphicon glyphicon-shopping-cart ]"></span></a>
-                                        </li>
-                                    </div>
-                                    {% endif %}
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="[ bootsnipp-search animate ]">
-                        <div class="[ container ]">
-                            <form action="http://bootsnipp.com/search" method="GET" role="search">
-                                <div class="[ input-group ]">
-                                    <input type="text" class="[ form-control ]" name="q" placeholder="Rechercher...">
-                                    <span class="[ input-group-btn ]">
-                                        <button class="[ btn btn-danger ]" type="reset"><span
-                                            class="[ glyphicon glyphicon-remove ]"></span></button>
-                                        </span>
-                                    </div>
-                                </form>
                             </div>
-                        </div>
-                    </nav>
-                </header>
-                <body>
-                    <br><br>
-                    {% block body %}
-                    {% endblock %}
-                    <div class="container">
-                        <div class="row">
-                            <div class="bs-example">
-                                <!-- Modal HTML -->
-                                <div id="myModal" class="modal fade">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                Se connecter / S'inscrire
-                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                            </div>
-                                            {% if name == NULL %}
-                                            <div class="modal-body">
-                                                <div class="col-md-6 col-sm-6 no-padng">
-                                                    <div class="model-l">
-                                                        <form action="{{ path('bde_account_login') }}" method="post" id="logFrm"
-                                                        class="log-frm" name="logFrm">
-                                                        <ul>
-                                                            {{ form_row(formconnect.email) }}
-                                                            {{ form_row(formconnect.password) }}
-                                                            {{ form_rest(formconnect) }}
-                                                            <input type="submit" value="Valider"/>
-                                                        </ul>
-                                                    </form>
-                                                    <div class="clearfix"></div>
-                                                    <form method="post" id="logFrm1" class="log-frm" name="logFrm1">
-                                                        <ul>
-                                                            <li>
-                                                                <a class="for-got" onclick="ayantoggle();" href="javascript:;">Mot de
-                                                                    passe oublié ?</a>
-                                                                    <div class="forgot">
-                                                                        <ul>
-                                                                            <li><p>Entrez votre email afin de recevoir un nouveau mot de
-                                                                                passe.</p></li>
-                                                                                <li>Email</li>
-                                                                                <li><input type="text" id="forgetemailId" class="form-control"
-                                                                                    name="forgetemailId"></li>
-                                                                                    <li>
-                                                                                        <button type="button" class="btnLogin btn-defaultLogin"
-                                                                                        onclick="forgot();">Envoyer le mail
-                                                                                    </button>
-                                                                                </li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </li>
-                                                                </ul>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-6 no-padng">
-                                                        <div class="model-r">
-                                                            <div class="o-r">
-                                                                <span>ou</span>
-                                                            </div>
-                                                            <form action="{{ path('bde_account_register') }}" method="post" id="userRegisterFrm"
-                                                            class="log-frm" name="userRegisterFrm">
-                                                            <ul>
-                                                                {#<li>Prénom</li>
-                                                                <li><input type="text" name="fName" class="form-control"></li>
-                                                                <li>Nom</li>
-                                                                <li><input type="text" name="lName" class="form-control"></li>
-                                                                <li>Email</li>
-                                                                <li><input type="text" name="emailId" class="form-control"></li>
-                                                                <li>Mot de passe</li>
-                                                                <li><input type="password" name="password" class="form-control"></li>
-                                                                <li>Confirmation</li>
-                                                                <li><input type="password" name="repassword" class="form-control"></li>#}
-                                                                {{ form_start(formregister) }}
-                                                                {{ form_errors(formregister) }}
+                            <div class="col-md-6 col-sm-6 no-padng">
+                                <div class="model-r">
+                                    <div class="o-r">
+                                        <span>ou</span>
+                                    </div>
+                                    <form action="{{ path('bde_account_register') }}" method="post" id="userRegisterFrm"
+                                          class="log-frm" name="userRegisterFrm">
+                                        <ul>
+                                            {#<li>Prénom</li>
+                                            <li><input type="text" name="fName" class="form-control"></li>
+                                            <li>Nom</li>
+                                            <li><input type="text" name="lName" class="form-control"></li>
+                                            <li>Email</li>
+                                            <li><input type="text" name="emailId" class="form-control"></li>
+                                            <li>Mot de passe</li>
+                                            <li><input type="password" name="password" class="form-control"></li>
+                                            <li>Confirmation</li>
+                                            <li><input type="password" name="repassword" class="form-control"></li>#}
+                                            {{ form_start(formregister) }}
+                                            {{ form_errors(formregister) }}
 
-                                                                {{ form_row(formregister.email) }}
-                                                                {{ form_row(formregister.name) }}
-                                                                {{ form_row(formregister.surname) }}
-                                                                {{ form_row(formregister.password) }}
+                                            {{ form_row(formregister.email) }}
+                                            {{ form_row(formregister.name) }}
+                                            {{ form_row(formregister.surname) }}
+                                            {{ form_row(formregister.password) }}
 
-                                                                {{ form_rest(formregister) }}
+                                            {{ form_rest(formregister) }}
 
                                                                 <input type="submit" value="S'inscrire"/>
                                                                 {#<br>
@@ -218,11 +220,18 @@
                                                 </div>
                                                 {% endif %}
                                             </div>
-                                        </div>
-                                    </div>
+                                            <div style="display:none;" id="regnSuc11" class="sign redglow">
+                                                <li><i class="icon-mail"></i><br>
+                                                    <font color="red"> Cet email est déjà utilisé.</font></li>
+                                            </div>
+                                        </ul>
+                                    </form>
                                 </div>
                             </div>
+                            <div class="clearfix"></div>
                         </div>
+                        <div class="modal-footer">
+
                     </body>
                     <footer>
                         <div class="footer-top">
@@ -233,117 +242,148 @@
                                         <li><a class="col-xs-2" href="{{ path('bde_event_index') }}">Événements</a></li>
                                         <li><a class="col-xs-2" href="{{ path('bde_shop_index') }}">Boutique</a></li>
                                         <li><a class="col-xs-2" href="{{ path('bde_contact_index') }}">Contact</a></li>
-                                        <li><a class="col-xs-2" href="#">Mentions&nbsp;légales</a></li>
+                                        <li><a class="col-xs-2" href="{{ path('bde_core_mentions') }}">Mentions&nbsp;légales</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <center>
-                            <div class="container" style="border-top:1px solid white;">
-                                <div class="row text-center">
-                                    <ul class="menu">
-                                        <li><a class="fa fa-facebook-square" href="https://www.facebook.com/Exia.Cesi/"></a></li>
-                                        <li><a class="fa fa-twitter	" href="https://twitter.com/exiacesi"></a></li>
-                                        <li><a class="fa fa-youtube-play" href="https://www.youtube.com/user/groupecesi1"></a></li>
-                                        <li><a class="fa fa-linkedin-square" href="https://www.linkedin.com/school/561843/"></a></li>
-                                        <li><a class="fa fa-snapchat-ghost" data-content="@bdecesibordeaux" data-placement="top"
-                                            data-toggle="popover" style="cursor: pointer;"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </center>
-                        </footer>
-                        {% block javascripts %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+<footer>
+    <div class="footer-top">
+        <div class="container">
+            <div class="row text-center">
+                <ul class="menu">
+                    <li><a class="col-xs-2" href="{{ path('bde_core_index') }}">Accueil</a></li>
+                    <li><a class="col-xs-2" href="{{ path('bde_event_index') }}">Événements</a></li>
+                    <li><a class="col-xs-2" href="{{ path('bde_shop_index') }}">Boutique</a></li>
+                    <li><a class="col-xs-2" href="{{ path('bde_contact_index') }}">Contact</a></li>
+                    <li><a class="col-xs-2" href="#">Mentions&nbsp;légales</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <center>
+        <div class="container" style="border-top:1px solid white;">
+            <div class="row text-center">
+                <ul class="menu">
+                    <li><a class="fa fa-facebook-square" href="https://www.facebook.com/Exia.Cesi/"></a></li>
+                    <li><a class="fa fa-twitter	" href="https://twitter.com/exiacesi"></a></li>
+                    <li><a class="fa fa-youtube-play" href="https://www.youtube.com/user/groupecesi1"></a></li>
+                    <li><a class="fa fa-linkedin-square" href="https://www.linkedin.com/school/561843/"></a></li>
+                    <li><a class="fa fa-snapchat-ghost" data-content="@bdecesibordeaux" data-placement="top"
+                           data-toggle="popover" style="cursor: pointer;"></a></li>
+                </ul>
+            </div>
+        </div>
+    </center>
+</footer>
+{% block javascripts %}
 
-                        {% javascripts
-                        '@BDECoreBundle/Resources/public/js/jquery.min.js'
-                        '@BDECoreBundle/Resources/public/js/bootstrap.min.js' %}
-                        <script src="{{ asset_url }}"></script>
+    {% javascripts
+        '@BDECoreBundle/Resources/public/js/jquery.min.js'
+        '@BDECoreBundle/Resources/public/js/bootstrap.min.js' %}
+    <script src="{{ asset_url }}"></script>
 
 
-                        {% endjavascripts %}
+    {% endjavascripts %}
 
-                        <script lang="javascript" type="text/javascript">
-                        var $collectionHolder;
-                        // setup an "add a tag" link
-                        var $addTagLink = $('<a href="#" class="add_tag_link">Ajouter une image </a>');
-                        var $newLinkLi = $('<li></li>').append($addTagLink);
+    <script lang="javascript" type="text/javascript">
+        var $collectionHolder;
+        // setup an "add a tag" link
+        var $addTagLink = $('<a href="#" class="add_tag_link">Ajouter une image </a>');
+        var $newLinkLi = $('<li></li>').append($addTagLink);
 
-                        jQuery(document).ready(function () {
-                            // Get the ul that holds the collection of tags
-                            $collectionHolder = $('ul.events_picture');
-                            // add the "add a tag" anchor and li to the tags ul
-                            $collectionHolder.append($newLinkLi);
-                            // count the current form inputs we have (e.g. 2), use that as the new
-                            // index when inserting a new item (e.g. 2)
-                            $collectionHolder.data('index', $collectionHolder.find(':input').length);
-                            $addTagLink.on('click', function (e) {
-                                // prevent the link from creating a "#" on the URL
-                                e.preventDefault();
-                                // add a new tag form (see next code block)
-                                addTagForm($collectionHolder, $newLinkLi);
-                            });
-                        });
 
-                        function addTagForm($collectionHolder, $newLinkLi) {
-                            // Get the data-prototype explained earlier
-                            var prototype = $collectionHolder.data('prototype');
-                            // get the new index
-                            var index = $collectionHolder.data('index');
-                            // Replace '__name__' in the prototype's HTML to
-                            // instead be a number based on how many items we have
-                            var newForm = prototype.replace(/__name__/g, index);
-                            // increase the index with one for the next item
-                            $collectionHolder.data('index', index + 1);
-                            // Display the form in the page in an li, before the "Add a tag" link li
-                            var $newFormLi = $('<li></li>').append(newForm);
-                            $newLinkLi.before($newFormLi);
-                        }
-                        </script>
+        jQuery(document).ready(function () {
+            // Get the ul that holds the collection of tags
+            $collectionHolder = $('ul.events_picture');
+            // add the "add a tag" anchor and li to the tags ul
+            $collectionHolder.append($newLinkLi);
+            // count the current form inputs we have (e.g. 2), use that as the new
+            // index when inserting a new item (e.g. 2)
+            $collectionHolder.data('index', $collectionHolder.find(':input').length);
+            $addTagLink.on('click', function (e) {
+                // prevent the link from creating a "#" on the URL
+                e.preventDefault();
+                // add a new tag form (see next code block)
+                addTagForm($collectionHolder, $newLinkLi);
+            });
+        });
 
-                        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-                        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-                        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-                        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-                        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-                        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        function addTagForm($collectionHolder, $newLinkLi) {
+            // Get the data-prototype explained earlier
+            var prototype = $collectionHolder.data('prototype');
+            // get the new index
+            var index = $collectionHolder.data('index');
+            // Replace '__name__' in the prototype's HTML to
+            // instead be a number based on how many items we have
+            var newForm = prototype.replace(/__name__/g, index);
+            // increase the index with one for the next item
+            $collectionHolder.data('index', index + 1);
+            // Display the form in the page in an li, before the "Add a tag" link li
+            var $newFormLi = $('<li></li>').append(newForm);
+            $newLinkLi.before($newFormLi);
+        }
 
-                        <script>
+    </script>
 
-                        $(function() {
-                            $('a[href="#toggle-search"], .navbar-bootsnipp .bootsnipp-search .input-group-btn > .btn[type="reset"]').on('click', function (event) {
-                                event.preventDefault();
-                                $('.navbar-bootsnipp .bootsnipp-search .input-group > input').val('');
-                                $('.navbar-bootsnipp .bootsnipp-search').toggleClass('open');
-                                $('a[href="#toggle-search"]').closest('li').toggleClass('active');
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-                                if ($('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
-                                    /* I think .focus dosen't like css animations, set timeout to make sure input gets focus */
-                                    setTimeout(function () {
-                                        $('.navbar-bootsnipp .bootsnipp-search .form-control').focus();
-                                    }, 100);
-                                }
-                            });
+    <script>
 
-                            $(document).on('keyup', function (event) {
-                                if (event.which == 27 && $('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
-                                    $('a[href="#toggle-search"]').trigger('click');
-                                }
-                            });
-                        });
-                        </script>
+        $(function () {
+            $('a[href="#toggle-search"], .navbar-bootsnipp .bootsnipp-search .input-group-btn > .btn[type="reset"]').on('click', function (event) {
+                event.preventDefault();
+                $('.navbar-bootsnipp .bootsnipp-search .input-group > input').val('');
+                $('.navbar-bootsnipp .bootsnipp-search').toggleClass('open');
+                $('a[href="#toggle-search"]').closest('li').toggleClass('active');
 
-                        <script>
-                        function ayantoggle() {
-                            $(".forgot").slideToggle('slow');
-                        }
+                if ($('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
+                    /* I think .focus dosen't like css animations, set timeout to make sure input gets focus */
+                    setTimeout(function () {
+                        $('.navbar-bootsnipp .bootsnipp-search .form-control').focus();
+                    }, 100);
+                }
+            });
 
-                        </script>
+            $(document).on('keyup', function (event) {
+                if (event.which == 27 && $('.navbar-bootsnipp .bootsnipp-search').hasClass('open')) {
+                    $('a[href="#toggle-search"]').trigger('click');
+                }
+            });
+        });
+    </script>
 
-                        <script>
-                        $("[data-toggle=show-popover]").popover('show');
-                        $("[data-toggle=popover]").popover();
-                        </script>
-                        {% endblock %}
-                        </html>
+    <script>
+        function ayantoggle() {
+            $(".forgot").slideToggle('slow');
+        }
+
+    </script>
+
+    <script>
+        $("[data-toggle=show-popover]").popover('show');
+        $("[data-toggle=popover]").popover();
+    </script>
+{% endblock %}
+</html>
