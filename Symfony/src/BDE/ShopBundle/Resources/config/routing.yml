@@ -10,6 +10,16 @@ bde_shop_index:
     defaults:
          _controller: BDEShopBundle:Shop:index
 
+bde_shop_tribyletter:
+    path:      /shop/tribyletter
+    defaults:
+         _controller: BDEShopBundle:Shop:tribyletter
+
+bde_shop_tribyprice:
+    path:      /shop/tribyprice
+    defaults:
+         _controller: BDEShopBundle:Shop:tribyprice
+
 bde_shop_cart:
     path:      /shop/cart
     defaults:

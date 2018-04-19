@@ -69,7 +69,7 @@ class Events
     /**
      * @var string
      *
-     * @ORM\Column(name="Description", type="string", length=255)
+     * @ORM\Column(name="Description", type="string", length=5000)
      */
     private $description;
 
@@ -94,10 +94,46 @@ class Events
      */
     private $priceTTC;
 
+
+
+
+
+    /**
+     * @ORM\Column(name="nb_likes", type="integer")
+     */
+    private $nb_likes = 0;
+
+
+    public function increaseLike()
+    {
+        $this->nb_likes++;
+    }
+
+    public function decreaseLike()
+    {
+        $this->nb_likes--;
+    }
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="AuthorName", type="string", length=255)
+     */
+    private $authorName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="AuthorSurname", type="string", length=255)
+     */
+    private $authorSurname;
+
+
     /**
      * @ORM\ManyToMany(targetEntity="Events_picture", cascade={"persist"})
      */
     private $events_picture;
+
 
     /**
      * Get id
@@ -276,12 +312,13 @@ class Events
     {
         return $this->priceTTC;
     }
+
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->date           = new \DateTime();
+        $this->date = new \DateTime();
         $this->events_picture = new ArrayCollection();
     }
 
@@ -291,7 +328,8 @@ class Events
      *
      * @return ArrayCollection
      */
-    function getEvents_picture() {
+    function getEvents_picture()
+    {
         return $this->events_picture;
     }
 
@@ -299,10 +337,10 @@ class Events
      * Set files
      * @param type $events_picture
      */
-    function setEvents_picture($events_picture) {
+    function setEvents_picture($events_picture)
+    {
         $this->events_picture = $events_picture;
     }
-
 
 
     /**
@@ -337,5 +375,81 @@ class Events
     public function getEventsPicture()
     {
         return $this->events_picture;
+    }
+
+
+    /**
+     * Set authorName
+     *
+     * @param string $authorName
+     *
+     * @return Events
+     */
+    public function setAuthorName($authorName)
+    {
+        $this->authorName = $authorName;
+
+        return $this;
+    }
+
+    /**
+     * Get authorName
+     *
+     * @return string
+     */
+    public function getAuthorName()
+    {
+        return $this->authorName;
+    }
+
+    /**
+     * Set authorSurname
+     *
+     * @param string $authorSurname
+     *
+     * @return Events
+     */
+    public function setAuthorSurname($authorSurname)
+    {
+        $this->authorSurname = $authorSurname;
+
+        return $this;
+    }
+
+    /**
+     * Get authorSurname
+     *
+     * @return string
+     */
+    public function getAuthorSurname()
+    {
+        return $this->authorSurname;
+    }
+    
+
+
+    /**
+     * Set nbLikes
+     *
+     * @param integer $nbLikes
+     *
+     * @return Events
+     */
+    public function setNb_Likes($nbLikes)
+    {
+        $this->nb_likes = $nbLikes;
+
+        return $this;
+    }
+
+
+    /**
+     * Get nbLikes
+     *
+     * @return integer
+     */
+    public function getNb_Likes()
+    {
+        return $this->nb_likes;
     }
 }

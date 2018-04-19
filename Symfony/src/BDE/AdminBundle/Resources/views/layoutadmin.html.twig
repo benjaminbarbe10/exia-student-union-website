@@ -8,14 +8,17 @@
     <link rel="stylesheet" href="{{ asset('css/adminStyle.css') }}">
 {% endblock %}
     {% block body %}
-<h1>
-    <center>
-        Panel d'administration
-    </center>
-</h1><br><br><br>
+        <h1>
+            <center>
+                Panel d'administration
+            </center>
+        </h1><br><br><br>
 
-
+        {% if roleconnect == 2 %}
             {% block bodyadmin %}
 
             {% endblock %}
-{% endblock %}
+        {% else %}
+            <h2>&nbsp;&nbsp;&nbsp;Accès refusé, vous ne possédez pas les droits!</h2>
+        {% endif %}
+    {% endblock %}

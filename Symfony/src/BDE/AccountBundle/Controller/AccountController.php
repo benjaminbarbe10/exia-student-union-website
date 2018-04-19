@@ -16,37 +16,54 @@ class AccountController extends Controller
     {
 
         $enquiry = new Users();
-        $form = $this->createForm(LoginType::class, $enquiry);
-        $form->handleRequest($request);
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
 
         if ($request->isMethod('POST')) {
+            $password = $enquiry->getPassword();
+            $password = md5($password);
             $user = $this->getDoctrine()
                 ->getRepository(Users::class)
-                ->findOneBy(array('email' => $enquiry->getEmail(), 'password' => $enquiry->getPassword()));
+                ->findOneBy(array('email' => $enquiry->getEmail(), 'password' => $password));
             $session = $request->getSession();
+
 
             if ($user === NULL) {
                 return $this->render('BDEAccountBundle:connection:login.html.twig', array(
-                    'form' => $form->createView(),
+                    'formconnect' => $formconnect->createView(),
+                    'formregister' => $formregister->createView(),
                     'message' => 'Email ou mot de passe erroné!',
                     'name' => NULL,
-                    ));
+                ));
             }
+
             $idUser = $user->getId();
-            //$idRole = $user->get
             $session->set('id', $idUser);
 
-           /* if ( === 2){
-                return $this->render('BDEAdminBundle::index.html.twig', array(
-                    'message' => 'Vous êtes connecté!', 'name' => NULL,));
-            }*/
+            $id = $session->get('id');
+            $user = $this->getDoctrine()
+                ->getRepository(Users::class)
+                ->find($id);
+            if ($id != 0) {
+                $userconnected = $user->getName();
+            } else {
+                $userconnected = '';
+            }
 
-            return $this->render('BDEAccountBundle::account.html.twig', array(
-                'message' => 'Vous êtes connecté!', 'name' => NULL,));
+            return $this->render('BDECoreBundle::index.html.twig', array(
+                'formconnect' => $formconnect->createView(),
+                'formregister' => $formregister->createView(),
+                'name' => $userconnected,
+            ));
         }
 
         return $this->render('BDEAccountBundle:connection:login.html.twig', array(
-            'form' => $form->createView(), 'message' => '', 'name' => NULL,));
+            'formconnect' => $formconnect->createView(),
+            'formregister' => $formregister->createView(),
+            'message' => '',
+            'name' => NULL,));
     }
 
 
@@ -55,8 +72,10 @@ class AccountController extends Controller
 
 
         $enquiry = new Users();
-        $form = $this->createForm(RegisterType::class, $enquiry);
-        $form->handleRequest($request);
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
 
         $enquiryManager = $this->getDoctrine()->getManager();
 
@@ -68,7 +87,8 @@ class AccountController extends Controller
             $number = preg_match('@[0-9]@', $password);
             if (!$uppercase || !$lowercase || !$number) {
                 return $this->render('BDEAccountBundle:connection:register.html.twig', array(
-                    'form' => $form->createView(),
+                    'formconnect' => $formconnect->createView(),
+                    'formregister' => $formregister->createView(),
                     'message' => 'Votre mot de passe doit contenir une majuscule et un chiffre!',
                     'name' => NULL,
                 ));
@@ -77,7 +97,7 @@ class AccountController extends Controller
             $enquiry->setEmail($enquiry->getEmail())
                 ->setName($enquiry->getName())
                 ->setSurname($enquiry->getSurname())
-                ->setPassword($enquiry->getPassword())
+                ->setPassword(md5($password))
                 ->initRole($enquiryManager);
 
 
@@ -91,7 +111,8 @@ class AccountController extends Controller
         }
 
         return $this->render('BDEAccountBundle:connection:register.html.twig', array(
-            'form' => $form->createView(),
+            'formconnect' => $formconnect->createView(),
+            'formregister' => $formregister->createView(),
             'name' => NULL,
             'message' => NULL,
         ));
@@ -99,10 +120,18 @@ class AccountController extends Controller
 
     public function disconnectAction(Request $request)
     {
+        $enquiry = new Users();
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
+
         $session = $request->getSession();
         $session->set('id', 0);
 
-        return $this->render('BDEAccountBundle::disconnect.html.twig', array(
+        return $this->render('BDECoreBundle::index.html.twig', array(
+            'formconnect' => $formconnect->createView(),
+            'formregister' => $formregister->createView(),
             'name' => NULL,
         ));
     }

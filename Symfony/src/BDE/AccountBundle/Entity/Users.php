@@ -29,10 +29,6 @@ class Users
         return $this;
     }
 
-    /**
-     * @ORM\ManyToMany(targetEntity="BDE\EventBundle\Entity\Events", cascade={"persist"})
-     */
-    protected $events;
 
     /**
      * @ORM\ManyToMany(targetEntity="BDE\EventBundle\Entity\Events_picture", cascade={"persist"})
@@ -85,6 +81,8 @@ class Users
      * @ORM\Column(name="Email", type="string", length=255, unique=true)
      */
     protected $email;
+
+
 
 
     /**
@@ -314,50 +312,6 @@ class Users
     public function getOrdersLine()
     {
         return $this->orders_line;
-    }
-
-    /**
-     * Add eventsPictureComment
-     *
-     * @param \BDE\EventBundle\Entity\Events_picture_comment $eventsPictureComment
-     *
-     * @return Users
-     */
-    public function addEventsPictureComment(\BDE\EventBundle\Entity\Events_picture_comment $eventsPictureComment)
-    {
-        $this->events_picture_comment[] = $eventsPictureComment;
-
-        return $this;
-    }
-
-    /**
-     * Remove eventsPictureComment
-     *
-     * @param \BDE\EventBundle\Entity\Events_picture_comment $eventsPictureComment
-     */
-    public function removeEventsPictureComment(\BDE\EventBundle\Entity\Events_picture_comment $eventsPictureComment)
-    {
-        $this->events_picture_comment->removeElement($eventsPictureComment);
-    }
-
-    /**
-     * Get eventsPictureComment
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getEventsPictureComment()
-    {
-        return $this->events_picture_comment;
-    }
-
-    public function formatApiResponse()
-    {
-        return [
-            'id' => $this->getId(),
-            'email' => $this->getEmail(),
-            'name' => $this->getName(),
-            'surname' => $this->getSurname(),
-        ];
     }
 
 }

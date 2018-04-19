@@ -30,8 +30,27 @@ body{
     margin-bottom: 25%;
     margin-top: 25%;
 }
+.imagesadd{
 
+}
 
+.barreev{
+    border-bottom: black solid 1px;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.titlecom{
+    text-align: center;
+}
+
+.italic{
+    font-style: italic;
+}
+
+ul.events_picture {
+    list-style:none;
+}
 .priceevent{
     text-align:center;
 }

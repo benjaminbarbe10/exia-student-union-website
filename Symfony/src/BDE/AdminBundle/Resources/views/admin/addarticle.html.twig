@@ -1,0 +1,17 @@
+{% extends "BDEAdminBundle::layoutadmin.html.twig" %}
+
+            {% block bodyadmin %}
+                <form action="{{ path('bde_admin_addarticle') }}" method="post" {{ form_start(form) }}
+                {{ form_errors(form) }}
+
+                {{ form_row(form.name) }}
+                {{ form_row(form.description) }}
+                {{ form_row(form.picture) }}
+                {{ form_row(form.pricettc) }}
+
+                {{ form_rest(form) }}
+
+                <input type="submit" value="Ajouter"/>
+                </form>
+
+            {% endblock %}

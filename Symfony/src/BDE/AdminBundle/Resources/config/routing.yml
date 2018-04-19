@@ -3,10 +3,21 @@ bde_admin_index:
     defaults:
         _controller: BDEAdminBundle:Admin:Admin
 
+bde_admin_viewsuggestion:
+    path:     /admin/suggestion/{id}
+    defaults:
+         _controller: BDEAdminBundle:Admin:viewSuggestion
+    requirements:
+        id: \d+
 
 bde_admin_viewuser:
-    path:     /user/{id}
+    path:     /admin/user/{id}
     defaults:
          _controller: BDEAdminBundle:Admin:viewUser
     requirements:
         id: \d+
+
+bde_admin_addarticle:
+    path:     /admin/addarticle
+    defaults:
+        _controller: BDEAdminBundle:Admin:newArticle

@@ -1,6 +1,7 @@
 <?php
 
 namespace BDE\EventBundle\Form;
+use BDE\EventBundle\Entity\Events_picture;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -42,6 +43,8 @@ class EventsType extends AbstractType
                 'entry_type' => Events_pictureType::class,
                 'allow_add' => true,
                 'by_reference' => false,
+                'required'   => false,
+                'label' => '',
             ))
             ->add('save',      SubmitType::class)
         ;

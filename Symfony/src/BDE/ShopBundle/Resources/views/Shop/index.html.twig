@@ -1,5 +1,7 @@
 {% extends "BDEShopBundle::layoutShop.html.twig" %}
 
+{% set test = 1 %}
+
 {% block title %}
 Shop {{ parent() }}
 {% endblock %}
@@ -16,13 +18,12 @@ Shop {{ parent() }}
         <div class="row">
             <div class="col-12 col-sm-3">
                 <div class="card bg-light mb-3">
-                    <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i> &nbsp;Catégories
+                    <div class="card-header bg-primary text-white text-uppercase"><i class="fa fa-list"></i> &nbsp;Filtrer
                     </div>
                     <ul class="list-group category_block">
-                        <li class="list-group-item"><a href="category.html">Tous les produits</a></li>
-                        <li class="list-group-item"><a href="category.html">Vêtements</a></li>
-                        <li class="list-group-item"><a href="category.html">Goodies</a></li>
-                        <li class="list-group-item"><a href="category.html">Réservations</a></li>
+                        <li class="list-group-item"><a href="{{ path('bde_shop_index')}}">Tous les produits</a></li>
+                        <li class="list-group-item"><a href="{{ path('bde_shop_tribyprice')}}">Par prix</a></li>
+                        <li class="list-group-item"><a href="{{ path('bde_shop_tribyletter')}}">Par ordre alphabétique</a></li>
                     </ul>
                 </div>
                 <div class="card bg-light mb-3">
@@ -79,27 +80,37 @@ Shop {{ parent() }}
         </div>
     </div>
 
-    <div class="col">
-        <div class="row">
-            {% for article in articles %}
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="card">
-                    <img class="card-img-top" src="{{ asset(article.picture) }}"
-                    alt="Card image cap">
-                    <div class="card-body"
-                    onclick="location.href = '{{ path('bde_shop_view', {'id' : article.id}) }}';">
-                    <h4 class="card-title"><a href="{{ path('bde_shop_view', {'id' : article.id}) }}"
-                        title="View Product">{{ article.name }}</a>
-                    </h4>
-                    <p class="card-text">{{ article.description }}</p>
-                    <div class="row">
-                        <div class="col">
-                            <p class="btnShopPrix">{{ article.priceTTC }} €</p>
+
+            <div class="col">
+                <div class="row">
+
+
+                    {% block tri %}
+                    {% for article in articles %}
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card">
+                                <img class="card-img-top" src="{{ asset(article.picture) }}"
+                                     alt="Card image cap">
+                                <div class="card-body"
+                                     onclick="location.href = '{{ path('bde_shop_view', {'id' : article.id}) }}';">
+                                    <h4 class="card-title"><a
+                                                href="{{ path('bde_shop_view', {'id' : article.id}) }}"
+                                                title="View Product">{{ article.name }}</a>
+                                    </h4>
+                                    <p class="card-text">{{ article.description }}</p>
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="btnShopPrix">{{ article.priceTTC }} €</p>
+                                        </div>
+                                        <div class="col">
+                                            <a href="#" class="btnShop">Acheter</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col">
-                            <a href="#" class="btnShop">Acheter</a>
-                        </div>
-                    </div>
+                    {% endfor %}
+                    {% endblock %}
                 </div>
             </div>
         </div>

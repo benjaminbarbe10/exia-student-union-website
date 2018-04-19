@@ -10,4 +10,7 @@ namespace BDE\EventBundle\Repository;
  */
 class EventsRepository extends \Doctrine\ORM\EntityRepository
 {
+
+
+
 }
