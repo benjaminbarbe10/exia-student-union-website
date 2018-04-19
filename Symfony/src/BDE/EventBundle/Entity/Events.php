@@ -94,16 +94,46 @@ class Events
      */
     private $priceTTC;
 
+
+
+
+
+    /**
+     * @ORM\Column(name="nb_likes", type="integer")
+     */
+    private $nb_likes = 0;
+
+
+    public function increaseLike()
+    {
+        $this->nb_likes++;
+    }
+
+    public function decreaseLike()
+    {
+        $this->nb_likes--;
+    }
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="AuthorName", type="string", length=255)
+     */
+    private $authorName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="AuthorSurname", type="string", length=255)
+     */
+    private $authorSurname;
+
+
     /**
      * @ORM\ManyToMany(targetEntity="Events_picture", cascade={"persist"})
      */
     private $events_picture;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="BDE\AccountBundle\Entity\Users")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $users;
 
     /**
      * Get id
@@ -282,12 +312,13 @@ class Events
     {
         return $this->priceTTC;
     }
+
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->date           = new \DateTime();
+        $this->date = new \DateTime();
         $this->events_picture = new ArrayCollection();
     }
 
@@ -297,7 +328,8 @@ class Events
      *
      * @return ArrayCollection
      */
-    function getEvents_picture() {
+    function getEvents_picture()
+    {
         return $this->events_picture;
     }
 
@@ -305,10 +337,10 @@ class Events
      * Set files
      * @param type $events_picture
      */
-    function setEvents_picture($events_picture) {
+    function setEvents_picture($events_picture)
+    {
         $this->events_picture = $events_picture;
     }
-
 
 
     /**
@@ -345,27 +377,79 @@ class Events
         return $this->events_picture;
     }
 
+
     /**
-     * Set users
+     * Set authorName
      *
-     * @param \BDE\AccountBundle\Entity\Users $users
+     * @param string $authorName
      *
      * @return Events
      */
-    public function setUsers(\BDE\AccountBundle\Entity\Users $users)
+    public function setAuthorName($authorName)
     {
-        $this->users = $users;
+        $this->authorName = $authorName;
 
         return $this;
     }
 
     /**
-     * Get users
+     * Get authorName
      *
-     * @return \BDE\AccountBundle\Entity\Users
+     * @return string
      */
-    public function getUsers()
+    public function getAuthorName()
     {
-        return $this->users;
+        return $this->authorName;
+    }
+
+    /**
+     * Set authorSurname
+     *
+     * @param string $authorSurname
+     *
+     * @return Events
+     */
+    public function setAuthorSurname($authorSurname)
+    {
+        $this->authorSurname = $authorSurname;
+
+        return $this;
+    }
+
+    /**
+     * Get authorSurname
+     *
+     * @return string
+     */
+    public function getAuthorSurname()
+    {
+        return $this->authorSurname;
+    }
+    
+
+
+    /**
+     * Set nbLikes
+     *
+     * @param integer $nbLikes
+     *
+     * @return Events
+     */
+    public function setNb_Likes($nbLikes)
+    {
+        $this->nb_likes = $nbLikes;
+
+        return $this;
+    }
+
+
+    /**
+     * Get nbLikes
+     *
+     * @return integer
+     */
+    public function getNb_Likes()
+    {
+        return $this->nb_likes;
     }
 }

@@ -31,13 +31,13 @@
                         </div>
                 </div>
                 <div class="card bg-light mb-3">
-                    <div class="card-header bg-success text-white text-uppercase">Dernieres Idées</div>
+                    <div class="card-header bg-success text-white text-uppercase">Dernières Idées</div>
 
                     <div class="card-body">
 
         <ul class="list-group category_block">
             {% for events in listEvents %}
-                <li class="list-group-item"><a href="#" class="lastid">{{ events.name }}</a><div class="voteid"><a class="fa fa-thumbs-o-up" href="google.com" style="color: green;" ></a>&nbsp;&nbsp;<a href="google.com" class="fa fa-thumbs-o-down" style="color: #C2242A"></a></div> </li>
+                <li class="list-group-item"><a href="#" class="lastid">{{ events.name }}</a><div class="voteid">{{ events.nb_likes }}&nbsp;<a class="fa fa-thumbs-o-up" href="google.com" style="color: green;" ></a>&nbsp;&nbsp;<a href="google.com" class="fa fa-thumbs-o-down" style="color: #C2242A"></a></div> </li>
             {% endfor %}
         </ul>
 

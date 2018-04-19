@@ -32,7 +32,15 @@
 </head>
 <header>
     <nav class="navbar navbar-fixed-top navbar-bootsnipp animate">
+        <div class="col-1">
+            <div class="row">
+                <div class="logoBDE">
+                </div>
+            </div>
+        </div>
+
         <div class="container">
+
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="[ navbar-header ]">
                 <button type="button" class="[ navbar-toggle ]" data-toggle="collapse"
@@ -184,19 +192,33 @@
 
                                             {{ form_rest(formregister) }}
 
-                                            <input type="submit" value="S'inscrire"/>
-                                            {#<br>
-                                            <li>
-                                            <button type="button" name="userRegBtn"
-                                            class="btnLogin btn-defaultLogin">S'inscrire
-                                            </button>
-                                            </li>#}
-                                            <div style="display:none;" class="sign greenglow">
-                                                <li><i class="icon-check"></i><br>
-                                                    <font color="red">
-                                                        Inscription réussie.<br>
-                                                        Un mail contenant votre identifiant vous a été envoyé.
-                                                    </font></li>
+                                                                <input type="submit" value="S'inscrire"/>
+                                                                {#<br>
+                                                                <li>
+                                                                <button type="button" name="userRegBtn"
+                                                                class="btnLogin btn-defaultLogin">S'inscrire
+                                                                </button>
+                                                                </li>#}
+                                                                <div style="display:none;" class="sign greenglow">
+                                                                    <li><i class="icon-check"></i><br>
+                                                                        <font color="red">
+                                                                            Inscription réussie.<br>
+                                                                            Un mail contenant votre identifiant vous a été envoyé.
+                                                                        </font></li>
+                                                                    </div>
+                                                                    <div style="display:none;" id="regnSuc11" class="sign redglow">
+                                                                        <li><i class="icon-mail"></i><br>
+                                                                            <font color="red"> Cet email est déjà utilisé.</font></li>
+                                                                        </div>
+                                                                    </ul>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <div class="modal-footer"></div>
+                                                </div>
+                                                {% endif %}
                                             </div>
                                             <div style="display:none;" id="regnSuc11" class="sign redglow">
                                                 <li><i class="icon-mail"></i><br>
@@ -209,6 +231,21 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="modal-footer">
+
+                    </body>
+                    <footer>
+                        <div class="footer-top">
+                            <div class="container">
+                                <div class="row text-center">
+                                    <ul class="menu">
+                                        <li><a class="col-xs-2" href="{{ path('bde_core_index') }}">Accueil</a></li>
+                                        <li><a class="col-xs-2" href="{{ path('bde_event_index') }}">Événements</a></li>
+                                        <li><a class="col-xs-2" href="{{ path('bde_shop_index') }}">Boutique</a></li>
+                                        <li><a class="col-xs-2" href="{{ path('bde_contact_index') }}">Contact</a></li>
+                                        <li><a class="col-xs-2" href="{{ path('bde_core_mentions') }}">Mentions&nbsp;légales</a></li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     {% endif %}

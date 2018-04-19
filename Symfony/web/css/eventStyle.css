@@ -37,6 +37,13 @@ body{
     margin-right: 25%;
 }
 
+.titlecom{
+    text-align: center;
+}
+
+.italic{
+    font-style: italic;
+}
 
 .priceevent{
     text-align:center;
