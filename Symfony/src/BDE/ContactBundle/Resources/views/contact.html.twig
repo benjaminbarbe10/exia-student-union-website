@@ -1,76 +1,74 @@
 {% extends "BDECoreBundle::layout.html.twig" %}
 
 {% block title %}
-    Accueil - {{ parent() }}
+Contact - {{ parent() }}
 {% endblock %}
 
 {% block body %}
-    <h1>
-        <center>
-            Nous contacter
-        </center>
-        <br><br>
-    </h1>
+<h1>
+    Nous contacter
+    <br><br>
+</h1>
 
 
-    {# <form action="{{ path('bde_contact_index') }}" method="post" {{ form_start(form) }}
-    {{ form_errors(form) }}
+{# <form action="{{ path('bde_contact_index') }}" method="post" {{ form_start(form) }}
+{{ form_errors(form) }}
 
-    {{ form_row(form.email) }}
-    {{ form_row(form.subject) }}
-    {{ form_row(form.body) }}
+{{ form_row(form.email) }}
+{{ form_row(form.subject) }}
+{{ form_row(form.body) }}
 
-    {{ form_rest(form) }}
+{{ form_rest(form) }}
 
-    <input type="submit" value="Envoyer"/>
-    </form>
-    #}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="well well-sm">
-                    <form action="{{ path('bde_contact_index') }}" method="post" {{ form_start(form) }}
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group form-group-contact">
+<input type="submit" value="Envoyer"/>
+</form>
+#}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well well-sm">
+                <form action="{{ path('bde_contact_index') }}" method="post"></form> {{ form_start(form) }}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group form-group-contact">
 
-                                {{ form_errors(form) }}
+                            {{ form_errors(form) }}
 
-                                {{ form_row(form.email) }}
-                                {{ form_row(form.subject) }}
+                            {{ form_row(form.email) }}
+                            {{ form_row(form.subject) }}
 
-                                {{ form_row(form.body) }}
-
-
-                                {{ form_rest(form) }}
+                            {{ form_row(form.body) }}
 
 
-                            </div>
+                            {{ form_rest(form) }}
 
-                            <button type="submit" class="btnAddEvent" id="btnContactUs" style="margin-left: 87%;">
-                                Envoyer{#<input type="submit" value="Envoyer"/>#}
-                            </button>
+
                         </div>
+
+                        <button type="submit" class="btnAddEvent" id="btnContactUs" style="margin-left: 87%;">
+                            Envoyer{#<input type="submit" value="Envoyer"/>#}
+                        </button>
                     </div>
                 </div>
             </div>
-            </form>
-
-
-            <div class="col-md-4">
-                <form>
-                    <legend><span class="glyphicon glyphicon-globe"></span>&nbsp;Nos locaux</legend>
-                    <address>
-                        <strong>BDE Cesi de Bordeaux</strong><br>
-                        264 Boulevard Godard<br>
-                        33000 Bordeaux<br>
-                        Téléphone : 0 800 054 568
-                    </address>
-                </form>
-            </div>
-
         </div>
     </div>
+</form>
+
+
+<div class="col-md-4">
+    <form>
+        <span class="glyphicon glyphicon-globe"></span>&nbsp;<b>Nos locaux</b><br><br>
+        <address>
+            <strong>BDE Cesi de Bordeaux</strong><br>
+            264 Boulevard Godard<br>
+            33000 Bordeaux<br>
+            Téléphone : 0 800 054 568
+        </address>
+    </form>
+</div>
+</div>
+</div>
 
 
 {% endblock %}

@@ -1,56 +1,52 @@
 {% extends "BDECoreBundle::layout.html.twig" %}
 
 {% block title %}
-    BDE Cesi
+BDE Cesi
 {% endblock %}
 
 {% block body %}
-    <center>
-        <h1>Les Événements</h1><br><br>
-    </center>
-    <section class="jumbotron text-center">
-        <div class="container">
-
-            <p class="lead text-muted mb-0">Retrouvez ici la liste des événements à venir. Vous pouvez simplement les consulter mais également vous y inscrire.   </p>
-        </div>
-    </section>
+<h1>Les Événements</h1><br><br>
     <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-3">
-                <div class="card bg-light mb-3">
-                        <div class="card-header bg-success text-white text-uppercase"><i class="glyphicon glyphicon-edit"></i>&nbsp;&nbsp;Boite à idée</div>
 
-                        <div class="card-body" style="padding-bottom:0px;text-align: center">
+        <p class="lead text-muted mb-0">Retrouvez ici la liste des événements à venir. Vous pouvez simplement les consulter mais également vous y inscrire.   </p><br><br><br>
+    </div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-lg-3">
+            <div class="card bg-light mb-3">
+                <div class="card-header bg-success text-white text-uppercase"><i class="glyphicon glyphicon-edit"></i>&nbsp;&nbsp;Boite à idée</div>
 
-                            <a href="{{ path('bde_event_addSuggestion') }}"><div class="sim-button button28 boxid"><span style="font-size: 12px">Proposer une idée</span></div></a>
+                <div class="card-body" style="padding-bottom:0px;text-align: center">
 
-                            <i class="fa fa-lightbulb-o" style="font-size:55px"></i>
-                            <br><br>
-                            <a href="{{ path('bde_event_suggestion') }}"><div class="sim-button button28 boxid"><span style="font-size: 12px">Liste des idées</span></div></a>
+                    <a href="{{ path('bde_event_addSuggestion') }}"><div class="sim-button button28 boxid"><span style="font-size: 12px">Proposer une idée</span></div></a>
 
-                        </div>
-                </div>
-                <div class="card bg-light mb-3">
-                    <div class="card-header bg-success text-white text-uppercase">Dernières Idées</div>
+                    <i class="fa fa-lightbulb-o" style="font-size:55px"></i>
+                    <br><br>
+                    <a href="{{ path('bde_event_suggestion') }}"><div class="sim-button button28 boxid"><span style="font-size: 12px">Liste des idées</span></div></a>
 
-                    <div class="card-body">
-
-        <ul class="list-group category_block">
-            {% for events in listEvents %}
-                <li class="list-group-item"><a href="#" class="lastid">{{ events.name }}</a><div class="voteid"><a class="fa fa-thumbs-o-up" href="google.com" style="color: green;" ></a>&nbsp;&nbsp;<a href="google.com" class="fa fa-thumbs-o-down" style="color: #C2242A"></a></div> </li>
-            {% endfor %}
-        </ul>
-
-                    </div>
                 </div>
             </div>
+            <div class="card bg-light mb-3">
+                <div class="card-header bg-success text-white text-uppercase">Dernières Idées</div>
 
+                <div class="card-body">
 
-            {% block bodyevent %}
+                    <ul class="list-group category_block">
+                        {% for events in listEvents %}
+                        <li class="list-group-item"><a href="#" class="lastid">{{ events.name }}</a><div class="voteid"><a class="fa fa-thumbs-o-up" href="google.com" style="color: green;" ></a>&nbsp;&nbsp;<a href="google.com" class="fa fa-thumbs-o-down" style="color: #C2242A"></a></div> </li>
+                        {% endfor %}
+                    </ul>
 
-            {% endblock %}
+                </div>
+            </div>
         </div>
+
+
+        {% block bodyevent %}
+
+        {% endblock %}
     </div>
+</div>
 
 
 

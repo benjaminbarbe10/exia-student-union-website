@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block bodyevent %}
-<div class="col" xmlns="http://www.w3.org/1999/html">
+<div class="col" xmlns="http://www.w3.org/1999/xhtml">
     <div class="row">
         {% for events in listEvents %}
         <div class="col-12 bande">
@@ -14,7 +14,7 @@
 
                     {% for images in events.events_picture[0:1] %}
 
-                    <img class="card-img-top" src="{{ asset('upload/'~images.picture) }}">
+                    <img class="card-img-top" src="{{ asset('upload/'~images.picture) }}" alt="">
 
                     {% endfor %}
 
@@ -26,8 +26,8 @@
                     <div class=" col-12 col-lg-8">
                         <div>
                             <h3 class="card-title"><a href="{{ path('bde_event_viewevent', {'id' : events.id}) }}"
-                        title="Plus de renseignements">{{ events.name }}</a><h6
-                        class="author">Crée par Benjamin Barbé.</h6></h3>
+                        title="Plus de renseignements">{{ events.name }}</a></h3><h6
+                        class="author">Crée par Benjamin Barbé.</h6>
                         <div class="title_line"></div>
                         <br><br>
                             <p class="card-text">{{ events.description }}Et interdum acciderat, ut siquid in penetrali

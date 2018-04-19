@@ -6,13 +6,13 @@ titre {{ parent() }}
 
 {% block bodyevent %}
 
-<div class="col" style="border-bottom: solid 1px #888888;padding-bottom:20px;"xmlns="http://www.w3.org/1999/html">
+<div class="col" style="border-bottom: solid 1px #888888;padding-bottom:20px;"xmlns="http://www.w3.org/1999/xhtml">
     <div class="row">
         <div class="col-12 bande">
             <div class=" col-12 col-lg-4"><br><br><br><br>
                 <div class="card">
                     {% for images in events.events_picture[0:1] %}
-                    <img class="card-img-top" src="{{ asset('upload/'~images.picture) }}">
+                    <img class="card-img-top" src="{{ asset('upload/'~images.picture) }}" alt="">
                     {% endfor %}
                 </div>
                 <br>
