@@ -43,6 +43,8 @@ class EventsType extends AbstractType
                 'entry_type' => Events_pictureType::class,
                 'allow_add' => true,
                 'by_reference' => false,
+                'required'   => false,
+                'label' => '',
             ))
             ->add('save',      SubmitType::class)
         ;

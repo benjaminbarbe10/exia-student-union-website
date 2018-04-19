@@ -5,12 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c04bb074-0975-4b72-aff8-736dcdbeca93" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Symfony/src/BDE/AccountBundle/Entity/Users.php" afterPath="$PROJECT_DIR$/Symfony/src/BDE/AccountBundle/Entity/Users.php" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/Controller/AdminController.php" afterPath="$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/Controller/AdminController.php" />
+      <change beforePath="$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/Resources/config/routing.yml" />
+      <change beforePath="$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/Resources/views/admin/index.html.twig" afterPath="$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/Resources/views/admin/index.html.twig" />
+      <change beforePath="$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/Resources/views/admin/viewUser.html.twig" afterPath="$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/Resources/views/admin/viewUser.html.twig" />
       <change beforePath="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Controller/EventController.php" afterPath="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Controller/EventController.php" />
       <change beforePath="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Entity/Events.php" afterPath="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Entity/Events.php" />
+      <change beforePath="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Form/EventsType.php" afterPath="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Form/EventsType.php" />
+      <change beforePath="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Repository/EventsRepository.php" afterPath="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Repository/EventsRepository.php" />
+      <change beforePath="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/addEvent.html.twig" afterPath="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/addEvent.html.twig" />
+      <change beforePath="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/addSuggestion.html.twig" afterPath="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/addSuggestion.html.twig" />
+      <change beforePath="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/edit.html.twig" afterPath="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/edit.html.twig" />
+      <change beforePath="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/eventForm.html.twig" afterPath="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/eventForm.html.twig" />
       <change beforePath="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/events.html.twig" afterPath="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/events.html.twig" />
       <change beforePath="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/suggestion.html.twig" afterPath="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/suggestion.html.twig" />
       <change beforePath="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/viewEvent.html.twig" afterPath="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/viewEvent.html.twig" />
+      <change beforePath="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/viewSuggestion.html.twig" afterPath="$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/Resources/views/admin/viewSuggestion.html.twig" />
+      <change beforePath="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/LayoutEvent.html.twig" afterPath="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/LayoutEvent.html.twig" />
+      <change beforePath="$PROJECT_DIR$/Symfony/web/css/eventStyle.css" afterPath="$PROJECT_DIR$/Symfony/web/css/eventStyle.css" />
+      <change beforePath="$PROJECT_DIR$/Symfony/web/css/layoutStyle.css" afterPath="$PROJECT_DIR$/Symfony/web/css/layoutStyle.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,53 +52,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Events.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Entity/Events.php">
+      <file leaf-file-name="edit.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/edit.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
+            <state relative-caret-position="192">
+              <caret line="12" column="75" lean-forward="false" selection-start-line="12" selection-start-column="75" selection-end-line="12" selection-end-column="75" />
               <folding>
-                <element signature="e#42#74#0#PHP" expanded="true" />
+                <element signature="e#219#246#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.html.twig" pinned="false" current-in-tab="false">
+      <file leaf-file-name="layout.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/CoreBundle/Resources/views/layout.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1322">
-              <caret line="282" column="48" lean-forward="false" selection-start-line="282" selection-start-column="48" selection-end-line="282" selection-end-column="48" />
+            <state relative-caret-position="160">
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="58" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.twig" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/CoreBundle/Resources/views/index.html.twig">
+      <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/Controller/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-568">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="16" />
+            <state relative-caret-position="-472">
+              <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="88" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Users.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/AccountBundle/Entity/Users.php">
+      <file leaf-file-name="viewUser.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/Resources/views/admin/viewUser.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="53" column="7" lean-forward="false" selection-start-line="53" selection-start-column="7" selection-end-line="53" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BDEAccountBundle.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/AccountBundle/BDEAccountBundle.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="768">
+              <caret line="48" column="43" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -93,8 +97,50 @@
       <file leaf-file-name="EventController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Controller/EventController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="97" column="21" lean-forward="false" selection-start-line="97" selection-start-column="21" selection-end-line="97" selection-end-column="21" />
+            <state relative-caret-position="572">
+              <caret line="469" column="0" lean-forward="false" selection-start-line="469" selection-start-column="0" selection-end-line="469" selection-end-column="0" />
+              <folding>
+                <marker date="1524092153043" expanded="true" signature="3915:4010" ph="SELECT * FRO... event_register" />
+                <marker date="1524092153043" expanded="true" signature="4109:4142" ph="(int)${$resu... " />
+                <marker date="1524092153043" expanded="true" signature="5056:5141" ph="SELECT * FRO... vote" />
+                <marker date="1524092153043" expanded="true" signature="6258:6334" ph="SELECT COUNT... vote" />
+                <marker date="1524092153043" expanded="true" signature="6258:6336" ph="SELECT COUNT... vote" />
+                <marker date="1524092153043" expanded="true" signature="6258:6348" ph="SELECT COUNT... vote" />
+                <marker date="1524092153043" expanded="true" signature="6258:6400" ph="SELECT COUNT... vote" />
+                <marker date="1524092153043" expanded="true" signature="6436:6471" ph="(int)${$resu... " />
+                <marker date="1524092153043" expanded="true" signature="15580:15588" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="addEvent.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/addEvent.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="112">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="12" selection-end-column="14" />
+              <folding>
+                <element signature="e#208#235#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="eventForm.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/eventForm.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="events.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/events.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -103,31 +149,10 @@
       <file leaf-file-name="suggestion.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/suggestion.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="53" column="81" lean-forward="false" selection-start-line="53" selection-start-column="81" selection-end-line="53" selection-end-column="81" />
-              <folding>
-                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Vote.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Entity/Vote.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="13" column="1" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Events_picture_comment.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Entity/Events_picture_comment.php">
-          <provider selected="true" editor-type-id="text-editor">
+
             <state relative-caret-position="72">
               <caret line="3" column="45" lean-forward="false" selection-start-line="3" selection-start-column="45" selection-end-line="3" selection-end-column="45" />
+
               <folding />
             </state>
           </provider>
@@ -136,11 +161,9 @@
       <file leaf-file-name="viewEvent.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/viewEvent.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="61" column="1" lean-forward="false" selection-start-line="61" selection-start-column="1" selection-end-line="67" selection-end-column="29" />
-              <folding>
-                <element signature="n#style#0;n#iframe#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="595">
+              <caret line="138" column="24" lean-forward="false" selection-start-line="138" selection-start-column="24" selection-end-line="141" selection-end-column="46" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -149,24 +172,39 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>bind</find>
-      <find>address</find>
-      <find>assert</find>
-      <find>pro</find>
-      <find>card</find>
-      <find>list-</find>
-      <find>cate</find>
-      <find>image</find>
-      <find>PRIVATE</find>
-      <find>add-b</find>
-      <find>private</find>
-      <find>retur</find>
       <find>public</find>
       <find>userconnected</find>
       <find>select</find>
       <find>advert</find>
       <find>surname</find>
+      <find>benjamin</find>
+      <find>btn</find>
+      <find>view</find>
+      <find>isapp</find>
+      <find>id</find>
+      <find>else</find>
+      <find>save</find>
+      <find>comm</find>
+      <find>price</find>
+      <find>bde_event_suggestion</find>
+      <find>add</find>
+      <find>group</find>
+      <find>Events picture</find>
+      <find>title</find>
+      <find>line</find>
+      <find>25%</find>
+      <find>date</find>
+      <find>takeNewOrder</find>
+      <find>picture</find>
+      <find>edit</find>
+      <find>addE</find>
+      <find>Créer un événementzz</find>
+      <find>Créer un événement</find>
+      <find>$event</find>
     </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -199,7 +237,6 @@
         <option value="$PROJECT_DIR$/Symfony/src/BDE/ShopBundle/Entity/Orders.php" />
         <option value="$PROJECT_DIR$/Symfony/src/BDE/AccountBundle/Resources/views/connection/login.html.twig" />
         <option value="$PROJECT_DIR$/Symfony/src/BDE/ShopBundle/Resources/views/Shop/cart.html.twig" />
-        <option value="$PROJECT_DIR$/Symfony/src/BDE/CoreBundle/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/Symfony/src/BDE/CoreBundle/Controller/CoreController.php" />
         <option value="$PROJECT_DIR$/Symfony/src/BDE/AccountBundle/Controller/AccountController.php" />
         <option value="$PROJECT_DIR$/Symfony/src/BDE/ShopBundle/Controller/ShopController.php" />
@@ -218,16 +255,33 @@
         <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Entity/Comments.php" />
         <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Entity/Comment.php" />
         <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Entity/Events_comment.php" />
-        <option value="$PROJECT_DIR$/Symfony/web/css/eventStyle.css" />
         <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Form/Events_commentType.php" />
-        <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/LayoutEvent.html.twig" />
-        <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/events.html.twig" />
-        <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/viewEvent.html.twig" />
-        <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/suggestion.html.twig" />
         <option value="$PROJECT_DIR$/Symfony/src/BDE/AccountBundle/Entity/Users.php" />
-        <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Entity/Events.php" />
-        <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Controller/EventController.php" />
         <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Entity/Vote.php" />
+        <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Entity/RegisterEvent.php" />
+        <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Entity/Event_register.php" />
+        <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Repository/EventsRepository.php" />
+        <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Entity/Events.php" />
+        <option value="$PROJECT_DIR$/Symfony/web/css/eventStyle.css" />
+        <option value="$PROJECT_DIR$/Symfony/web/css/layoutStyle.css" />
+        <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/viewEvent.html.twig" />
+        <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/addComment.html.twig" />
+        <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/addSuggestion.html.twig" />
+        <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Form/EventsType.php" />
+        <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/eventForm.html.twig" />
+        <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/LayoutEvent.html.twig" />
+        <option value="$PROJECT_DIR$/Symfony/src/BDE/CoreBundle/Resources/views/index.html.twig" />
+        <option value="$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/Resources/config/routing.yml" />
+        <option value="$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/Resources/views/admin/viewSuggestion.html.twig" />
+        <option value="$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/Resources/views/admin/viewUser.html.twig" />
+        <option value="$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/Resources/views/admin/index.html.twig" />
+        <option value="$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/Controller/AdminController.php" />
+        <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/addEvent.html.twig" />
+        <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/edit.html.twig" />
+        <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/events.html.twig" />
+        <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Controller/EventController.php" />
+        <option value="$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/suggestion.html.twig" />
+        <option value="$PROJECT_DIR$/Symfony/src/BDE/CoreBundle/Resources/views/layout.html.twig" />
       </list>
     </option>
   </component>
@@ -290,10 +344,9 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-1928" />
-    <option name="y" value="-142" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="156" />
+    <option name="width" value="974" />
+    <option name="height" value="1008" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -385,60 +438,6 @@
               <item name="BDE" type="462c0819:PsiDirectoryNode" />
               <item name="CoreBundle" type="462c0819:PsiDirectoryNode" />
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BDECESIT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BDECESIT" type="462c0819:PsiDirectoryNode" />
-              <item name="Symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="BDE" type="462c0819:PsiDirectoryNode" />
-              <item name="EventBundle" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BDECESIT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BDECESIT" type="462c0819:PsiDirectoryNode" />
-              <item name="Symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="BDE" type="462c0819:PsiDirectoryNode" />
-              <item name="EventBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BDECESIT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BDECESIT" type="462c0819:PsiDirectoryNode" />
-              <item name="Symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="BDE" type="462c0819:PsiDirectoryNode" />
-              <item name="EventBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Entity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BDECESIT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BDECESIT" type="462c0819:PsiDirectoryNode" />
-              <item name="Symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="BDE" type="462c0819:PsiDirectoryNode" />
-              <item name="EventBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Form" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BDECESIT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BDECESIT" type="462c0819:PsiDirectoryNode" />
-              <item name="Symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="BDE" type="462c0819:PsiDirectoryNode" />
-              <item name="EventBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BDECESIT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BDECESIT" type="462c0819:PsiDirectoryNode" />
-              <item name="Symfony" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="BDE" type="462c0819:PsiDirectoryNode" />
-              <item name="EventBundle" type="462c0819:PsiDirectoryNode" />
-              <item name="Resources" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -447,9 +446,9 @@
               <item name="Symfony" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="BDE" type="462c0819:PsiDirectoryNode" />
-              <item name="EventBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="CoreBundle" type="462c0819:PsiDirectoryNode" />
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BDECESIT" type="b2602c69:ProjectViewProjectNode" />
@@ -457,10 +456,9 @@
               <item name="Symfony" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="BDE" type="462c0819:PsiDirectoryNode" />
-              <item name="EventBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="CoreBundle" type="462c0819:PsiDirectoryNode" />
               <item name="Resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="Event" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BDECESIT" type="b2602c69:ProjectViewProjectNode" />
@@ -487,12 +485,16 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Symfony" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tes" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\BDECESIT\Symfony\src\BDE\AdminBundle\Resources\views\admin" />
+      <recent name="C:\wamp64\www\BDECESI\Symfony\src\BDE\AccountBundle\Resources\views" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\BDECESI\Symfony\src\BDE\ShopBundle\Resources\views\Shop\Tri" />
       <recent name="C:\xampp\htdocs\BDECESI\Symfony\src\BDE\ShopBundle\Form" />
@@ -621,7 +623,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="178760000" />
+    <option name="totallyTimeSpent" value="218252000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -633,7 +635,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="-142" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -649,7 +651,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13646056" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07569297" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.07569297" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -682,6 +684,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13539445" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -729,105 +732,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://D:/WSBDDPDO/scriptInscription.php" />
-    <entry file="file://D:/test/src/eXia/PlatformBundle/Entity/Test.php" />
-    <entry file="file://D:/test/src/eXia/PlatformBundle/Controller/DefaultController.php" />
-    <entry file="file://$PROJECT_DIR$/Symfony/vendor/doctrine/common/lib/Doctrine/Common/Persistence/ObjectRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="38" column="20" lean-forward="false" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/ShopBundle/Resources/views/layoutShop.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/AccountBundle/Resources/views/disconnect.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/AccountBundle/Resources/views/account.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" column="7" lean-forward="false" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/AccountBundle/Resources/views/connection/login.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="16" lean-forward="false" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/ShopBundle/Entity/Orders.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="33" column="35" lean-forward="false" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/ShopBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/ShopBundle/Resources/views/Shop/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="90" column="91" lean-forward="false" selection-start-line="90" selection-start-column="63" selection-end-line="90" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/ShopBundle/Resources/views/Shop/article.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="36" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/ShopBundle/Resources/views/Shop/cart.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="662">
-          <caret line="73" column="31" lean-forward="false" selection-start-line="73" selection-start-column="31" selection-end-line="73" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/AccountBundle/Resources/views/connection/register.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="16" column="68" lean-forward="false" selection-start-line="16" selection-start-column="68" selection-end-line="26" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/AccountBundle/Controller/AccountController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="19" selection-end-column="39" />
-          <folding>
-            <element signature="e#48#83#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/CoreBundle/Controller/CoreController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="45" column="30" lean-forward="false" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/ContactBundle/Entity/Enquiry.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -840,7 +744,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="9" column="21" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -848,7 +751,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="25" column="60" lean-forward="false" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -856,9 +758,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="20" column="38" lean-forward="false" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
-          <folding>
-            <element signature="e#131#171#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -866,7 +765,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="23" column="85" lean-forward="false" selection-start-line="23" selection-start-column="85" selection-end-line="23" selection-end-column="85" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -874,7 +772,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="25" column="32" lean-forward="false" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -890,29 +787,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="840">
           <caret line="75" column="14" lean-forward="false" selection-start-line="75" selection-start-column="14" selection-end-line="75" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/web/css/eventStyle.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="44" column="23" lean-forward="false" selection-start-line="44" selection-start-column="23" selection-end-line="44" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/ShopBundle/Controller/ShopController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="252" column="0" lean-forward="false" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
-          <folding>
-            <element signature="e#45#80#0#PHP" expanded="false" />
-            <marker date="1523949989159" expanded="true" signature="7078:7150" ph="INSERT INTO orders... " />
-            <marker date="1523949989159" expanded="true" signature="7905:7976" ph="SELECT artic... cart" />
-            <marker date="1523949989159" expanded="true" signature="8397:8554" ph="INSERT INTO orders_line... " />
-            <marker date="1523949989159" expanded="true" signature="9130:9164" ph="DELETE FROM cart... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -920,7 +794,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
           <caret line="18" column="23" lean-forward="false" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -928,118 +801,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Form/Events_pictureType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3456">
-          <caret line="105" column="0" lean-forward="false" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
-          <folding>
-            <element signature="e#47#82#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Form/Events_commentType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="19" column="40" lean-forward="false" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Form/EventsEditType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/edit.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Form/EventsType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/delete.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="32" column="14" lean-forward="false" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
-          <folding>
-            <marker date="1523950451032" expanded="true" signature="909:918" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="19" column="20" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/addComment.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/addEvent.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/addSuggestion.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/events.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="11" column="32" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/viewSuggestion.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/LayoutEvent.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="39" column="17" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <element signature="e#1273#1296#0#HTML" expanded="false" />
-            <element signature="e#1860#1881#0#HTML" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1047,45 +808,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/viewEvent.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="61" column="1" lean-forward="false" selection-start-line="61" selection-start-column="1" selection-end-line="67" selection-end-column="29" />
-          <folding>
-            <element signature="n#style#0;n#iframe#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/suggestion.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="53" column="81" lean-forward="false" selection-start-line="53" selection-start-column="81" selection-end-line="53" selection-end-column="81" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Entity/Events.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="96" column="0" lean-forward="false" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-          <folding>
-            <element signature="e#42#74#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Entity/Vote.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="13" column="1" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1102,30 +824,331 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="53" column="7" lean-forward="false" selection-start-line="53" selection-start-column="7" selection-end-line="53" selection-end-column="7" />
+          <folding>
+            <marker date="1524037623487" expanded="true" signature="1827:1873" ph=" Get id ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/Resources/config/services.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Controller/EventController.php">
+    <entry file="file://$PROJECT_DIR$/Symfony/web/css/adminStyle.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="97" column="21" lean-forward="false" selection-start-line="97" selection-start-column="21" selection-end-line="97" selection-end-column="21" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/CoreBundle/Resources/views/layout.html.twig">
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Repository/Events_picture_commentRepository.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1322">
-          <caret line="282" column="48" lean-forward="false" selection-start-line="282" selection-start-column="48" selection-end-line="282" selection-end-column="48" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Repository/RegisterEventRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Entity/Vote.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="23" column="7" lean-forward="false" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/ShopBundle/Controller/ShopController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="262" column="49" lean-forward="false" selection-start-line="262" selection-start-column="49" selection-end-line="262" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Repository/EventsRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Form/Events_commentType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="18" column="26" lean-forward="false" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/vendor/symfony/symfony/src/Symfony/Component/Form/Extension/Core/Type/SubmitType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="23" column="6" lean-forward="false" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/addComment.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" column="7" lean-forward="false" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/LayoutEvent.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="51" column="126" lean-forward="false" selection-start-line="51" selection-start-column="126" selection-end-line="51" selection-end-column="126" />
+          <folding>
+            <element signature="e#2377#2404#0#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Form/Events_pictureType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/web/css/layoutStyle.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="37" column="42" lean-forward="false" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/web/css/eventStyle.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="36" column="8" lean-forward="false" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="8" />
+          <folding />
+
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/Resources/views/layoutadmin.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/CoreBundle/Resources/views/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-568">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="16" />
+        <state relative-caret-position="224">
+          <caret line="14" column="5" lean-forward="false" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="15" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Entity/Events.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="71" column="65" lean-forward="false" selection-start-line="71" selection-start-column="65" selection-end-line="71" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/BDEAdminBundle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/CoreBundle/Controller/CoreController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="45" column="26" lean-forward="false" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/Resources/views/admin/viewSuggestion.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1008">
+          <caret line="63" column="66" lean-forward="false" selection-start-line="63" selection-start-column="65" selection-end-line="63" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/Resources/views/admin/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="87" column="84" lean-forward="false" selection-start-line="87" selection-start-column="84" selection-end-line="87" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="704">
+          <caret line="44" column="43" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Entity/Event_register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="863">
+          <caret line="80" column="5" lean-forward="false" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Form/EventsType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="34" column="24" lean-forward="false" selection-start-line="34" selection-start-column="24" selection-end-line="39" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Form/EventsEditType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/addSuggestion.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="59" lean-forward="false" selection-start-line="9" selection-start-column="59" selection-end-line="9" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/delete.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="32" column="14" lean-forward="false" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
+          <folding>
+            <marker date="1523950451032" expanded="true" signature="909:918" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/addEvent.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="12" selection-end-column="14" />
+          <folding>
+            <element signature="e#208#235#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="12" column="75" lean-forward="false" selection-start-line="12" selection-start-column="75" selection-end-line="12" selection-end-column="75" />
+          <folding>
+            <element signature="e#219#246#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/viewEvent.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="138" column="24" lean-forward="false" selection-start-line="138" selection-start-column="24" selection-end-line="141" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/eventForm.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/events.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Controller/EventController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="469" column="0" lean-forward="false" selection-start-line="469" selection-start-column="0" selection-end-line="469" selection-end-column="0" />
+          <folding>
+            <marker date="1524092153043" expanded="true" signature="3915:4010" ph="SELECT * FRO... event_register" />
+            <marker date="1524092153043" expanded="true" signature="4109:4142" ph="(int)${$resu... " />
+            <marker date="1524092153043" expanded="true" signature="5056:5141" ph="SELECT * FRO... vote" />
+            <marker date="1524092153043" expanded="true" signature="6258:6334" ph="SELECT COUNT... vote" />
+            <marker date="1524092153043" expanded="true" signature="6258:6336" ph="SELECT COUNT... vote" />
+            <marker date="1524092153043" expanded="true" signature="6258:6348" ph="SELECT COUNT... vote" />
+            <marker date="1524092153043" expanded="true" signature="6258:6400" ph="SELECT COUNT... vote" />
+            <marker date="1524092153043" expanded="true" signature="6436:6471" ph="(int)${$resu... " />
+            <marker date="1524092153043" expanded="true" signature="15580:15588" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/EventBundle/Resources/views/Event/suggestion.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/Resources/views/admin/viewUser.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="768">
+          <caret line="48" column="43" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/AdminBundle/Controller/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-472">
+          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="88" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Symfony/src/BDE/CoreBundle/Resources/views/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="11" selection-end-column="58" />
           <folding />
         </state>
       </provider>

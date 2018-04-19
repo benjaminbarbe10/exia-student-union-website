@@ -42,7 +42,7 @@
 
 
 
-    {{ form_row(form.pricettc,{ 'attr':{'placeholder':'sample value'} }) }}
+    {{ form_row(form.pricettc, { 'label': 'Prix (TTC)' }) }}
 
 
     {% if form.events_picture is defined %}
@@ -52,13 +52,13 @@
     <ul class="events_picture" data-prototype="{{ form_widget(form.events_picture.vars.prototype)|e('html_attr') }}">
         {% for element in form.events_picture %}
             <li>
-                {{ form_widget(element.picture) }}
+                {{ form_row(element.picture) }}
             </li>
         {% endfor %}
     </ul>
     {% endif %}
 
-    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+    {{ form_widget(form.save, { 'label': 'Ajouter' }) }}
 
 
 
