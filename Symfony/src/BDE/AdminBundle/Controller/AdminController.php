@@ -2,13 +2,16 @@
 
 namespace BDE\AdminBundle\Controller;
 
+use BDE\EventBundle\Form\Events_pictureType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use BDE\AccountBundle\Entity\Users;
 use BDE\ContactBundle\Entity\Enquiry;
 use BDE\ContactBundle\Form\EnquiryType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -97,6 +100,64 @@ public function viewUserAction($id, Request $request){
 
 
 }
+
+    public function viewSuggestionAction($id, Request $request){
+
+        $userconnected = $this->takeUserConnected($request);
+
+
+
+
+        $em = $this->getDoctrine()->getManager();
+        $events = $em->getRepository('BDEEventBundle:Events')->find($id);
+
+
+
+
+
+
+        $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $events);
+
+        $formBuilder
+            ->add('date', DateType::class)
+            ->add('name', TextType::class)
+            ->add('description', TextareaType::class)
+            ->add('place', TextType::class)
+            ->add('type', ChoiceType::class, array(
+                'choices' => array(
+                    'Ponctuelle' => 'ponctuelle',
+                    'Mensuel' => 'mensuel'
+                )
+            ))
+            ->add('pricettc', NumberType::class)
+            ->add('save',      SubmitType::class)
+
+        ;
+        $form = $formBuilder->getForm();
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $events->setIsApproved(1);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($events);
+            $em->flush();
+
+            return $this->redirectToRoute('bde_event_viewevent', array('id' => $events->getId()));
+        }
+
+        return $this->render('BDEAdminBundle:admin:viewSuggestion.html.twig', array(
+            'events' => $events,
+            'name' => $userconnected,
+            'form' => $form->createView(),
+
+
+        ));
+
+
+
+    }
 
 
 

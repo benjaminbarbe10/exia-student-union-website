@@ -8,6 +8,7 @@ use BDE\AccountBundle\Entity\Users;
 
 use BDE\AccountBundle\Form\LoginType;
 use BDE\AccountBundle\Form\RegisterType;
+use BDE\EventBundle\Entity\Event_register;
 use BDE\EventBundle\Entity\Events;
 use BDE\EventBundle\Entity\Events_comment;
 use BDE\EventBundle\Entity\Events_picture;
@@ -83,19 +84,97 @@ class EventController extends Controller
         }
 
 
-            $userconnected = $this->takeUserConnected($request);
+        $userconnected = $this->takeUserConnected($request);
         $enquiry = new Users();
         $formconnect = $this->createForm(LoginType::class, $enquiry);
         $formconnect->handleRequest($request);
         $formregister = $this->createForm(RegisterType::class, $enquiry);
         $formregister->handleRequest($request);
 
-        $vote = new Vote();
-        $vote->setUsers($user);
-        $vote->setEvents($events);
+
+        //S'inscrire a un evenement
+        $register = new Event_register();
+        $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $register);
+
+        $formBuilder
+            ->add('save', SubmitType::class);
+        $formreg = $formBuilder->getForm();
+        $formreg->handleRequest($request);
+
+
         $em = $this->getDoctrine()->getManager();
-        $em->persist($vote);
-        $em->flush();
+        $idUser = $user->getId();
+        $idEvent = $events->getId();
+        $sql = "
+        SELECT *
+        FROM event_register
+        WHERE users_id =  $idUser
+        AND events_id = $idEvent";
+
+        $stmt = $em->getConnection()->prepare($sql);
+        $stmt->execute();
+        (int)$results = $stmt->fetchAll();
+        if ($results == null) {
+
+
+            if ($formreg->isSubmitted() && $formreg->isValid()) {
+
+                $register->setUsers($user);
+                $register->setEvents($events);
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($register);
+                $em->flush();
+
+
+                return $this->redirectToRoute('bde_event_viewevent', array('id' => $events->getId()));
+            }
+
+        } else {
+
+        }
+
+
+        //like
+        $like = new Vote();
+        $formBuilder2 = $this->get('form.factory')->createBuilder(FormType::class, $like);
+
+        $formBuilder2
+            ->add('save', SubmitType::class);
+        $formlike = $formBuilder2->getForm();
+        $formlike->handleRequest($request);
+
+
+        $em = $this->getDoctrine()->getManager();
+        $idUser = $user->getId();
+        $idEvent = $events->getId();
+        $sql = "
+        SELECT *
+        FROM vote
+        WHERE users_id =  $idUser
+        AND events_id = $idEvent";
+
+        $stmt = $em->getConnection()->prepare($sql);
+        $stmt->execute();
+        (int)$resultslike = $stmt->fetchAll();
+        if ($resultslike == null) {
+
+
+            if ($formlike->isSubmitted() && $formlike->isValid()) {
+
+                $like->setUsers($user);
+                $like->setEvents($events);
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($like);
+                $em->flush();
+
+
+                return $this->redirectToRoute('bde_event_viewevent', array('id' => $events->getId()));
+            }
+
+        } else {
+
+        }
+
 
 //recuperer les events
         $repository = $this
@@ -109,8 +188,27 @@ class EventController extends Controller
 
         $listComments = $em
             ->getRepository('BDEEventBundle:Events_comment')
-            ->findBy(array('events' => $events))
-        ;
+            ->findBy(array('events' => $events));
+
+
+
+
+        //recup le nombre de like
+        $idEvent = $events->getId();
+        $sql = "
+        SELECT count(events_id) as total
+        FROM vote
+        WHERE events_id =  ".$idEvent;
+
+        $stmt = $em->getConnection()->prepare($sql);
+        $stmt->execute();
+        (int)$resultnbr = $stmt->fetchAll();
+
+
+
+//var_dump($resultslike);die();
+
+
         return $this->render('BDEEventBundle:Event:viewEvent.html.twig', array(
             'events' => $events,
             'name' => $userconnected,
@@ -119,6 +217,11 @@ class EventController extends Controller
             'formconnect' => $formconnect->createView(),
             'formregister' => $formregister->createView(),
             'form' => $form->createView(),
+            'formreg' => $formreg->createView(),
+            'formlike' => $formlike->createView(),
+            'resultlike' => $resultslike,
+            'result' => $results,
+            'resultnbr' => $resultnbr,
         ));
     }
 
@@ -173,7 +276,7 @@ class EventController extends Controller
             $em->persist($events);
             $em->flush();
 
-            return $this->redirectToRoute('bde_event_suggestion');
+            return $this->redirectToRoute('bde_event_viewevent', array('id' => $events->getId()));
 
         }
 
@@ -194,8 +297,8 @@ class EventController extends Controller
         $user = $this->getDoctrine()
             ->getRepository(Users::class)
             ->find($id);
-            $username = $user->getName();
-            $usersurname = $user->getSurname();
+        $username = $user->getName();
+        $usersurname = $user->getSurname();
         $events = new Events();
         $form = $this->createForm('BDE\EventBundle\Form\EventsType', $events);
 
@@ -214,12 +317,6 @@ class EventController extends Controller
         $events->setIsApproved(1);
         $events->setAuthorName($username);
         $events->setAuthorSurname($usersurname);
-
-
-
-
-
-
 
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -241,7 +338,7 @@ class EventController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($events);
             $em->flush();
-            $session->getFlashBag()->add('info', 'Event en ligne'   );
+            $session->getFlashBag()->add('info', 'Event en ligne');
             return $this->redirectToRoute('bde_event_viewevent', array('id' => $events->getId()));
         }
 
@@ -276,10 +373,8 @@ class EventController extends Controller
 
         $formBuilder
             ->add('name', TextType::class)
-
             ->add('description', TextareaType::class)
             ->add('place', TextType::class)
-
             ->add('type', ChoiceType::class, array(
                 'choices' => array(
                     'Ponctuelle' => 'ponctuelle',
@@ -287,10 +382,7 @@ class EventController extends Controller
                 )
             ))
             ->add('pricettc', NumberType::class)
-            ->add('save', SubmitType::class)
-
-
-        ;
+            ->add('save', SubmitType::class);
 
 
         $form = $formBuilder->getForm();
@@ -307,8 +399,7 @@ class EventController extends Controller
         }
 
 
-
-        return $this->render('BDEEventBundle:Event:addEvent.html.twig', array(
+        return $this->render('BDEEventBundle:Event:edit.html.twig', array(
             'events' => $events,
             'form' => $form->createView(),
             'listEvents' => $listEvents,
@@ -343,7 +434,7 @@ class EventController extends Controller
 
         return $this->render('BDEEventBundle:Event:delete.html.twig', array(
             'event' => $events,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
             'name' => $userconnected,
             'listEvents' => $listEvents,
 
@@ -351,21 +442,6 @@ class EventController extends Controller
         ));
     }
 
-    public function viewSuggestionAction(Request $request)
-
-    {
-        $userconnected = $this->takeUserConnected($request);
-        $enquiry = new Users();
-        $formconnect = $this->createForm(LoginType::class, $enquiry);
-        $formconnect->handleRequest($request);
-        $formregister = $this->createForm(RegisterType::class, $enquiry);
-        $formregister->handleRequest($request);
-        return $this->render('BDEEventBundle:Event:viewSuggestion.html.twig', array(
-            'name' => $userconnected,
-            'formconnect' => $formconnect->createView(),
-            'formregister' => $formregister->createView(),
-        ));
-    }
 
 
     public function suggestionAction(Request $request)
@@ -385,6 +461,7 @@ class EventController extends Controller
 
 
 
+
         return $this->render('BDEEventBundle:Event:suggestion.html.twig', array(
             'name' => $userconnected,
             'formconnect' => $formconnect->createView(),
@@ -395,26 +472,23 @@ class EventController extends Controller
     }
 
 
-
-
     public function takeUserConnected(Request $request)
     {
 
-            $session = $request->getSession();
-            $id = $session->get('id');
-            $user = $this->getDoctrine()
-                ->getRepository(Users::class)
-                ->find($id);
-            if ($id != 0) {
-                $userconnected = $user->getName();
-                $usersurname = $user->getSurname();
-            }
-            else {
-                $userconnected = '';
-            }
-
-            return $userconnected;
-
+        $session = $request->getSession();
+        $id = $session->get('id');
+        $user = $this->getDoctrine()
+            ->getRepository(Users::class)
+            ->find($id);
+        if ($id != 0) {
+            $userconnected = $user->getName();
+            $usersurname = $user->getSurname();
+        } else {
+            $userconnected = '';
         }
+
+        return $userconnected;
+
+    }
 
 }

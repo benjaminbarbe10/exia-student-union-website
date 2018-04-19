@@ -17,7 +17,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Liste des utilisateurs</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -42,15 +42,66 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btnAddEvent" data-dismiss="modal">Close
                                             </button>
-                                            <button type="button" class="btnAddEvent">Save changes</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <br><br>
+                            <button type="button" class="btnAddEvent">
+                                Recuperer la liste des inscrits a un événement
+                            </button>
+
                         </div>
                         <div class="col bordureAdmin">
-                            Gestion des événements
+                            Gestion des événements<br><br>
 
+                            <button type="button" class="btnAddEvent" data-toggle="modal" data-target="#eventModal">
+                                Afficher les idées
+                            </button>
+                            <br><br>
+                            <a href="{{ path('bde_event_add') }}">
+                                <button type="button" class="btnAddEvent">
+                                    Ajouter un événement
+                                </button>
+                            </a><br><br>
+                            <button type="button" class="btnAddEvent">
+                                Ajouter un article dans la boutique
+                            </button>
+                            <div class="modal fade" id="eventModal" tabindex="-1" role="dialog"
+                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Liste des idées</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col-12 ">
+                                                    {% for events in listEvents %}
+
+                                                        {% if events.isapproved == 0 %}
+                                                            <a href="{{ path('bde_admin_viewsuggestion', {'id' : events.id} ) }}">
+
+                                                                <div class="listUser">{{ events.name }},</a> le {{ events.date|date('d-m-Y') }}<br><br></div>
+
+                                                        {% endif %}
+
+                                                    {% endfor %}
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btnAddEvent" data-dismiss="modal">Fermer
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
 
                         </div>
