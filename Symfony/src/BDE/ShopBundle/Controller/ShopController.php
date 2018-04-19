@@ -24,7 +24,6 @@ class ShopController extends Controller
         $userconnected = $this->takeUserConnected($request);
 
         $enquiry = new Users();
-        $enquiry = new Users();
         $formconnect = $this->createForm(LoginType::class, $enquiry);
         $formconnect->handleRequest($request);
         $formregister = $this->createForm(RegisterType::class, $enquiry);
@@ -35,6 +34,7 @@ class ShopController extends Controller
             ->findAll();
 
         $count = array();
+
         $em = $this->getDoctrine()->getManager();
 
 
@@ -62,6 +62,118 @@ class ShopController extends Controller
         return $this->render('BDEShopBundle:Shop:index.html.twig', array(
             'name' => $userconnected,
             'articles' => $articles,
+            'toparticle' => $count,
+            'formconnect' => $formconnect->createView(),
+            'formregister' => $formregister->createView(),
+        ));
+    }
+
+    public function tribyletterAction(Request $request){
+        $userconnected = $this->takeUserConnected($request);
+
+        $enquiry = new Users();
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
+
+        $articles = $this->getDoctrine()
+            ->getRepository(Articles::class)
+            ->findAll();
+
+        $tribyletter = array();
+
+        $em = $this->getDoctrine()->getManager();
+
+
+        foreach ($articles as $article) {
+            $sql = " 
+        SELECT sum(Quantity) as total
+        FROM orders_line
+        WHERE articles_id = " . $article->getId();
+
+            $stmt = $em->getConnection()->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetch();
+            $count[$article->getId()] = [
+                'total' => $result['total'],
+                'id' => $article->getId(),
+                'name' => $article->getName(),
+                'price' => $article->getPriceTTC(),
+                'picture' => $article->getPicture(),
+                'description' => $article->getDescription(),
+            ];
+            $tribyletter[$article->getId()] = [
+                'name' => $article->getName(),
+                'priceTTC' => $article->getPriceTTC(),
+                'picture' => $article->getPicture(),
+                'description' => $article->getDescription(),
+                'id' => $article->getId(),
+            ];
+
+        }
+        arsort($count);
+        sort($tribyletter);
+
+        return $this->render('BDEShopBundle:Shop:index.html.twig', array(
+            'name' => $userconnected,
+            'articles' => $tribyletter,
+            'toparticle' => $count,
+            'formconnect' => $formconnect->createView(),
+            'formregister' => $formregister->createView(),
+        ));
+    }
+
+    public function tribypriceAction(Request $request){
+        $userconnected = $this->takeUserConnected($request);
+
+        $enquiry = new Users();
+        $formconnect = $this->createForm(LoginType::class, $enquiry);
+        $formconnect->handleRequest($request);
+        $formregister = $this->createForm(RegisterType::class, $enquiry);
+        $formregister->handleRequest($request);
+
+        $articles = $this->getDoctrine()
+            ->getRepository(Articles::class)
+            ->findAll();
+
+        $tribyprice = array();
+
+        $em = $this->getDoctrine()->getManager();
+
+
+        foreach ($articles as $article) {
+            $sql = " 
+        SELECT sum(Quantity) as total
+        FROM orders_line
+        WHERE articles_id = " . $article->getId();
+
+            $stmt = $em->getConnection()->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetch();
+            $count[$article->getId()] = [
+                'total' => $result['total'],
+                'id' => $article->getId(),
+                'name' => $article->getName(),
+                'price' => $article->getPriceTTC(),
+                'picture' => $article->getPicture(),
+                'description' => $article->getDescription(),
+            ];
+            $tribyprice[$article->getId()] = [
+                'priceTTC' => $article->getPriceTTC(),
+                'name' => $article->getName(),
+                'picture' => $article->getPicture(),
+                'description' => $article->getDescription(),
+                'id' => $article->getId(),
+            ];
+
+        }
+        arsort($count);
+        sort($tribyprice);
+
+        return $this->render('BDEShopBundle:Shop:index.html.twig', array(
+            'name' => $userconnected,
+            'articles' => $tribyprice,
             'toparticle' => $count,
             'formconnect' => $formconnect->createView(),
             'formregister' => $formregister->createView(),
@@ -197,9 +309,9 @@ class ShopController extends Controller
 
             $this->createOrder($id, $bdd);
             $results = $this->takeNewOrder($id);
-            $this->CartFromOrder($id, $bdd, $results);
+            $this->cartFromOrder($id, $bdd, $results);
             $this->deleteCart($id, $bdd);
-            $this->sendMail($request, $id);
+            $this->sendMail($request, $id, $userconnected);
 
         }
 
@@ -235,7 +347,7 @@ class ShopController extends Controller
         return $results;
     }
 
-    private function CartFromOrder($id, $bdd, $results)
+    private function cartFromOrder($id, $bdd, $results)
     {
         foreach ($results as $result) {
             $idorder = (int)$result['total'];
@@ -275,19 +387,31 @@ class ShopController extends Controller
         $requete->execute();
     }
 
-    private function sendMail($request, $id)
+    private function sendMail($request, $id, $userconnected)
     {
         $enquiry = new Enquiry();
         $form = $this->createForm(EnquiryType::class, $enquiry);
         $form->handleRequest($request);
 
+        $user = $this->getDoctrine()
+            ->getRepository(Users::class)
+            ->find($id);
+        $mailconnected = $user->getEmail();
+
         $message = \Swift_Message::newInstance()
             ->setSubject('Nouvelle Commande')
-            ->setFrom($enquiry->getEmail())
+            ->setFrom($mailconnected)
             ->setTo('bdecesi@laposte.net')
-            ->setBody("C'est la commande de l'utilisateur: $id!");
-
+            ->setBody("C'est la commande de l'utilisateur: $userconnected!");
         $this->get('mailer')->send($message);
+
+        $confirm = \Swift_Message::newInstance()
+            ->setSubject('Commande confirmée')
+            ->setFrom('bdecesi@laposte.net')
+            ->setTo($mailconnected)
+            ->setBody("Votre commande a été prise en charge! Vous recevrez un mail plus complet sous peu... Cordialement, le BDE.");
+        $this->get('mailer')->send($confirm);
+
     }
 
 }

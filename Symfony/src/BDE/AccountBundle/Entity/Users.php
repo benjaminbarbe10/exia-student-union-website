@@ -314,14 +314,4 @@ class Users
         return $this->orders_line;
     }
 
-    public function formatApiResponse()
-    {
-        return [
-            'id' => $this->getId(),
-            'email' => $this->getEmail(),
-            'name' => $this->getName(),
-            'surname' => $this->getSurname(),
-        ];
-    }
-
 }
