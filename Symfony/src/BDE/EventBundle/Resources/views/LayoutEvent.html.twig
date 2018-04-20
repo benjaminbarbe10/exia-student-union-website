@@ -1,7 +1,7 @@
 {% extends "BDECoreBundle::layout.html.twig" %}
 
 {% block title %}
-    BDE Cesi
+BDE Cesi
 {% endblock %}
 
 {% block body %}
@@ -39,10 +39,11 @@
 
                     </div>
                 </div>
-                <div class="card bg-light mb-3">
-                    <div class="card-header bg-success text-white text-uppercase">Dernières Idées</div>
+            </div>
+            <div class="card bg-light mb-3">
+                <div class="card-header bg-success text-white text-uppercase">Dernières Idées</div>
 
-                    <div class="card-body">
+                <div class="card-body">
 
                         <ul class="list-group category_block">
 
@@ -58,17 +59,16 @@
                             {% endfor %}
 
                         </ul>
-
-                    </div>
                 </div>
             </div>
-
-
-            {% block bodyevent %}
-
-            {% endblock %}
         </div>
+
+
+        {% block bodyevent %}
+
+        {% endblock %}
     </div>
+</div>
 
 
 

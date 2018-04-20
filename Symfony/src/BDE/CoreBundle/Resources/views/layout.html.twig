@@ -8,17 +8,17 @@
 
 
     {% block stylesheets %}
-        {% stylesheets
-            filter='cssrewrite' output='css/compiled/wagas.css' %}
-            <link rel="stylesheet" href="{{ asset_url }}"/>
-        {% endstylesheets %}
+    {% stylesheets
+    filter='cssrewrite' output='css/compiled/wagas.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
     {% endblock %}
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic'
-          rel='stylesheet' type='text/css'>
+    rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{{ asset('css/icon.css') }}">
     <link rel="stylesheet" href="{{ asset('css/layoutStyle.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrapStyle.css') }}">
@@ -26,6 +26,7 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/eventStyle.css') }}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 
 </head>
 
@@ -60,6 +61,7 @@
                             <div class="[ input-group ]">
                                 <input type="text" class="[ form-control ]" name="q"/>
                                 <span class="[ input-group-btn ]">
+
                                         <button class="[ btn btn-primary ]" type="submit">
                                             <span class="[ glyphicon glyphicon-search ]"></span>
                                         </button>
@@ -67,6 +69,7 @@
                                             <span class="[ glyphicon glyphicon-remove ]"></span>
                                         </button>
                                     </span>
+
                             </div>
                         </form>
                     </li>
@@ -75,9 +78,11 @@
                     <li><a href="{{ path('bde_shop_index') }}" class="[ animate ]">Boutique</a></li>
                     <li><a class="animate" href="{{ path('bde_contact_index') }}">Contact</a></li>
                     <li>{% if name != NULL %}
+
                             <a class="animate" href="{{ path('bde_account_disconnect') }}">Déconnexion</a>
-                        {% else %}
+                            {% else %}
                             <a href="#myModal" class="animate" data-toggle="modal">Se connecter</a>
+
                         {% endif %}</li>
                     <li class="[ hidden-xs ]">
                         <a href="#toggle-search" class="[ animate ]">
@@ -103,10 +108,12 @@
                         <div class="[ input-group ]">
                             <input type="text" class="[ form-control ]" name="q" placeholder="Rechercher..."/>
                             <span class="[ input-group-btn ]">
+
                                         <button class="[ btn btn-danger ]" type="reset">
                                             <span class="[ glyphicon glyphicon-remove ]"></span>
                                         </button>
                                     </span>
+
                         </div>
                     </form>
                 </div>
@@ -156,12 +163,31 @@
                                                             <input type="text" id="forgetemailId" class="form-control"
                                                                    name="forgetemailId"/>
                                                         </li>
+
                                                         <li>
-                                                            <button type="button" class="btnLogin btn-defaultLogin"
-                                                                    onclick="forgot();">Envoyer le mail
-                                                            </button>
+                                                            <a class="for-got" onclick="ayantoggle();" href="javascript:;">Mot de passe oublié ?</a>
+                                                            <div class="forgot">
+                                                                <ul>
+                                                                    <li><p>Entrez votre email afin de recevoir un nouveau mot de passe.</p>
+                                                                    </li>
+                                                                    <li>Email</li>
+                                                                    <li>
+                                                                        <input type="text" id="forgetemailId" class="form-control" name="forgetemailId"/>
+                                                                    </li>
+                                                                    <li>
+                                                                        <button type="button" class="btnLogin btn-defaultLogin" onclick="forgot();">Envoyer le mail</button>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
                                                         </li>
                                                     </ul>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 no-padng">
+                                            <div class="model-r">
+                                                <div class="o-r">
+                                                    <span>ou</span>
                                                 </div>
                                             </li>
                                         </ul>
@@ -202,8 +228,8 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="modal-footer"></div>
+
                     </div>
-                    {% endif %}
                 </div>
             </div>
         </div>
@@ -243,10 +269,13 @@
     <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
     <script>
+
         var $collectionHolder;
         // setup an "add a tag" link
         var $addTagLink = $('<a href="#" class="add_tag_link">Ajouter une image </a>');
         var $newLinkLi = $('<li></li>').append($addTagLink);
+
+
         jQuery(document).ready(function () {
             // Get the ul that holds the collection of tags
             $collectionHolder = $('ul.events_picture');
@@ -259,7 +288,7 @@
                 // prevent the link from creating a "#" on the URL
                 e.preventDefault();
                 // add a new tag form (see next code block)
-                addTagForm($collectionHolder, $newLinkLi);
+                addTagForm($collectionHolder, $newLinkLi);                
             });
         });
 
@@ -277,6 +306,7 @@
             var $newFormLi = $('<li></li>').append(newForm);
             $newLinkLi.before($newFormLi);
         }
+
     </script>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -294,6 +324,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
         $(function () {
+
             $('a[href="#toggle-search"], .navbar-bootsnipp .bootsnipp-search .input-group-btn > .btn[type="reset"]').on('click', function (event) {
                 event.preventDefault();
                 $('.navbar-bootsnipp .bootsnipp-search .input-group > input').val('');
@@ -312,12 +343,13 @@
                 }
             });
         });
-    </script>
+        </script>
 
-    <script>
+        <script>
         function ayantoggle() {
             $(".forgot").slideToggle('slow');
         }
+
     </script>
     <script>
         $("[data-toggle=show-popover]").popover('show');
@@ -326,3 +358,4 @@
 {% endblock %}
 </body>
 </html>
+

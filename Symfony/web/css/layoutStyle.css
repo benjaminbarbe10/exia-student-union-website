@@ -46,13 +46,25 @@ body {
 h1 {
     font-family: 'Quicksand', sans-serif;
     font-size: 48px;
+    text-align: center;
 }
 
-
+.centrer {
+    text-align: center;
+}
 
 span {
     font-family: 'Quicksand', sans-serif;
     font-size: 20px;
+}
+
+.spanToDiv {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 20px;
+}
+
+.redText {
+    color: red;
 }
 
 .cercleHome:hover {
@@ -732,7 +744,6 @@ a.add-btn:hover{
 @media screen and (max-width: 992px) {
     .cercleHome{
         color: white;
-        background-color: #FFFFFF;
         display: block;
         margin-bottom: 50px;
         border-radius: 5px;

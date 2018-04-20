@@ -5,43 +5,47 @@
 {% endblock %}
 
 {% block bodyevent %}
-    <div class="col" xmlns="http://www.w3.org/1999/html">
-        <div class="row">
 
+<div class="col" xmlns="http://www.w3.org/1999/xhtml">
+    <div class="row">
             {% for events in listEvents %}
                 {% if events.isapproved == 1 %}
                     <div class="col-12 bande">
                         <div class=" col-12 col-lg-4">
                             <div class="card">
 
+
+                   
+
                                 {% for images in events.events_picture[0:1] %}
 
-                                    <img class="card-img-top" src="{{ asset('upload/'~images.picture) }}">
+
+                                     <img class="card-img-top" src="{{ asset('upload/'~images.picture) }}" alt="">
 
                                 {% endfor %}
 
 
-                            </div>
-                            <br>
-                            <br>
                         </div>
-                        <div class=" col-12 col-lg-8">
-                            <div>
-                                <h3 class="card-title"><a href="{{ path('bde_event_viewevent', {'id' : events.id}) }}"
-                                                          title="Plus de renseignements">{{ events.name }}</a>,
-                                    Le {{ events.date|date('d-m-Y') }}<h6
-                                            class="author">Crée par {{ events.authorname }} {{ events.authorsurname }}
-                                        .</h6></h3>
-                                <div class="title_line"></div>
-                                <br><br>
-                                <p class="card-text">{{ events.description }}
-                                <div class="priceevent">
-                                    {% if events.pricettc == 0 %}
-                                        <h4>gratuit</h4>
+                        <br>
+                        <br>
+                    </div>
+                    <div class=" col-12 col-lg-8">
+                        <div>
+                            <h3 class="card-title"><a href="{{ path('bde_event_viewevent', {'id' : events.id}) }}"
+                        title="Plus de renseignements">{{ events.name }}</a>, Le {{ events.date|date('d-m-Y') }}</h3>
+                        <h6 class="author">
+                        Crée par {{ events.authorname }} {{ events.authorsurname }}
+                        </h6>
+                        <div class="title_line"></div>
+                        <br><br>
+                            <p class="card-text">{{ events.description }}</p>
+                            <div class="priceevent">
+                                {% if events.pricettc == 0 %}
+                                    <h4>gratuit</h4>
 
-                                    {% else %}
-                                        <h4>{{ events.pricettc }} €</h4>
-                                    {% endif %}
+                                {% else %}
+                                    <h4>{{ events.pricettc }} €</h4>
+                                {% endif %}
                                 </div>
                                 <div class="row">
                                     <div class="col pos">
