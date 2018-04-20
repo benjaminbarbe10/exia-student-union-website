@@ -82,39 +82,79 @@
                                                 <div class="col-12 ">
                                                     {% for events in listEvents %}
 
-                                                        {% if events.isapproved == 0 %}
-                                                            <a href="{{ path('bde_admin_viewsuggestion', {'id' : events.id} ) }}">
+                                                    {% if events.isapproved == 0 %}
+                                                    <a href="{{ path('bde_admin_viewsuggestion', {'id' : events.id} ) }}">
 
-                                                                <div class="listUser">{{ events.name }},</a> le {{ events.date|date('d-m-Y') }}<br><br></div>
+                                                        <div class="listUser">{{ events.name }},
+                                                    </a> le {{ events.date|date('d-m-Y') }}<br><br></div>
 
-                                                        {% endif %}
+                                                {% endif %}
 
-                                                    {% endfor %}
-                                                </div>
-
+                                                {% endfor %}
                                             </div>
 
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btnAddEvent" data-dismiss="modal">Fermer
-                                            </button>
-                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btnAddEvent" data-dismiss="modal">Fermer
+                                        </button>
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
-                <div class="col bordureAdmin">
-                    Gestion de la boutique<br /><br />
-                    <form action="{{ path('bde_admin_addarticle')}}" method="get">
-                    <button type="submit" class="btnAddEvent" data-toggle="modal">
-                        Ajouter un article
-                    </button>
-                    </form>
+
+
+                    </div>
+                    <div class="col bordureAdmin">
+                        Gestion de la boutique<br/><br/>
+                        <a href="{{ path('bde_admin_addarticle') }}">
+                            <button type="button" class="btnAddEvent">
+                                Ajouter un article
+                            </button>
+                        </a><br><br>
+                        <button type="button" class="btnAddEvent" data-toggle="modal" data-target="#exampleModaltest">
+                            Supprimer un article
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModaltest" tabindex="-1" role="dialog"
+                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Liste des articles</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-12 ">
+                                                {% for article in listArticles %}
+
+                                                    <a href="{{ path('bde_admin_viewarticle', {'id' : article.id} ) }}">
+                                                        <div class="listUser">{{ article.name }}
+
+                                                            <br></div>
+                                                    </a>
+
+                                                {% endfor %}
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btnAddEvent" data-dismiss="modal">Close
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                </div>
-                </div>
+
 
 
 
