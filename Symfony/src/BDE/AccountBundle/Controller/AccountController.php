@@ -69,8 +69,6 @@ class AccountController extends Controller
 
     public function registerAction(Request $request)
     {
-
-
         $enquiry = new Users();
         $formconnect = $this->createForm(LoginType::class, $enquiry);
         $formconnect->handleRequest($request);

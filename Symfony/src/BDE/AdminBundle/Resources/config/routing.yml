@@ -21,3 +21,10 @@ bde_admin_addarticle:
     path:     /admin/addarticle
     defaults:
         _controller: BDEAdminBundle:Admin:newArticle
+
+bde_admin_viewarticle:
+    path:     /admin/article/{id}
+    defaults:
+         _controller: BDEAdminBundle:Admin:viewArticle
+    requirements:
+        id: \d+

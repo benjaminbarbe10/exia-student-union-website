@@ -4,9 +4,11 @@ namespace BDE\AdminBundle\Controller;
 
 
 use BDE\EventBundle\Form\Events_pictureType;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use BDE\EventBundle\Entity\Events;
 use BDE\ShopBundle\Entity\Articles;
 use BDE\AdminBundle\Form\NewArticleType;
+use PDO;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use BDE\AccountBundle\Entity\Users;
@@ -23,7 +25,6 @@ use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 
 
@@ -42,6 +43,11 @@ class AdminController extends Controller
             ->getManager()
             ->getRepository('BDEEventBundle:Events');
         $listEvents = $repository->findAll();
+        $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('BDEShopBundle:Articles');
+        $listArticles = $repository->findAll();
 
         $userconnected = $this->takeUserConnected($request);
         $roleconnected = $this->takeRoleConnected($request);
@@ -50,6 +56,7 @@ class AdminController extends Controller
             'name' => $userconnected,
             'listUsers' => $listUsers,
             'listEvents' => $listEvents,
+            'listArticles' => $listArticles,
             'roleconnect' => $roleconnected,
         ));
     }
@@ -87,6 +94,36 @@ class AdminController extends Controller
         }
 
         return $roleconnected;
+    }
+
+    public function viewArticleAction($id, Request $request)
+    {
+        $bdd = new PDO('mysql:host=localhost;dbname=bdecesi;charset=utf8', 'root', '');
+
+        $userconnected = $this->takeUserConnected($request);
+        $roleconnected = $this->takeRoleConnected($request);
+
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('BDEAccountBundle:Users')->find($id);
+        $article = $em->getRepository('BDEShopBundle:Articles')->find($id);
+        $role = NULL; //$user->getRole();
+
+        if ($request->isMethod('POST')) {
+
+            $requete = $bdd->prepare("DELETE FROM articles WHERE id = $id");
+            $requete->execute();
+
+            return $this->redirectToRoute('bde_admin_index', array('id' => $user->getId()));
+        }
+
+        return $this->render('BDEAdminBundle:admin:viewArticle.html.twig', array(
+            'article' => $article,
+            'name' => $userconnected,
+            'role' => $role,
+            'roleconnect' => $roleconnected,
+        ));
+
+
     }
 
     public function viewUserAction($id, Request $request)
@@ -144,34 +181,46 @@ class AdminController extends Controller
         $roleconnected = $this->takeRoleConnected($request);
 
         $article = new Articles();
-        $form= $this->createForm(NewArticleType::class, $article);
+        $form = $this->createForm(NewArticleType::class, $article);
         $form->handleRequest($request);
 
         if ($request->isMethod('POST')) {
 
-                    $file = $article->getPicture();
+            $file = $article->getPicture();
 
-                    $filename = $file->getClientOriginalName();
-                    $picture = "upload/" . $filename;
-                    $file->move(
-                        $this->getParameter('upload_path'), $filename
-                    );
-                    $article->setPicture($picture);
+            $filename = $file->getClientOriginalName();
+            $picture = "upload/" . $filename;
+            $file->move(
+                $this->getParameter('upload_path'), $filename
+            );
+
+            $article->setPicture($picture);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($article);
+            $em->flush();
+
+            return $this->redirectToRoute('bde_shop_index');
+        }
+
+        return $this->render('BDEAdminBundle:admin:addarticle.html.twig', array(
+            'name' => $userconnected,
+            'form' => $form->createView(),
+            'roleconnect' => $roleconnected,
+        ));
+
+    }
 
 
-    public function viewSuggestionAction($id, Request $request){
+    public
+    function viewSuggestionAction($id, Request $request)
+    {
 
         $userconnected = $this->takeUserConnected($request);
 
 
-
-
         $em = $this->getDoctrine()->getManager();
         $events = $em->getRepository('BDEEventBundle:Events')->find($id);
-
-
-
-
 
 
         $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $events);
@@ -188,9 +237,7 @@ class AdminController extends Controller
                 )
             ))
             ->add('pricettc', NumberType::class)
-            ->add('save',      SubmitType::class)
-
-        ;
+            ->add('save', SubmitType::class);
         $form = $formBuilder->getForm();
         $form->handleRequest($request);
 
@@ -214,18 +261,7 @@ class AdminController extends Controller
         ));
 
 
-
-    }
-
-
-            return $this->redirectToRoute('bde_shop_index');
-        }
-
-        return $this->render('BDEAdminBundle:admin:addarticle.html.twig', array(
-            'name' => $userconnected,
-            'form' => $form->createView(),
-            'roleconnect' => $roleconnected,
-        ));
     }
 
 }
+

@@ -1,0 +1,10 @@
+{% extends "BDEAdminBundle::layoutadmin.html.twig" %}
+
+            {% block bodyadmin %}
+
+                <form action="{{ path('bde_admin_viewarticle', {'id' : article.id}) }}" method="post">
+                    <h2>&nbsp;&nbsp;Confirmez la suppression de l'article : {{ article.name }} </h2>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="Valider"/>
+                </form>
+
+            {% endblock %}
